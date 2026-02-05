@@ -22,6 +22,7 @@ body {
     color: var(--ink);
     background: linear-gradient(135deg, #fef5e7 0%, #edf7f5 40%, #f8f0ea 100%);
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 body::before,
@@ -819,5 +820,9 @@ section {
 
     .hero {
         padding: 4rem 0 3rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }
