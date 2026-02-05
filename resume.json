@@ -1,85 +1,328 @@
 {
   "name": "Hiwa Feizi",
   "title": "Data Engineer",
-  "location": "Dordrecht, Netherlands (open to relocation)",
+  "tagline": "Designing scalable data systems, full-stack products, and applied AI automation.",
+  "location": "Dordrecht, Netherlands",
   "phone": "0648849084",
   "email": "hiwafeiziii@gmail.com",
   "links": {
-    "linkedin": "",
-    "github": ""
+    "linkedin": "https://www.linkedin.com/in/hiwa-feizi-a9a620167/",
+    "github": "https://github.com/hiwafeizi"
   },
-  "summary": "Results-driven Data Engineer with experience designing, migrating, and operating scalable data systems end to end. Strong in dbt, Snowflake, Python, and SQL with hands-on ownership of large-scale migrations, reusable abstractions, and robust validation frameworks. Known for a structured, creative, and multidisciplinary engineering mindset that prioritizes clean abstractions, fast learning, and measurable business impact.",
+  "summary": "Results-driven Data Engineer with experience designing, migrating, and operating scalable data systems end to end, and a proven ability to rapidly acquire new domains and turn them into production-grade solutions. Strong in dbt, Snowflake, Python, and SQL, with hands-on ownership of large-scale migrations, reusable abstractions, and robust validation frameworks. At Allianz, migrated legacy pipelines to dbt at scale, programmatically generating thousands of models and configurations and validating full row- and column-level parity for daily data loads exceeding 50 million rows. Built metadata-driven automation frameworks and AI-assisted tools, including a multi-language documentation system, emphasizing correctness, maintainability, and long-term system design. Known for a structured, creative, and multidisciplinary engineering mindset that prioritizes clean abstractions, fast learning, and measurable business impact.",
+  "traits": [
+    "Structured, creative, and multidisciplinary engineering mindset",
+    "Fast learning with a focus on clean abstractions",
+    "Clear cross-functional communication"
+  ],
   "domains": [
     {
-      "name": "Data Engineering",
-      "highlights": [
-        "ETL pipelines and batch processing",
-        "Data modeling and large-scale migrations",
-        "dbt on Snowflake",
-        "PostgreSQL and Oracle SQL",
-        "Data validation frameworks and parity testing",
-        "Runtime checks and production data quality",
-        "Data formats: Parquet, CSV, JSON, XLSX"
+      "id": "data_engineering",
+      "label": "Data Engineering",
+      "description": "Designing, migrating, and validating large-scale data platforms.",
+      "skills": [
+        "ETL pipelines",
+        "Batch processing",
+        "Data modeling",
+        "Large-scale migrations",
+        "dbt",
+        "Snowflake",
+        "PostgreSQL",
+        "Oracle SQL",
+        "SQL",
+        "Data validation",
+        "Parity testing",
+        "Runtime checks",
+        "Data quality",
+        "Documentation",
+        "Parquet",
+        "CSV",
+        "JSON",
+        "XLSX",
+        "YAML",
+        "Metadata automation",
+        "dbt Cloud",
+        "Power BI"
       ]
     },
     {
-      "name": "Full-Stack Software Engineering",
-      "highlights": [
-        "Python, SQL, JavaScript, C++",
-        "Backend development with Flask",
-        "SQLAlchemy and Jinja2",
-        "API design and internal tooling",
-        "Automation and scripting"
+      "id": "full_stack",
+      "label": "Full-Stack Software Engineering",
+      "description": "Delivering reliable systems and internal tooling end to end.",
+      "skills": [
+        "Python",
+        "JavaScript",
+        "C++",
+        "Flask",
+        "API design",
+        "Internal tooling",
+        "Automation",
+        "CI/CD (GitHub Actions)",
+        "Containerization",
+        "GCP Cloud Run",
+        "GCP Cloud Storage",
+        "GCP Cloud Build",
+        "GCP Cloud Functions",
+        "GCP Cloud Tasks",
+        "GCP reCAPTCHA",
+        "GCP Logs",
+        "Azure ADP",
+        "Documentation",
+        "Git",
+        "GitHub",
+        "Jira",
+        "Analytical mindset",
+        "Clear cross-functional communication"
       ]
     },
     {
-      "name": "Applied AI Engineering",
-      "highlights": [
-        "Python-based automation",
-        "OpenAI API integration",
-        "PyTorch (applied)",
-        "HuggingFace (applied)"
+      "id": "applied_ai",
+      "label": "Applied AI Engineering",
+      "description": "Productizing machine learning and AI-assisted workflows.",
+      "skills": [
+        "OpenAI API",
+        "Transformers",
+        "RobBERT",
+        "T5",
+        "LightGBM",
+        "NLP",
+        "Computer vision",
+        "Dlib",
+        "pandas",
+        "scikit-learn",
+        "Elastic Net regression",
+        "Neural networks",
+        "Feature engineering"
       ]
     }
   ],
-  "infrastructure": [
-    "Google Cloud Platform (Cloud Run, Storage, Build, Functions, Tasks, CAPTCHA, Logs)",
-    "CI/CD with GitHub Actions"
-  ],
-  "collaboration": [
-    "Git, GitHub and Jira",
-    "Analytical mindset",
-    "Rapid domain learning",
-    "Clear cross-functional communication"
-  ],
+  "skills": {
+    "data_engineering": [
+      "ETL pipelines",
+      "Batch processing",
+      "Data modeling",
+      "Large-scale migrations",
+      "dbt",
+      "Snowflake",
+      "PostgreSQL",
+      "Oracle SQL",
+      "SQL",
+      "Data validation",
+      "Parity testing",
+      "Runtime checks",
+      "Data quality",
+      "Documentation",
+      "Parquet",
+      "CSV",
+      "JSON",
+      "XLSX",
+      "YAML",
+      "Metadata automation",
+      "dbt Cloud",
+      "Power BI"
+    ],
+    "software_engineering": [
+      "Python",
+      "JavaScript",
+      "C++",
+      "Flask",
+      "API design",
+      "Internal tooling",
+      "Automation"
+    ],
+    "infrastructure_delivery": [
+      "GCP Cloud Run",
+      "GCP Cloud Storage",
+      "GCP Cloud Build",
+      "GCP Cloud Functions",
+      "GCP Cloud Tasks",
+      "GCP reCAPTCHA",
+      "GCP Logs",
+      "CI/CD (GitHub Actions)",
+      "Containerization",
+      "Azure ADP",
+      "Documentation"
+    ],
+    "applied_ai_automation": [
+      "OpenAI API",
+      "Transformers",
+      "RobBERT",
+      "T5",
+      "LightGBM",
+      "NLP",
+      "Computer vision",
+      "Dlib",
+      "pandas",
+      "scikit-learn",
+      "Elastic Net regression",
+      "Neural networks",
+      "Feature engineering"
+    ],
+    "collaboration_working_style": [
+      "Git",
+      "GitHub",
+      "Jira",
+      "Analytical mindset",
+      "Clear cross-functional communication"
+    ]
+  },
   "experience": [
     {
       "company": "Allianz",
       "location": "Rotterdam, Netherlands",
       "timeframe": "Feb 2025 - Present",
+      "notes": "Recommendations available on LinkedIn page",
       "roles": [
         {
           "title": "Data Engineer",
           "timeframe": "Jul 2025 - Present",
           "bullets": [
-            "Migrated the pstag project from script-based logic to dbt models and YAML configurations; programmatically generated ~660 YAML files and 2,000+ SQL models using Python and Snowflake metadata.",
-            "Built a validation framework using dbt macros and runtime checks, achieving 100 percent row- and column-level parity against production for daily data loads exceeding 50 million rows.",
-            "Co-designed and implemented reusable dbt macros for automated table and view generation, standardizing transformations across schemas.",
-            "Reviewed production code and proposed improved data structures and pipeline designs to increase maintainability, consistency, and correctness.",
-            "Designed and implemented an automated documentation system that extracts and structures raw-level metadata from multi-format, multi-language source files into table-based documentation across three languages.",
-            "Supported dbt Cloud operations by building developer-facing macros, managing jobs and executions, and investigating production data quality and pipeline issues.",
-            "Enabled local dbt-core development in a highly regulated environment through internal developer documentation."
+            {
+              "text": "Migrated the pstag project from script-based logic to dbt models and YAML configurations; programmatically generated ~660 YAML files and 2,000+ SQL models using Python and Snowflake metadata.",
+              "project": "pstag migration",
+              "skills": [
+                "dbt",
+                "YAML",
+                "SQL",
+                "Python",
+                "Snowflake",
+                "Data modeling",
+                "Large-scale migrations",
+                "Metadata automation"
+              ]
+            },
+            {
+              "text": "Built a validation framework using dbt macros and runtime checks, achieving 100 percent row- and column-level parity against production for daily data loads exceeding 50 million rows.",
+              "project": "pstag migration",
+              "skills": [
+                "dbt",
+                "Data validation",
+                "Parity testing",
+                "Runtime checks",
+                "Data quality"
+              ]
+            },
+            {
+              "text": "Co-designed and implemented reusable dbt macros for automated table and view generation, standardizing transformations across schemas.",
+              "project": "dbt macro library",
+              "skills": [
+                "dbt",
+                "Automation",
+                "Data modeling",
+                "SQL"
+              ]
+            },
+            {
+              "text": "Reviewed production code and proposed improved data structures and pipeline designs to increase maintainability, consistency, and correctness.",
+              "project": "pipeline architecture review",
+              "skills": [
+                "Data modeling",
+                "Data quality",
+                "Internal tooling"
+              ]
+            },
+            {
+              "text": "Regularly reported progress and design trade-offs to the manager, aligning data engineering work with downstream consumer requirements.",
+              "project": "stakeholder alignment",
+              "skills": [
+                "Clear cross-functional communication",
+                "Analytical mindset",
+                "Jira"
+              ]
+            },
+            {
+              "text": "Designed and implemented an automated documentation system that extracts and structures raw-level metadata from multi-format, multi-language source files into table-based documentation across three languages.",
+              "project": "multi-language documentation automation",
+              "skills": [
+                "Metadata automation",
+                "Automation",
+                "Python",
+                "JSON",
+                "CSV",
+                "XLSX",
+                "Data modeling",
+                "OpenAI API",
+                "Azure ADP",
+                "Documentation"
+              ]
+            },
+            {
+              "text": "Supported dbt Cloud operations by building developer-facing macros, managing jobs and executions, and investigating production data quality and pipeline issues.",
+              "project": "dbt Cloud operations",
+              "skills": [
+                "dbt",
+                "dbt Cloud",
+                "Runtime checks",
+                "Data quality",
+                "Automation"
+              ]
+            },
+            {
+              "text": "Enabled local dbt-core development in a highly regulated environment through internal developer documentation.",
+              "project": "dbt-core enablement",
+              "skills": [
+                "dbt",
+                "Internal tooling",
+                "Clear cross-functional communication",
+                "Documentation"
+              ]
+            },
+            {
+              "text": "Supported production workflows by assisting with dbt Cloud runs and investigating data quality issues.",
+              "project": "production support",
+              "skills": [
+                "dbt Cloud",
+                "Data quality",
+                "Runtime checks"
+              ]
+            }
           ]
         },
         {
           "title": "Data Engineer Intern",
           "timeframe": "Feb 2025 - Jun 2025",
           "bullets": [
-            "Proposed and implemented a new data processing architecture that reduced end-to-end pipeline runtime by ~99 percent, cutting execution time from ~1.5 days to minutes.",
-            "Rebuilt undocumented Oracle SQL pipelines into dbt models on Snowflake, achieving >= 99.9 percent data accuracy, with ~70 percent of tables reaching full parity across millions of rows.",
-            "Simplified the data architecture by removing redundant processing steps, reducing compute costs and maintenance overhead.",
-            "Built a Power BI dashboard to monitor dbt Cloud runs with hierarchical filtering and enriched metadata for improved operational visibility.",
-            "Supported production workflows by assisting with dbt Cloud runs and investigating data quality issues."
+            {
+              "text": "Proposed and implemented a new data processing architecture that reduced end-to-end pipeline runtime by ~99 percent, cutting execution time from ~1.5 days to minutes.",
+              "project": "pipeline architecture redesign",
+              "skills": [
+                "ETL pipelines",
+                "Batch processing",
+                "Data modeling"
+              ]
+            },
+            {
+              "text": "Rebuilt undocumented Oracle SQL pipelines into dbt models on Snowflake, achieving >=99.9 percent data accuracy, with ~70 percent of tables reaching full parity across millions of rows.",
+              "project": "Oracle to dbt migration",
+              "skills": [
+                "Oracle SQL",
+                "dbt",
+                "Snowflake",
+                "Data validation",
+                "Parity testing",
+                "Data quality",
+                "Large-scale migrations"
+              ]
+            },
+            {
+              "text": "Simplified the data architecture by removing redundant processing steps, reducing compute costs and maintenance overhead.",
+              "project": "pipeline optimization",
+              "skills": [
+                "Data modeling",
+                "ETL pipelines",
+                "Batch processing"
+              ]
+            },
+            {
+              "text": "Built a Power BI dashboard to monitor dbt Cloud runs with hierarchical filtering and enriched metadata for improved operational visibility.",
+              "project": "dbt Cloud monitoring",
+              "skills": [
+                "Power BI",
+                "dbt Cloud",
+                "Metadata automation",
+                "Data quality"
+              ]
+            }
           ]
         }
       ]
@@ -93,11 +336,63 @@
           "title": "Founder",
           "timeframe": "Apr 2025 - Dec 2025",
           "bullets": [
-            "Designed and built an AI-assisted recruitment platform enabling Dutch businesses to manage job postings and applications without full HR systems.",
-            "Implemented an end-to-end full-stack system with a focus on data modeling, application workflows, and recruiter-facing dashboards.",
-            "Integrated AI-driven automation to generate job descriptions and structure candidate data, reducing manual effort for recruiters.",
-            "Designed secure, role-based access and dashboards for recruiters, focusing on data integrity, privacy, and maintainability.",
-            "Deployed and operated the platform on Google Cloud Platform, using containerized services and CI/CD for reproducible releases."
+            {
+              "text": "Designed and built an AI-assisted recruitment platform enabling Dutch businesses to manage job postings and applications without full HR systems.",
+              "project": "NeoCru platform",
+              "skills": [
+                "Python",
+                "Flask",
+                "PostgreSQL",
+                "API design",
+                "Automation",
+                "OpenAI API",
+                "Data modeling"
+              ]
+            },
+            {
+              "text": "Implemented an end-to-end full-stack system with a focus on data modeling, application workflows, and recruiter-facing dashboards.",
+              "project": "NeoCru platform",
+              "skills": [
+                "Python",
+                "JavaScript",
+                "Flask",
+                "PostgreSQL",
+                "API design",
+                "Internal tooling",
+                "Data modeling"
+              ]
+            },
+            {
+              "text": "Integrated AI-driven automation to generate job descriptions and structure candidate data, reducing manual effort for recruiters.",
+              "project": "NeoCru automation",
+              "skills": [
+                "OpenAI API",
+                "Automation",
+                "NLP"
+              ]
+            },
+            {
+              "text": "Designed secure, role-based access and dashboards for recruiters, focusing on data integrity, privacy, and maintainability.",
+              "project": "NeoCru access control",
+              "skills": [
+                "API design",
+                "Data modeling",
+                "Internal tooling",
+                "GCP reCAPTCHA"
+              ]
+            },
+            {
+              "text": "Deployed and operated the platform on Google Cloud Platform, using containerized services, CI/CD, and Cloud Storage for applicant resumes.",
+              "project": "NeoCru deployment",
+              "skills": [
+                "GCP Cloud Run",
+                "GCP Cloud Build",
+                "GCP Cloud Storage",
+                "GCP Logs",
+                "CI/CD (GitHub Actions)",
+                "Containerization"
+              ]
+            }
           ]
         }
       ]
@@ -111,11 +406,62 @@
           "title": "Founder",
           "timeframe": "Jan 2024 - Dec 2024",
           "bullets": [
-            "Built an AI-driven automation platform for generating and publishing LinkedIn content, integrating the LinkedIn API with AI-based text generation.",
-            "Designed backend workflows for scheduled content creation, background processing, and job orchestration, emphasizing reliability and scalability.",
-            "Implemented secure data handling and session management for user accounts and publishing workflows.",
-            "Deployed the system using containerized services and CI/CD pipelines, enabling automated updates and scalable execution.",
-            "Gained hands-on experience designing API-driven systems that coordinate external services, background jobs, and persistent storage."
+            {
+              "text": "Built an AI-driven automation platform for generating and publishing LinkedIn content, integrating the LinkedIn API with AI-based text generation.",
+              "project": "LinkInLead platform",
+              "skills": [
+                "Python",
+                "Flask",
+                "PostgreSQL",
+                "OpenAI API",
+                "Automation",
+                "API design",
+                "NLP"
+              ]
+            },
+            {
+              "text": "Designed backend workflows for scheduled content creation, background processing, and job orchestration, emphasizing reliability and scalability.",
+              "project": "LinkInLead workflows",
+              "skills": [
+                "Python",
+                "Automation",
+                "API design",
+                "Batch processing",
+                "GCP Cloud Functions",
+                "GCP Cloud Tasks"
+              ]
+            },
+            {
+              "text": "Implemented secure data handling and session management for user accounts and publishing workflows.",
+              "project": "LinkInLead security",
+              "skills": [
+                "Python",
+                "API design",
+                "Data modeling",
+                "Internal tooling",
+                "PostgreSQL"
+              ]
+            },
+            {
+              "text": "Deployed the system using containerized services and CI/CD pipelines, enabling automated updates and scalable execution.",
+              "project": "LinkInLead deployment",
+              "skills": [
+                "Containerization",
+                "CI/CD (GitHub Actions)",
+                "GCP Cloud Run",
+                "GCP Cloud Storage",
+                "GCP Logs"
+              ]
+            },
+            {
+              "text": "Gained hands-on experience designing API-driven systems that coordinate external services, background jobs, and persistent storage.",
+              "project": "LinkInLead architecture",
+              "skills": [
+                "API design",
+                "Automation",
+                "Internal tooling"
+              ]
+            }
           ]
         }
       ]
@@ -123,7 +469,7 @@
   ],
   "education": [
     {
-      "degree": "B.Sc. Cognitive Science and Artificial Intelligence",
+      "degree": "B.Sc. Cognitive Science and Artificial Intelligence (graduated)",
       "institution": "Tilburg University, Netherlands",
       "timeframe": "2022 - 2025"
     },
@@ -143,49 +489,188 @@
       "name": "Thesis - Predicting Perceptions of Dutch Company Names",
       "timeframe": "Jan 2025 - May 2025",
       "bullets": [
-        "Built an end-to-end data processing and modeling pipeline to predict human trait judgments from Dutch brand-like names.",
-        "Transformed raw experimental ranking data into model-ready datasets by converting Parquet to CSV, translating metadata, and aggregating Bayesian posterior samples into stable regression targets.",
-        "Engineered feature pipelines including character-level unigrams, padded bigrams, and contextual semantic embeddings using RobBERT.",
-        "Designed controlled experimental data splits to evaluate in-domain, out-of-domain, and few-shot generalization with fixed random seeds.",
-        "Trained and evaluated Elastic Net regression and feedforward neural networks, resulting in 64+ models with systematic hyperparameter tuning.",
-        "Implemented the full workflow in Python using pandas, numpy, scikit-learn, PyTorch, and Hugging Face Transformers."
+        {
+          "text": "Built an end-to-end data processing and modeling pipeline to predict human trait judgments (femininity, evilness, trustworthiness, smartness) from Dutch brand-like names.",
+          "skills": [
+            "Feature engineering",
+            "NLP",
+            "Python",
+            "pandas",
+            "scikit-learn"
+          ]
+        },
+        {
+          "text": "Transformed raw experimental ranking data into model-ready datasets by converting Parquet to CSV, translating metadata, and aggregating Bayesian posterior samples into stable regression targets.",
+          "skills": [
+            "Parquet",
+            "CSV",
+            "Metadata automation",
+            "Python",
+            "pandas"
+          ]
+        },
+        {
+          "text": "Engineered multiple feature pipelines, including character-level unigrams (27D), padded bigrams (479D), and contextual semantic embeddings using RobBERT (768D).",
+          "skills": [
+            "Feature engineering",
+            "RobBERT",
+            "Transformers",
+            "NLP",
+            "Python"
+          ]
+        },
+        {
+          "text": "Designed controlled experimental data splits to evaluate in-domain, out-of-domain, and few-shot generalization using fixed random seeds for reproducibility.",
+          "skills": [
+            "Analytical mindset",
+            "Feature engineering",
+            "Python"
+          ]
+        },
+        {
+          "text": "Trained and evaluated Elastic Net regression and feedforward neural networks, resulting in 64+ models with systematic hyperparameter tuning and consistent evaluation using R2.",
+          "skills": [
+            "Elastic Net regression",
+            "Neural networks",
+            "scikit-learn",
+            "Python"
+          ]
+        },
+        {
+          "text": "Implemented the full workflow in Python, using pandas, numpy, scikit-learn, PyTorch, and Hugging Face Transformers, with version-controlled and reproducible experiments.",
+          "skills": [
+            "Python",
+            "pandas",
+            "scikit-learn",
+            "Transformers",
+            "Git",
+            "GitHub"
+          ]
+        }
       ]
     },
     {
       "name": "Group Thesis - Multimodal Speech Recognition with AV-HuBERT",
       "timeframe": "Jan 2025 - May 2025",
       "bullets": [
-        "Evaluated audio-visual speech recognition using AV-HuBERT on the GLips German lipreading dataset.",
-        "Built a preprocessing and alignment pipeline for lip-only video input, including lip patch extraction and audio-video synchronization.",
-        "Implemented multiple inference configurations using Hugging Face transformer APIs.",
-        "Developed parallelized inference and evaluation to process 21,000+ audio and video files."
+        {
+          "text": "Evaluated audio-visual speech recognition using AV-HuBERT on the GLips German lipreading dataset.",
+          "skills": [
+            "Transformers",
+            "Computer vision",
+            "Python"
+          ]
+        },
+        {
+          "text": "Built an end-to-end preprocessing and alignment pipeline for lip-only video input, including lip patch extraction and audio-video synchronization using Dlib, OpenCV, FFmpeg, and Python multiprocessing.",
+          "skills": [
+            "Dlib",
+            "Computer vision",
+            "Python"
+          ]
+        },
+        {
+          "text": "Implemented and tested multiple inference configurations (audio-only, video-only, and audio-video fusion) using Hugging Face transformer APIs.",
+          "skills": [
+            "Transformers",
+            "Python"
+          ]
+        },
+        {
+          "text": "Developed a parallelized inference and evaluation setup to optimize GPU utilization and automatically match and process 21,000+ audio and video files.",
+          "skills": [
+            "Automation",
+            "Python"
+          ]
+        }
       ]
     },
     {
-      "name": "PetMatters (Software Engineering Course)",
+      "name": "Software Engineering Course - PetMatters",
       "timeframe": "Aug 2024 - Dec 2024",
       "bullets": [
-        "Led a team of 8 members, coordinating task allocation, technical decisions, and delivery for a semester-long AI-powered application.",
-        "Designed a multi-service architecture with separate orchestration, AI, and interface components.",
-        "Trained and integrated T5-based language models for English-to-Dutch translation and content generation.",
-        "Defined service boundaries and data flow between components, gaining experience with distributed system design."
+        {
+          "text": "Led a team of 8 members, coordinating task allocation, technical decisions, and delivery for a semester-long AI-powered application.",
+          "skills": [
+            "Clear cross-functional communication",
+            "Analytical mindset"
+          ]
+        },
+        {
+          "text": "Designed a multi-service architecture with separate orchestration, AI, and interface components, focusing on modularity, isolation of concerns, and scalability.",
+          "skills": [
+            "API design",
+            "Internal tooling",
+            "Automation"
+          ]
+        },
+        {
+          "text": "Trained and integrated T5-based language models for English-to-Dutch translation, text enhancement, and form-driven content generation using a university GPU server.",
+          "skills": [
+            "T5",
+            "Transformers",
+            "NLP",
+            "Python"
+          ]
+        },
+        {
+          "text": "Defined service boundaries and data flow between components, gaining hands-on experience with distributed system design in an academic setting.",
+          "skills": [
+            "API design",
+            "Analytical mindset"
+          ]
+        }
       ]
     },
     {
-      "name": "Battle-C (C++ Course Project)",
+      "name": "C++ Course Project - Battle-C",
       "timeframe": "Aug 2024 - Dec 2024",
       "bullets": [
-        "Designed and implemented a modular C++ application with clear separation of game logic, state management, and AI behavior.",
-        "Developed AI-driven bot logic to simulate opponent decision-making within a turn-based game system.",
-        "Implemented real-time game state tracking, including scores and entity status."
+        {
+          "text": "Designed and implemented a modular C++ application with clear separation of game logic, state management, and AI behavior.",
+          "skills": [
+            "C++",
+            "Internal tooling"
+          ]
+        },
+        {
+          "text": "Developed AI-driven bot logic to simulate opponent decision-making within a turn-based game system.",
+          "skills": [
+            "C++",
+            "Automation"
+          ]
+        },
+        {
+          "text": "Implemented real-time game state tracking, including scores and entity status, reinforcing structured program design and state consistency.",
+          "skills": [
+            "C++",
+            "Data modeling"
+          ]
+        }
       ]
     },
     {
       "name": "AI for Nature and Environment Project",
       "timeframe": "Aug 2024 - Dec 2024",
       "bullets": [
-        "Collected, cleaned, and processed environmental and fire occurrence data for predictive analysis.",
-        "Built a LightGBM-based prediction pipeline to model fire outbreak risk using environmental variables."
+        {
+          "text": "Collected, cleaned, and processed environmental and fire occurrence data for predictive analysis.",
+          "skills": [
+            "ETL pipelines",
+            "Data modeling",
+            "pandas",
+            "Python"
+          ]
+        },
+        {
+          "text": "Built a LightGBM-based prediction pipeline to model fire outbreak risk using environmental variables.",
+          "skills": [
+            "LightGBM",
+            "Feature engineering",
+            "pandas",
+            "Python"
+          ]
+        }
       ]
     }
   ]
