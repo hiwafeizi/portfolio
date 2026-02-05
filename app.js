@@ -272,7 +272,7 @@ const loadResume = async () => {
 
     const data = await response.json();
 
-    document.title = `${data.name} | ${data.title}`;
+    document.title = data.name || "Hiwa Feizi";
     setText("hero-name", data.name);
     setText("hero-subtitle", data.tagline || "Designing scalable data systems, full-stack products, and applied AI automation.");
     setText("hero-location", data.location);
