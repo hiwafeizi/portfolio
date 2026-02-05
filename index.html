@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Hiwa Feizi | Data Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="logo">Portfolio</div>
+            <div class="logo">Hiwa Feizi</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a href="#summary">Summary</a></li>
+                <li><a href="#domains">Domains</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -21,45 +27,222 @@
 
     <header id="home" class="hero">
         <div class="container">
-            <h1>Welcome to My Portfolio</h1>
-            <p class="subtitle">I'm a developer passionate about creating amazing web experiences</p>
+            <div class="hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow">Data Engineer</p>
+                    <h1>Hiwa Feizi</h1>
+                    <p class="subtitle">Designing scalable data systems, full-stack products, and applied AI automation.</p>
+                    <div class="hero-meta">
+                        <span>Dordrecht, Netherlands (open to relocation)</span>
+                        <span>0648849084</span>
+                        <span>hiwafeiziii@gmail.com</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn">View Projects</a>
+                        <a href="#contact" class="btn ghost">Contact</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <img src="hiwa.png" alt="Portrait of Hiwa Feizi">
+                </div>
+            </div>
+            <div class="hero-panel">
+                <h2>Highlights</h2>
+                <ul>
+                    <li>Migrated 2,000+ dbt models and 660+ YAML configs on Snowflake.</li>
+                    <li>Validated 50M+ daily rows with 100 percent row and column parity.</li>
+                    <li>Built metadata-driven automation and AI-assisted documentation systems.</li>
+                </ul>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="about">
+    <section id="domains" class="domains">
         <div class="container">
-            <h2>About Me</h2>
-            <p>I'm a passionate developer with experience in building web applications. Here you'll find some of my work and projects I've completed.</p>
-            <div class="skills">
-                <h3>Skills</h3>
-                <ul>
-                    <li>HTML & CSS</li>
-                    <li>JavaScript</li>
-                    <li>Web Design</li>
-                    <li>Problem Solving</li>
-                </ul>
+            <h2>Core Domains</h2>
+            <div class="domain-grid">
+                <article class="domain-card">
+                    <h3>Data Engineering</h3>
+                    <p>Designing, migrating, and validating large-scale data platforms.</p>
+                    <ul>
+                        <li>ETL pipelines, batch processing, data modeling.</li>
+                        <li>dbt on Snowflake, PostgreSQL, Oracle SQL.</li>
+                        <li>Parity testing, runtime checks, data quality.</li>
+                    </ul>
+                </article>
+                <article class="domain-card">
+                    <h3>Full-Stack Software Engineering</h3>
+                    <p>Delivering reliable systems and internal tooling end to end.</p>
+                    <ul>
+                        <li>Python, SQL, JavaScript, C++.</li>
+                        <li>Flask backends, API design, internal tooling.</li>
+                        <li>Automation, scripting, CI/CD with GitHub Actions.</li>
+                    </ul>
+                </article>
+                <article class="domain-card">
+                    <h3>Applied AI Engineering</h3>
+                    <p>Productizing machine learning and AI-assisted workflows.</p>
+                    <ul>
+                        <li>OpenAI API integration and Python automation.</li>
+                        <li>PyTorch and Hugging Face applied workflows.</li>
+                        <li>AI-assisted product features and documentation.</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="summary" class="summary">
+        <div class="container">
+            <h2>Summary</h2>
+            <p>Results-driven Data Engineer with experience designing, migrating, and operating scalable data systems end to end. Strong in dbt, Snowflake, Python, and SQL with hands-on ownership of large-scale migrations, reusable abstractions, and robust validation frameworks. Known for a structured, creative, and multidisciplinary engineering mindset that prioritizes clean abstractions, fast learning, and measurable business impact.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skills-card">
+                    <h3>Data Engineering</h3>
+                    <ul>
+                        <li>dbt, Snowflake, PostgreSQL, Oracle SQL</li>
+                        <li>Data modeling, migrations, validation frameworks</li>
+                        <li>Parquet, CSV, JSON, XLSX</li>
+                    </ul>
+                </div>
+                <div class="skills-card">
+                    <h3>Software Engineering</h3>
+                    <ul>
+                        <li>Python, SQL, JavaScript, C++</li>
+                        <li>Flask, SQLAlchemy, Jinja2</li>
+                        <li>API design and internal tooling</li>
+                    </ul>
+                </div>
+                <div class="skills-card">
+                    <h3>Infrastructure & Delivery</h3>
+                    <ul>
+                        <li>GCP: Cloud Run, Storage, Build, Functions, Tasks</li>
+                        <li>CI/CD with GitHub Actions</li>
+                        <li>Observability and runtime checks</li>
+                    </ul>
+                </div>
+                <div class="skills-card">
+                    <h3>Collaboration</h3>
+                    <ul>
+                        <li>Git, GitHub, Jira</li>
+                        <li>Analytical mindset and rapid domain learning</li>
+                        <li>Clear cross-functional communication</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Allianz, Rotterdam</h3>
+                        <span>Feb 2025 - Present</span>
+                    </div>
+                    <h4>Data Engineer (Jul 2025 - Present)</h4>
+                    <ul>
+                        <li>Migrated the pstag project from scripts to dbt, generating ~660 YAML files and 2,000+ SQL models.</li>
+                        <li>Built validation frameworks with dbt macros, achieving 100 percent row and column parity for 50M+ daily rows.</li>
+                        <li>Co-designed reusable dbt macros and automated table generation across schemas.</li>
+                        <li>Delivered AI-assisted documentation workflows in three languages.</li>
+                    </ul>
+                    <h4>Data Engineer Intern (Feb 2025 - Jun 2025)</h4>
+                    <ul>
+                        <li>Reduced pipeline runtime by ~99 percent, from 1.5 days to minutes.</li>
+                        <li>Rebuilt Oracle SQL pipelines into dbt on Snowflake with ≥99.9 percent accuracy.</li>
+                        <li>Built Power BI monitoring for dbt Cloud runs with enriched metadata.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Founder Project - NeoCru</h3>
+                        <span>Apr 2025 - Dec 2025</span>
+                    </div>
+                    <ul>
+                        <li>Built an AI-assisted recruitment platform with workflow automation and recruiter dashboards.</li>
+                        <li>Designed secure role-based access and deployed on GCP with CI/CD.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <h3>Founder Project - LinkInLead</h3>
+                        <span>Jan 2024 - Dec 2024</span>
+                    </div>
+                    <ul>
+                        <li>Created an AI-driven LinkedIn content automation platform with scheduled workflows.</li>
+                        <li>Built secure user session handling and background job orchestration.</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
     <section id="projects" class="projects">
         <div class="container">
-            <h2>Projects</h2>
+            <h2>Projects & Research</h2>
             <div class="project-grid">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>A brief description of your first project goes here.</p>
-                    <a href="#" class="btn">Learn More</a>
+                <article class="project-card">
+                    <h3>Thesis - Predicting Perceptions of Dutch Company Names</h3>
+                    <p>Built an end-to-end data and modeling pipeline using feature engineering, Bayesian posterior aggregation, and Elastic Net regression with 64+ models.</p>
+                    <span class="tag">Python</span>
+                    <span class="tag">NLP</span>
+                    <span class="tag">ML</span>
+                </article>
+                <article class="project-card">
+                    <h3>Group Thesis - AV-HuBERT Speech Recognition</h3>
+                    <p>Created preprocessing and inference pipelines for 21,000+ audio and video files with parallelized evaluation workflows.</p>
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">Transformers</span>
+                </article>
+                <article class="project-card">
+                    <h3>PetMatters (Software Engineering Course)</h3>
+                    <p>Led an 8-person team to build a modular AI application with T5-based translation and form-driven content generation.</p>
+                    <span class="tag">Full-Stack</span>
+                    <span class="tag">AI</span>
+                </article>
+                <article class="project-card">
+                    <h3>Battle-C (C++ Project)</h3>
+                    <p>Designed a modular turn-based game system with AI-driven bot logic and consistent state management.</p>
+                    <span class="tag">C++</span>
+                    <span class="tag">Systems</span>
+                </article>
+                <article class="project-card">
+                    <h3>AI for Nature and Environment</h3>
+                    <p>Built a LightGBM prediction pipeline for fire outbreak risk using environmental datasets.</p>
+                    <span class="tag">LightGBM</span>
+                    <span class="tag">Data</span>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>B.Sc. Cognitive Science and Artificial Intelligence</h3>
+                    <p>Tilburg University, Netherlands</p>
+                    <span>2022 - 2025</span>
                 </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>A brief description of your second project goes here.</p>
-                    <a href="#" class="btn">Learn More</a>
+                <div class="education-card">
+                    <h3>B.Sc. Engineering Science</h3>
+                    <p>Tehran University, Iran</p>
+                    <span>2020 - 2022</span>
                 </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>A brief description of your third project goes here.</p>
-                    <a href="#" class="btn">Learn More</a>
+                <div class="education-card">
+                    <h3>Diploma in Mathematics</h3>
+                    <p>Sanandaj NODET High School, Iran</p>
+                    <span>2017 - 2020</span>
                 </div>
             </div>
         </div>
@@ -67,20 +250,23 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p>I'd love to hear from you. Feel free to reach out!</p>
+            <h2>Contact</h2>
+            <p>Open to relocation and new data engineering, full-stack, and applied AI opportunities.</p>
             <div class="contact-links">
-                <a href="mailto:your.email@example.com" class="btn">Email Me</a>
+                <a href="mailto:hiwafeiziii@gmail.com" class="btn">Email</a>
                 <a href="#" class="social-link">LinkedIn</a>
                 <a href="#" class="social-link">GitHub</a>
-                <a href="#" class="social-link">Twitter</a>
+            </div>
+            <div class="contact-meta">
+                <span>Dordrecht, Netherlands</span>
+                <span>0648849084</span>
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+            <p>&copy; 2026 Hiwa Feizi. All rights reserved.</p>
         </div>
     </footer>
 </body>

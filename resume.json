@@ -1,0 +1,192 @@
+{
+  "name": "Hiwa Feizi",
+  "title": "Data Engineer",
+  "location": "Dordrecht, Netherlands (open to relocation)",
+  "phone": "0648849084",
+  "email": "hiwafeiziii@gmail.com",
+  "links": {
+    "linkedin": "",
+    "github": ""
+  },
+  "summary": "Results-driven Data Engineer with experience designing, migrating, and operating scalable data systems end to end. Strong in dbt, Snowflake, Python, and SQL with hands-on ownership of large-scale migrations, reusable abstractions, and robust validation frameworks. Known for a structured, creative, and multidisciplinary engineering mindset that prioritizes clean abstractions, fast learning, and measurable business impact.",
+  "domains": [
+    {
+      "name": "Data Engineering",
+      "highlights": [
+        "ETL pipelines and batch processing",
+        "Data modeling and large-scale migrations",
+        "dbt on Snowflake",
+        "PostgreSQL and Oracle SQL",
+        "Data validation frameworks and parity testing",
+        "Runtime checks and production data quality",
+        "Data formats: Parquet, CSV, JSON, XLSX"
+      ]
+    },
+    {
+      "name": "Full-Stack Software Engineering",
+      "highlights": [
+        "Python, SQL, JavaScript, C++",
+        "Backend development with Flask",
+        "SQLAlchemy and Jinja2",
+        "API design and internal tooling",
+        "Automation and scripting"
+      ]
+    },
+    {
+      "name": "Applied AI Engineering",
+      "highlights": [
+        "Python-based automation",
+        "OpenAI API integration",
+        "PyTorch (applied)",
+        "HuggingFace (applied)"
+      ]
+    }
+  ],
+  "infrastructure": [
+    "Google Cloud Platform (Cloud Run, Storage, Build, Functions, Tasks, CAPTCHA, Logs)",
+    "CI/CD with GitHub Actions"
+  ],
+  "collaboration": [
+    "Git, GitHub and Jira",
+    "Analytical mindset",
+    "Rapid domain learning",
+    "Clear cross-functional communication"
+  ],
+  "experience": [
+    {
+      "company": "Allianz",
+      "location": "Rotterdam, Netherlands",
+      "timeframe": "Feb 2025 - Present",
+      "roles": [
+        {
+          "title": "Data Engineer",
+          "timeframe": "Jul 2025 - Present",
+          "bullets": [
+            "Migrated the pstag project from script-based logic to dbt models and YAML configurations; programmatically generated ~660 YAML files and 2,000+ SQL models using Python and Snowflake metadata.",
+            "Built a validation framework using dbt macros and runtime checks, achieving 100 percent row- and column-level parity against production for daily data loads exceeding 50 million rows.",
+            "Co-designed and implemented reusable dbt macros for automated table and view generation, standardizing transformations across schemas.",
+            "Reviewed production code and proposed improved data structures and pipeline designs to increase maintainability, consistency, and correctness.",
+            "Designed and implemented an automated documentation system that extracts and structures raw-level metadata from multi-format, multi-language source files into table-based documentation across three languages.",
+            "Supported dbt Cloud operations by building developer-facing macros, managing jobs and executions, and investigating production data quality and pipeline issues.",
+            "Enabled local dbt-core development in a highly regulated environment through internal developer documentation."
+          ]
+        },
+        {
+          "title": "Data Engineer Intern",
+          "timeframe": "Feb 2025 - Jun 2025",
+          "bullets": [
+            "Proposed and implemented a new data processing architecture that reduced end-to-end pipeline runtime by ~99 percent, cutting execution time from ~1.5 days to minutes.",
+            "Rebuilt undocumented Oracle SQL pipelines into dbt models on Snowflake, achieving >= 99.9 percent data accuracy, with ~70 percent of tables reaching full parity across millions of rows.",
+            "Simplified the data architecture by removing redundant processing steps, reducing compute costs and maintenance overhead.",
+            "Built a Power BI dashboard to monitor dbt Cloud runs with hierarchical filtering and enriched metadata for improved operational visibility.",
+            "Supported production workflows by assisting with dbt Cloud runs and investigating data quality issues."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "NeoCru",
+      "location": "Founder Project",
+      "timeframe": "Apr 2025 - Dec 2025",
+      "roles": [
+        {
+          "title": "Founder",
+          "timeframe": "Apr 2025 - Dec 2025",
+          "bullets": [
+            "Designed and built an AI-assisted recruitment platform enabling Dutch businesses to manage job postings and applications without full HR systems.",
+            "Implemented an end-to-end full-stack system with a focus on data modeling, application workflows, and recruiter-facing dashboards.",
+            "Integrated AI-driven automation to generate job descriptions and structure candidate data, reducing manual effort for recruiters.",
+            "Designed secure, role-based access and dashboards for recruiters, focusing on data integrity, privacy, and maintainability.",
+            "Deployed and operated the platform on Google Cloud Platform, using containerized services and CI/CD for reproducible releases."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "LinkInLead",
+      "location": "Founder Project",
+      "timeframe": "Jan 2024 - Dec 2024",
+      "roles": [
+        {
+          "title": "Founder",
+          "timeframe": "Jan 2024 - Dec 2024",
+          "bullets": [
+            "Built an AI-driven automation platform for generating and publishing LinkedIn content, integrating the LinkedIn API with AI-based text generation.",
+            "Designed backend workflows for scheduled content creation, background processing, and job orchestration, emphasizing reliability and scalability.",
+            "Implemented secure data handling and session management for user accounts and publishing workflows.",
+            "Deployed the system using containerized services and CI/CD pipelines, enabling automated updates and scalable execution.",
+            "Gained hands-on experience designing API-driven systems that coordinate external services, background jobs, and persistent storage."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Sc. Cognitive Science and Artificial Intelligence",
+      "institution": "Tilburg University, Netherlands",
+      "timeframe": "2022 - 2025"
+    },
+    {
+      "degree": "B.Sc. Engineering Science",
+      "institution": "Tehran University, Iran",
+      "timeframe": "2020 - 2022"
+    },
+    {
+      "degree": "Diploma in Mathematics",
+      "institution": "Sanandaj NODET High School (National Organization for Development of Exceptional Talents), Iran",
+      "timeframe": "2017 - 2020"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Thesis - Predicting Perceptions of Dutch Company Names",
+      "timeframe": "Jan 2025 - May 2025",
+      "bullets": [
+        "Built an end-to-end data processing and modeling pipeline to predict human trait judgments from Dutch brand-like names.",
+        "Transformed raw experimental ranking data into model-ready datasets by converting Parquet to CSV, translating metadata, and aggregating Bayesian posterior samples into stable regression targets.",
+        "Engineered feature pipelines including character-level unigrams, padded bigrams, and contextual semantic embeddings using RobBERT.",
+        "Designed controlled experimental data splits to evaluate in-domain, out-of-domain, and few-shot generalization with fixed random seeds.",
+        "Trained and evaluated Elastic Net regression and feedforward neural networks, resulting in 64+ models with systematic hyperparameter tuning.",
+        "Implemented the full workflow in Python using pandas, numpy, scikit-learn, PyTorch, and Hugging Face Transformers."
+      ]
+    },
+    {
+      "name": "Group Thesis - Multimodal Speech Recognition with AV-HuBERT",
+      "timeframe": "Jan 2025 - May 2025",
+      "bullets": [
+        "Evaluated audio-visual speech recognition using AV-HuBERT on the GLips German lipreading dataset.",
+        "Built a preprocessing and alignment pipeline for lip-only video input, including lip patch extraction and audio-video synchronization.",
+        "Implemented multiple inference configurations using Hugging Face transformer APIs.",
+        "Developed parallelized inference and evaluation to process 21,000+ audio and video files."
+      ]
+    },
+    {
+      "name": "PetMatters (Software Engineering Course)",
+      "timeframe": "Aug 2024 - Dec 2024",
+      "bullets": [
+        "Led a team of 8 members, coordinating task allocation, technical decisions, and delivery for a semester-long AI-powered application.",
+        "Designed a multi-service architecture with separate orchestration, AI, and interface components.",
+        "Trained and integrated T5-based language models for English-to-Dutch translation and content generation.",
+        "Defined service boundaries and data flow between components, gaining experience with distributed system design."
+      ]
+    },
+    {
+      "name": "Battle-C (C++ Course Project)",
+      "timeframe": "Aug 2024 - Dec 2024",
+      "bullets": [
+        "Designed and implemented a modular C++ application with clear separation of game logic, state management, and AI behavior.",
+        "Developed AI-driven bot logic to simulate opponent decision-making within a turn-based game system.",
+        "Implemented real-time game state tracking, including scores and entity status."
+      ]
+    },
+    {
+      "name": "AI for Nature and Environment Project",
+      "timeframe": "Aug 2024 - Dec 2024",
+      "bullets": [
+        "Collected, cleaned, and processed environmental and fire occurrence data for predictive analysis.",
+        "Built a LightGBM-based prediction pipeline to model fire outbreak risk using environmental variables."
+      ]
+    }
+  ]
+}
