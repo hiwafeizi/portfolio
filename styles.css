@@ -25,6 +25,10 @@ body {
     overflow-x: hidden;
 }
 
+img {
+    max-width: 100%;
+}
+
 body::before,
 body::after {
     content: "";
@@ -165,6 +169,8 @@ section {
     text-decoration: none;
     padding-bottom: 0.15rem;
     border-bottom: 2px solid rgba(14, 86, 105, 0.2);
+    max-width: 100%;
+    word-break: break-word;
 }
 
 .hero-links a:hover {
@@ -261,6 +267,7 @@ section {
     border: 1px solid rgba(11, 27, 36, 0.1);
     box-shadow: 0 12px 24px rgba(14, 86, 105, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 0;
 }
 
 .domain-card:hover {
@@ -458,6 +465,7 @@ section {
     border-radius: 20px;
     border-left: 4px solid var(--teal);
     box-shadow: 0 12px 30px rgba(11, 27, 36, 0.08);
+    min-width: 0;
 }
 
 .timeline-header {
@@ -497,35 +505,10 @@ section {
     background: var(--sun);
 }
 
-/* Projects */
-.project-grid {
+/* Projects (use timeline styles) */
+.projects .timeline {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-@media (min-width: 900px) {
-    .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    }
-}
-
-.project-card {
-    background: var(--card);
-    padding: 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(11, 27, 36, 0.08);
-    box-shadow: 0 12px 30px rgba(11, 27, 36, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 40px rgba(11, 27, 36, 0.12);
-}
-
-.project-card p {
-    margin: 1rem 0 1.2rem;
+    gap: 2rem;
 }
 
 .project-link {
@@ -703,6 +686,7 @@ section {
     border-radius: 18px;
     border: 1px solid rgba(11, 27, 36, 0.08);
     box-shadow: 0 12px 24px rgba(14, 86, 105, 0.06);
+    min-width: 0;
 }
 
 .education-card span {
@@ -791,6 +775,16 @@ section {
         font-size: 0.75rem;
     }
 
+    .recommendation-grid {
+        border-radius: 16px;
+    }
+
+    .recommendation-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
     .hero-meta {
         flex-direction: column;
         gap: 0.35rem;
@@ -815,14 +809,30 @@ section {
     }
 
     section {
-        padding: 2.6rem 0;
+        padding: 2.2rem 0;
+    }
+
+    section + section {
+        border-top: 1px solid rgba(11, 27, 36, 0.08);
     }
 
     .hero {
         padding: 4rem 0 3rem;
     }
 
-    .project-grid {
-        grid-template-columns: 1fr;
+    .timeline-item {
+        padding: 1.6rem;
+    }
+
+    .timeline h4 {
+        font-size: 0.95rem;
+    }
+
+    .timeline ul {
+        font-size: 0.92rem;
+    }
+
+    .projects .timeline h3 {
+        font-size: 1.05rem;
     }
 }

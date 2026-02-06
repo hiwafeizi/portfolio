@@ -121,20 +121,23 @@ const createExperienceItem = (experience) => {
 };
 
 const createProjectCard = (project) => {
-    const card = document.createElement("article");
-    card.className = "project-card";
+    const card = document.createElement("div");
+    card.className = "timeline-item";
+
+    const header = document.createElement("div");
+    header.className = "timeline-header";
 
     const h3 = document.createElement("h3");
     h3.textContent = project.name;
 
     const timeframe = document.createElement("span");
-    timeframe.className = "project-time";
     timeframe.textContent = project.timeframe;
 
-    const bullets = renderList(project.bullets);
+    header.appendChild(h3);
+    header.appendChild(timeframe);
+    card.appendChild(header);
 
-    card.appendChild(h3);
-    card.appendChild(timeframe);
+    const bullets = renderList(project.bullets);
     card.appendChild(bullets);
 
     const projectLinks = {
