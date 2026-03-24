@@ -42,7 +42,8 @@
         "YAML",
         "Metadata automation",
         "dbt Cloud",
-        "Power BI"
+        "Power BI",
+        "SAS"
       ]
     },
     {
@@ -72,7 +73,8 @@
         "GitHub",
         "Jira",
         "Analytical mindset",
-        "Clear cross-functional communication"
+        "Clear cross-functional communication",
+        "Mentorship"
       ]
     },
     {
@@ -92,7 +94,11 @@
         "scikit-learn",
         "Elastic Net regression",
         "Neural networks",
-        "Feature engineering"
+        "Feature engineering",
+        "LLM API chaining",
+        "Prompt engineering",
+        "AI-assisted development",
+        "Claude Code"
       ]
     }
   ],
@@ -119,7 +125,8 @@
       "YAML",
       "Metadata automation",
       "dbt Cloud",
-      "Power BI"
+      "Power BI",
+      "SAS"
     ],
     "software_engineering": [
       "Python",
@@ -156,14 +163,19 @@
       "scikit-learn",
       "Elastic Net regression",
       "Neural networks",
-      "Feature engineering"
+      "Feature engineering",
+      "LLM API chaining",
+      "Prompt engineering",
+      "AI-assisted development",
+      "Claude Code"
     ],
     "collaboration_working_style": [
       "Git",
       "GitHub",
       "Jira",
       "Analytical mindset",
-      "Clear cross-functional communication"
+      "Clear cross-functional communication",
+      "Mentorship"
     ]
   },
   "experience": [
