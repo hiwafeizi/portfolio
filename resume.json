@@ -189,6 +189,22 @@
           "timeframe": "Jul 2025 - Present",
           "bullets": [
             {
+              "text": "Built an AI-driven column matching pipeline that chains LLM API calls with live SAS and Snowflake connections — parsing metadata, sampling row-level values, and validating matches programmatically — achieving 93% average accuracy (with several tables at 100%), where residual mismatches traced to upstream data quality issues rather than pipeline logic. Reduced per-table mapping effort from days to minutes.",
+              "project": "AI column matching pipeline",
+              "skills": [
+                "LLM API chaining",
+                "Prompt engineering",
+                "AI-assisted development",
+                "OpenAI API",
+                "Python",
+                "SAS",
+                "Snowflake",
+                "Data validation",
+                "Parity testing",
+                "Automation"
+              ]
+            },
+            {
               "text": "Migrated the pstag project from script-based logic to dbt models and YAML configurations; programmatically generated ~660 YAML files and 2,000+ SQL models using Python and Snowflake metadata.",
               "project": "pstag migration",
               "skills": [
@@ -214,34 +230,6 @@
               ]
             },
             {
-              "text": "Co-designed and implemented reusable dbt macros for automated table and view generation, standardizing transformations across schemas.",
-              "project": "dbt macro library",
-              "skills": [
-                "dbt",
-                "Automation",
-                "Data modeling",
-                "SQL"
-              ]
-            },
-            {
-              "text": "Reviewed production code and proposed improved data structures and pipeline designs to increase maintainability, consistency, and correctness.",
-              "project": "pipeline architecture review",
-              "skills": [
-                "Data modeling",
-                "Data quality",
-                "Internal tooling"
-              ]
-            },
-            {
-              "text": "Regularly reported progress and design trade-offs to the manager, aligning data engineering work with downstream consumer requirements.",
-              "project": "stakeholder alignment",
-              "skills": [
-                "Clear cross-functional communication",
-                "Analytical mindset",
-                "Jira"
-              ]
-            },
-            {
               "text": "Designed and implemented an automated documentation system that extracts and structures raw-level metadata from multi-format, multi-language source files into table-based documentation across three languages.",
               "project": "multi-language documentation automation",
               "skills": [
@@ -255,6 +243,41 @@
                 "OpenAI API",
                 "Azure ADP",
                 "Documentation"
+              ]
+            },
+            {
+              "text": "Crawled SAS server directories to extract transformation logic from 1,000+ SAS files, cataloguing reusable code to accelerate the migration of legacy pipelines to dbt on Snowflake.",
+              "project": "SAS to Snowflake migration",
+              "skills": [
+                "SAS",
+                "dbt",
+                "Snowflake",
+                "Large-scale migrations",
+                "Data modeling",
+                "Python",
+                "Automation"
+              ]
+            },
+            {
+              "text": "Co-designed and implemented reusable dbt macros for automated table and view generation, standardizing transformations across schemas.",
+              "project": "dbt macro library",
+              "skills": [
+                "dbt",
+                "Automation",
+                "Data modeling",
+                "SQL"
+              ]
+            },
+            {
+              "text": "Introduced LLM API chaining and Claude Code as engineering tools within the data office, delivering working demos for data engineering and data science use cases, writing setup documentation, and driving adoption across the team.",
+              "project": "AI tooling adoption",
+              "skills": [
+                "Claude Code",
+                "AI-assisted development",
+                "LLM API chaining",
+                "Internal tooling",
+                "Documentation",
+                "Clear cross-functional communication"
               ]
             },
             {
@@ -279,62 +302,21 @@
               ]
             },
             {
-              "text": "Supported production workflows by assisting with dbt Cloud runs and investigating data quality issues.",
-              "project": "production support",
-              "skills": [
-                "dbt Cloud",
-                "Data quality",
-                "Runtime checks"
-              ]
-            },
-            {
-              "text": "Crawled SAS server directories to extract transformation logic from 1,000+ SAS files, cataloguing reusable code to accelerate the migration of legacy pipelines to dbt on Snowflake.",
-              "project": "SAS to Snowflake migration",
-              "skills": [
-                "SAS",
-                "dbt",
-                "Snowflake",
-                "Large-scale migrations",
-                "Data modeling",
-                "Python",
-                "Automation"
-              ]
-            },
-            {
-              "text": "Built an AI-driven column matching pipeline that chains LLM API calls with live SAS and Snowflake connections — parsing metadata, sampling row-level values, and validating matches programmatically — achieving 93% average accuracy (with several tables at 100%), where residual mismatches traced to upstream data quality issues rather than pipeline logic. Reduced per-table mapping effort from days to minutes.",
-              "project": "AI column matching pipeline",
-              "skills": [
-                "LLM API chaining",
-                "Prompt engineering",
-                "AI-assisted development",
-                "OpenAI API",
-                "Python",
-                "SAS",
-                "Snowflake",
-                "Data validation",
-                "Parity testing",
-                "Automation"
-              ]
-            },
-            {
-              "text": "Introduced LLM API chaining and Claude Code as engineering tools within the data office, delivering working demos for data engineering and data science use cases, writing setup documentation, and driving adoption across the team.",
-              "project": "AI tooling adoption",
-              "skills": [
-                "Claude Code",
-                "AI-assisted development",
-                "LLM API chaining",
-                "Internal tooling",
-                "Documentation",
-                "Clear cross-functional communication"
-              ]
-            },
-            {
               "text": "Mentored a junior engineer on technical delivery, coordinating task allocation and providing guidance on implementation decisions alongside individual engineering work.",
               "project": "team mentorship",
               "skills": [
                 "Mentorship",
                 "Clear cross-functional communication",
                 "Analytical mindset"
+              ]
+            },
+            {
+              "text": "Regularly reported progress and design trade-offs to the manager, aligning data engineering work with downstream consumer requirements.",
+              "project": "stakeholder alignment",
+              "skills": [
+                "Clear cross-functional communication",
+                "Analytical mindset",
+                "Jira"
               ]
             }
           ]
