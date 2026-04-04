@@ -1,6 +1,6 @@
 # How I Automated SAS-to-Snowflake Column Matching with AI
 
-**April 2026 · Allianz Data Office**
+**April 2026** 
 
 ---
 

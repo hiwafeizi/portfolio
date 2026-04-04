@@ -21,8 +21,13 @@ body {
     line-height: 1.6;
     color: var(--ink);
     background: linear-gradient(135deg, #fef5e7 0%, #edf7f5 40%, #f8f0ea 100%);
-    min-height: 100vh;
     overflow-x: hidden;
+}
+
+.page-wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 img {
@@ -120,6 +125,22 @@ section {
 .nav-links a:hover {
     color: var(--ocean);
     border-color: var(--sun);
+}
+
+.nav-links a.nav-cta {
+    background: var(--ocean);
+    color: #ffffff;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    border-bottom: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a.nav-cta:hover {
+    background: var(--teal);
+    color: #ffffff;
+    transform: translateY(-1px);
+    border-color: transparent;
 }
 
 /* Hero */
@@ -723,6 +744,8 @@ section {
 
 /* Footer */
 .footer {
+    margin-top: auto;
+    flex-shrink: 0;
     background: #07131a;
     color: #ffffff;
     text-align: center;
