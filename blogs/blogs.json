@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "ai-column-matching-pipeline",
+    "title": "How I Automated SAS-to-Snowflake Column Matching with AI",
+    "date": "2026-04-04",
+    "summary": "We had hundreds of tables on both SAS and Snowflake with different column names, different content, and extra columns on both sides. I built a pipeline that reduced per-table matching from days to minutes.",
+    "tags": [
+      "LLM API chaining",
+      "SAS",
+      "Snowflake",
+      "Data validation",
+      "Python",
+      "Automation",
+      "AI-assisted development",
+      "Prompt engineering",
+      "OpenAI API",
+      "Parity testing"
+    ],
+    "readTime": "8 min",
+    "cover": null
+  }
+]
