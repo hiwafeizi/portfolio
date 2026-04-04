@@ -1,5 +1,20 @@
 [
   {
+    "slug": "python-pyramid-minecraft",
+    "title": "Egyptians Built Pyramids in Decades. I Built a Cooler One with Python in a Few Hours.",
+    "date": "2026-04-04",
+    "summary": "I wrote a Python script that generates a full pyramid complex inside Minecraft — central pyramid, walls, moat, entrance corridor, and interior halls. The whole thing took a few hours. The Egyptians needed 20 years.",
+    "tags": [
+      "Python",
+      "Minecraft",
+      "Procedural generation",
+      "Creative coding",
+      "Automation"
+    ],
+    "readTime": "2 min",
+    "cover": "pyramid-aerial-view.png"
+  },
+  {
     "slug": "ai-column-matching-pipeline",
     "title": "How I Automated SAS-to-Snowflake Column Matching with AI",
     "date": "2026-04-04",

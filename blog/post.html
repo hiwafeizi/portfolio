@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
     <style>
         .post-header {
             padding: 4rem 0 2rem;
@@ -186,6 +186,40 @@
             border-radius: 14px;
             margin: 1.5rem 0;
             box-shadow: 0 8px 24px rgba(11, 27, 36, 0.1);
+        }
+
+        .post-content table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 1.5rem 0;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(11, 27, 36, 0.06);
+            border: 1px solid rgba(11, 27, 36, 0.08);
+        }
+
+        .post-content thead th {
+            background: var(--ink);
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 0.9rem 1.2rem;
+            text-align: left;
+        }
+
+        .post-content tbody td {
+            padding: 0.75rem 1.2rem;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(11, 27, 36, 0.06);
+        }
+
+        .post-content tbody tr:nth-child(even) {
+            background: rgba(20, 164, 166, 0.04);
+        }
+
+        .post-content tbody tr:hover {
+            background: rgba(20, 164, 166, 0.08);
         }
 
         .post-content hr {

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/npm/marked/marked.min.js\")",
+      "Bash(mv \"1.PNG\" \"pyramid-front-view.png\")",
+      "Bash(mv \"2.PNG\" \"pyramid-aerial-view.png\")",
+      "Bash(mv \"3.PNG\" \"pyramid-entrance-corridor.png\")",
+      "Bash(mv \"4.PNG\" \"pyramid-interior-hall.png\")"
+    ]
+  }
+}
