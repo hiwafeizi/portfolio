@@ -406,3 +406,38 @@ const initRecommendationCarousel = () => {
 };
 
 initRecommendationCarousel();
+
+const initSkillsToast = () => {
+    const skills = document.getElementById("skills");
+    const toast = document.getElementById("skills-toast");
+    const backdrop = document.getElementById("skills-toast-backdrop");
+    if (!skills || !toast) return;
+
+    const hideToast = () => {
+        toast.classList.remove("visible");
+        if (backdrop) backdrop.classList.remove("visible");
+    };
+
+    const showToast = () => {
+        toast.classList.add("visible");
+        if (backdrop) backdrop.classList.add("visible");
+        setTimeout(hideToast, 4000);
+    };
+
+    if (backdrop) backdrop.addEventListener("click", hideToast);
+    toast.addEventListener("click", hideToast);
+
+    let fired = false;
+    const checkPosition = () => {
+        if (fired) return;
+        const rect = skills.getBoundingClientRect();
+        if (rect.top <= window.innerHeight * 0.5 && rect.bottom > 0) {
+            fired = true;
+            showToast();
+            window.removeEventListener("scroll", checkPosition);
+        }
+    };
+    window.addEventListener("scroll", checkPosition);
+};
+
+initSkillsToast();
