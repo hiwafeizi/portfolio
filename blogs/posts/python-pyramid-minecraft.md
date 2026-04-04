@@ -14,25 +14,25 @@ I wrote a script that procedurally generates a full pyramid complex in Minecraft
 
 ### From the outside
 
-![Front view of the pyramid from ground level](pyramid-front.png)
+![Front view of the pyramid from ground level](1.PNG)
 
 The main pyramid. Red and orange blocks, stepped layers rising to a point. It looks intimidating from ground level, which is the whole point of a pyramid.
 
 ### Bird's eye view
 
-![Aerial view of the full pyramid complex](pyramid-aerial.png)
+![Aerial view of the full pyramid complex](2.PNG)
 
 The full complex from above: pyramid in the center, walls radiating outward, blue moat wrapping around everything. The pharaohs would be jealous. Or confused. Probably confused.
 
 ### The entrance
 
-![Entrance corridor leading to the pyramid](pyramid-entrance.png)
+![Entrance corridor leading to the pyramid](3.PNG)
 
 A grand corridor lined with red columns, white quartz walkway, moat on both sides. Dramatic? Yes. Necessary? Absolutely not. But neither were the real ones.
 
 ### The interior
 
-![Interior hall of the pyramid](pyramid-interior.png)
+![Interior hall of the pyramid](4.PNG)
 
 Inside you get patterned walls, diamond blocks in the floor, and natural light through the glass ceiling. Ancient Egyptian architects could never.
 
