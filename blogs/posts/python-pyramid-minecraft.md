@@ -4,101 +4,60 @@
 
 ---
 
-## TL;DR
+Egyptians spent decades dragging limestone across the desert. I spent a few hours writing Python and let the computer do the dragging. Jokes on them.
 
-I wrote a Python script that generates a full pyramid complex inside Minecraft, complete with a central pyramid, surrounding walls, a moat, an entrance corridor, and interior halls. The whole thing took a few hours. The Egyptians needed 20 years and 20,000 workers. I needed a laptop and some coffee.
-
----
-
-## Why
-
-I've always been fascinated by large-scale procedural generation. When you combine that with Minecraft's block-based world, you get a perfect sandbox for turning math into architecture. I wanted to see how far I could push it: not just a simple pyramid, but a full complex with multiple structural elements, all generated from a single script.
-
-Plus, the idea of out-engineering the ancient Egyptians (at least in virtual block form) was too fun to pass up.
+I wrote a script that procedurally generates a full pyramid complex in Minecraft — pyramid, walls, moat, grand entrance, interior halls, the works. No blocks placed by hand. Just math, loops, and questionable priorities.
 
 ---
 
-## What I Built
+## The Result
 
-The script generates a complete pyramid complex with the following elements:
-
-### The Pyramid
-
-The main structure. A full-scale stepped pyramid rising to a pointed apex, built from red and orange blocks. It's not a solid mass — the interior is hollow, with halls and corridors inside.
+### From the outside
 
 ![Front view of the pyramid from ground level](pyramid-front.png)
 
-### The Complex
+The main pyramid. Red and orange blocks, stepped layers rising to a point. It looks intimidating from ground level, which is the whole point of a pyramid.
 
-The pyramid sits inside a walled compound. White quartz walls surround the base, with a blue moat running along the perimeter. The aerial view shows the full layout: the pyramid at the center, walls radiating outward, and the moat framing everything.
+### Bird's eye view
 
 ![Aerial view of the full pyramid complex](pyramid-aerial.png)
 
-### The Entrance
+The full complex from above: pyramid in the center, walls radiating outward, blue moat wrapping around everything. The pharaohs would be jealous. Or confused. Probably confused.
 
-A grand corridor leads from the outer wall into the pyramid. Red columns line both sides, with the pyramid's face rising dramatically at the end. The walkway is white quartz, flanked by the blue moat on both sides.
+### The entrance
 
 ![Entrance corridor leading to the pyramid](pyramid-entrance.png)
 
-### The Interior
+A grand corridor lined with red columns, white quartz walkway, moat on both sides. Dramatic? Yes. Necessary? Absolutely not. But neither were the real ones.
 
-Inside the pyramid, the halls are lined with orange and red patterned walls. Diamond blocks are embedded in the quartz floor, and glass panes in the ceiling let natural light filter through. It's meant to feel like walking through an ancient tomb — except this one was built in seconds.
+### The interior
 
 ![Interior hall of the pyramid](pyramid-interior.png)
 
----
-
-## How It Works
-
-The script uses Python with a Minecraft API connector to place blocks programmatically. The core idea is simple: define shapes mathematically and iterate over 3D coordinates to place blocks at the right positions.
-
-### Pyramid geometry
-
-A pyramid is just a stack of squares that get smaller as you go up. For each layer, the script calculates the boundary and fills the edges (leaving the interior hollow for rooms).
-
-### Walls and moat
-
-The surrounding walls are generated as rectangles at a fixed distance from the pyramid base. The moat is a trench dug one block deep and filled with water blocks.
-
-### Interior rooms
-
-The corridors and halls are carved out by selectively *not* placing blocks in certain regions, then adding floor tiles, columns, and ceiling details as separate passes.
-
-### The whole process
-
-1. Calculate the pyramid footprint and height
-2. Build layer by layer from the base up
-3. Generate the outer walls and moat
-4. Carve the entrance corridor
-5. Add interior halls and decorative elements
-6. Place lighting (glowstone under the floor)
-
-The entire generation runs in seconds once triggered. No manual block placement needed.
+Inside you get patterned walls, diamond blocks in the floor, and natural light through the glass ceiling. Ancient Egyptian architects could never.
 
 ---
 
-## The Numbers
+## How it works
 
-- **Time to build:** A few hours of coding, seconds of generation
-- **Egyptian pyramid comparison:** ~20 years, ~20,000 workers
-- **Efficiency gain:** Roughly 876,000x faster (conservatively)
-- **Blocks placed:** Thousands, programmatically
-- **Coffee consumed:** Multiple cups
+Nothing fancy. A pyramid is just squares that get smaller as you go up. Loop through the layers, place blocks at the edges, leave the inside hollow for rooms. Add walls, dig a moat, fill it with water, carve out corridors, sprinkle in some decorative blocks. Done.
+
+The whole complex generates in seconds. Want it taller? Change a number. Wider moat? Change a number. More rooms? Add a loop.
 
 ---
 
-## What I Learned
+## The scoreboard
 
-Procedural generation is addictive. Once you get the basic pyramid working, you immediately want to add walls, then a moat, then interior rooms, then decorative details. Each addition is just a few more loops and coordinate calculations.
-
-The hardest part wasn't the math — it was getting the proportions to feel right. A pyramid that's too steep looks weird. Walls that are too close to the base feel cramped. The moat needs to be wide enough to read as a moat from above. Getting these ratios right took more iteration than the actual code.
+| | Egyptians | Me |
+|---|---|---|
+| **Time** | ~20 years | A few hours |
+| **Workers** | ~20,000 | 1 (me) |
+| **Material** | Limestone | RGB pixels |
+| **Still standing in 4,000 years?** | Yes | Until I delete the world |
+| **Cooler?** | Debatable | Obviously yes |
 
 ---
 
-## Final Thoughts
-
-This was a weekend project that reminded me why I got into programming in the first place: the joy of making something impressive appear from nothing but logic and loops. The Egyptians had limestone and human labor. I had Python and an afternoon. Different tools, same satisfaction.
-
-The code generates the entire complex from scratch each time, so tweaking parameters gives you a completely different pyramid in seconds. Want it taller? Change a number. Want a wider moat? Change a number. Want to add more interior rooms? Add a loop.
+Honestly this was just a fun weekend project. But it reminded me why programming is great: you can build ridiculous things for no reason and it still counts as productive.
 
 The pharaohs could never.
