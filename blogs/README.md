@@ -34,8 +34,22 @@ Every blog post follows this structure:
 
 - Blog posts go in `blogs/posts/` as markdown files.
 - File name is the slug: `my-blog-post-title.md`
-- Every post must have a corresponding entry in `blogs/blogs.json` with: slug, title, date, summary, tags, readTime.
+- Every post must have a corresponding entry in `blogs/blogs.json` with: slug, title, date, summary, tags, readTime, cover.
 - Tags must match skill names from `resume.json` exactly. This is how blog posts link to portfolio skills.
+
+## Images
+
+- All images go in `blogs/images/`.
+- In markdown, reference images by filename only: `![description](my-image.png)`. The blog renderer automatically resolves the path.
+- Cover images are optional. Set `"cover": "filename.png"` in blogs.json, or `null` for no cover.
+- Supported formats: PNG, JPG, WebP, SVG.
+
+## HTML pages
+
+- `blog/index.html` is the blog listing page. Supports `?tag=SkillName` to filter posts by tag.
+- `blog/post.html` is the single post template. Loads markdown and renders it. Supports `?slug=post-slug`.
+- Clicking a tag on a post navigates to the listing filtered by that tag.
+- On the portfolio, skill tags can link to `/blog/?tag=SkillName` to show related blog posts.
 
 ## Example blogs.json entry
 
@@ -46,6 +60,7 @@ Every blog post follows this structure:
   "date": "2026-04-04",
   "summary": "Short description of the post for the blog listing page.",
   "tags": ["LLM API chaining", "SAS", "Snowflake"],
-  "readTime": "5 min"
+  "readTime": "8 min",
+  "cover": "column-matching-cover.png"
 }
 ```

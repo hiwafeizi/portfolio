@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Hiwa Feizi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .blog-header {
+            padding: 4rem 0 2rem;
+        }
+
+        .blog-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-header p {
+            font-size: 1.1rem;
+            color: var(--muted);
+        }
+
+        .blog-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--ocean);
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-back:hover {
+            color: var(--ink);
+        }
+
+        .tag-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+
+        .tag-filter {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            padding: 0.35rem 0.8rem;
+            border: 1px solid rgba(14, 86, 105, 0.18);
+            background: rgba(20, 164, 166, 0.12);
+            color: var(--ink);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .tag-filter:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 14px rgba(14, 86, 105, 0.18);
+        }
+
+        .tag-filter.active {
+            background: var(--sun);
+            border-color: rgba(244, 185, 66, 0.6);
+            color: #2b1a00;
+        }
+
+        .blog-grid {
+            display: grid;
+            gap: 1.5rem;
+            padding-bottom: 4rem;
+        }
+
+        .blog-card {
+            background: var(--card);
+            border-radius: 20px;
+            border: 1px solid rgba(11, 27, 36, 0.08);
+            box-shadow: 0 12px 24px rgba(14, 86, 105, 0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 40px rgba(14, 86, 105, 0.14);
+        }
+
+        .blog-card-cover {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .blog-card-body {
+            padding: 2rem;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-card-title {
+            font-family: "Fraunces", "Georgia", serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+        }
+
+        .blog-card-summary {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .blog-card-tag {
+            display: inline-flex;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: rgba(20, 164, 166, 0.1);
+            color: var(--ocean);
+            border: 1px solid rgba(14, 86, 105, 0.12);
+        }
+
+        .no-posts {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--muted);
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .blog-card-body {
+                padding: 1.5rem;
+            }
+
+            .blog-card-title {
+                font-size: 1.2rem;
+            }
+
+            .blog-card-cover {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Hiwa Feizi</div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Portfolio</a></li>
+                <li><a href="index.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="blog-header">
+        <div class="container">
+            <a href="../index.html" class="blog-back">&#8592; Back to portfolio</a>
+            <h1>Blog</h1>
+            <p>Writing about the projects I build and the problems I solve.</p>
+            <div class="tag-filters" id="tag-filters"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="blog-grid" id="blog-grid"></div>
+            <p class="no-posts" id="no-posts">No posts match this filter.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Feel free to copy. Portfolio code: <a href="https://github.com/hiwafeizi/portfolio" target="_blank" rel="noreferrer">github.com/hiwafeizi/portfolio</a></p>
+        </div>
+    </footer>
+
+    <script>
+        let posts = [];
+        let activeTag = null;
+
+        async function init() {
+            const res = await fetch('../blogs/blogs.json');
+            posts = await res.json();
+            posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            buildTagFilters();
+            renderPosts();
+
+            const params = new URLSearchParams(window.location.search);
+            const tagParam = params.get('tag');
+            if (tagParam) {
+                activeTag = tagParam;
+                updateActiveFilter();
+                renderPosts();
+            }
+        }
+
+        function buildTagFilters() {
+            const allTags = new Set();
+            posts.forEach(p => p.tags.forEach(t => allTags.add(t)));
+            const container = document.getElementById('tag-filters');
+
+            const allBtn = document.createElement('button');
+            allBtn.className = 'tag-filter active';
+            allBtn.textContent = 'All';
+            allBtn.dataset.tag = '';
+            allBtn.addEventListener('click', () => {
+                activeTag = null;
+                updateActiveFilter();
+                renderPosts();
+                updateURL();
+            });
+            container.appendChild(allBtn);
+
+            Array.from(allTags).sort().forEach(tag => {
+                const btn = document.createElement('button');
+                btn.className = 'tag-filter';
+                btn.textContent = tag;
+                btn.dataset.tag = tag;
+                btn.addEventListener('click', () => {
+                    activeTag = tag;
+                    updateActiveFilter();
+                    renderPosts();
+                    updateURL();
+                });
+                container.appendChild(btn);
+            });
+        }
+
+        function updateActiveFilter() {
+            document.querySelectorAll('.tag-filter').forEach(btn => {
+                if (activeTag === null) {
+                    btn.classList.toggle('active', btn.dataset.tag === '');
+                } else {
+                    btn.classList.toggle('active', btn.dataset.tag === activeTag);
+                }
+            });
+        }
+
+        function updateURL() {
+            const url = new URL(window.location);
+            if (activeTag) {
+                url.searchParams.set('tag', activeTag);
+            } else {
+                url.searchParams.delete('tag');
+            }
+            history.replaceState(null, '', url);
+        }
+
+        function renderPosts() {
+            const grid = document.getElementById('blog-grid');
+            const empty = document.getElementById('no-posts');
+            grid.innerHTML = '';
+
+            const filtered = activeTag
+                ? posts.filter(p => p.tags.includes(activeTag))
+                : posts;
+
+            if (filtered.length === 0) {
+                empty.style.display = 'block';
+                return;
+            }
+            empty.style.display = 'none';
+
+            filtered.forEach(post => {
+                const card = document.createElement('a');
+                card.className = 'blog-card';
+                card.href = `post.html?slug=${post.slug}`;
+
+                let coverHTML = '';
+                if (post.cover) {
+                    coverHTML = `<img class="blog-card-cover" src="../blogs/images/${post.cover}" alt="${post.title}">`;
+                }
+
+                const tagsHTML = post.tags
+                    .map(t => `<span class="blog-card-tag">${t}</span>`)
+                    .join('');
+
+                card.innerHTML = `
+                    ${coverHTML}
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span>${new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            <span>${post.readTime}</span>
+                        </div>
+                        <div class="blog-card-title">${post.title}</div>
+                        <p class="blog-card-summary">${post.summary}</p>
+                        <div class="blog-card-tags">${tagsHTML}</div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        init();
+    </script>
+</body>
+</html>
