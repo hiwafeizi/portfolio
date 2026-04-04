@@ -14,25 +14,25 @@ I wrote a script that procedurally generates a full pyramid complex in Minecraft
 
 ### From the outside
 
-![Front view of the pyramid from ground level](1.PNG)
+![Front view of the pyramid from ground level](pyramid-front-view.png)
 
 The main pyramid. Red and orange blocks, stepped layers rising to a point. It looks intimidating from ground level, which is the whole point of a pyramid.
 
 ### Bird's eye view
 
-![Aerial view of the full pyramid complex](2.PNG)
+![Aerial view of the full pyramid complex](pyramid-aerial-view.png)
 
-The full complex from above: pyramid in the center, walls radiating outward, blue moat wrapping around everything. The pharaohs would be jealous. Or confused. Probably confused.
+The full complex from above: pyramid in the center, walls radiating outward, water wrapping around everything. The pharaohs would be jealous. Or confused.
 
 ### The entrance
 
-![Entrance corridor leading to the pyramid](3.PNG)
+![Entrance corridor leading to the pyramid](pyramid-entrance-corridor.png)
 
 A grand corridor lined with red columns, white quartz walkway, moat on both sides. Dramatic? Yes. Necessary? Absolutely not. But neither were the real ones.
 
 ### The interior
 
-![Interior hall of the pyramid](4.PNG)
+![Interior hall of the pyramid](pyramid-interior-hall.png)
 
 Inside you get patterned walls, diamond blocks in the floor, and natural light through the glass ceiling. Ancient Egyptian architects could never.
 
@@ -48,16 +48,21 @@ The whole complex generates in seconds. Want it taller? Change a number. Wider m
 
 ## The scoreboard
 
-| | Egyptians | Me |
-|---|---|---|
-| **Time** | ~20 years | A few hours |
-| **Workers** | ~20,000 | 1 (me) |
-| **Material** | Limestone | RGB pixels |
-| **Still standing in 4,000 years?** | Yes | Until I delete the world |
-| **Cooler?** | Debatable | Obviously yes |
+|                                          | Egyptians                    | Me                           |
+| ---------------------------------------- | ---------------------------- | ---------------------------- |
+| **Planning**                       | Years                        | A few hours                  |
+| **Build time**                     | ~20 years                    | ~30 seconds                  |
+| **Workers**                        | ~20,000                      | 1 (me)                       |
+| **Blocks used**                    | ~2,300,000                   | 266,500                      |
+| **Material**                       | Limestone                    | RGB pixels                   |
+| **Tools**                          | Copper chisels, ramps, ropes | Python, loops, claude        |
+| **Budget**                         | Entire kingdom's treasury    | Free                         |
+| **Lines of code**                  | 0                            | ~400 on top of malmo         |
+| **Injuries**                       | Countless                    | Minor back pain from sitting |
+| **Tourist revenue**                | Billions                     | 0 (yet)                      |
+| **Still standing in 4,000 years?** | Yes                          | Until I delete the world     |
+| **Cooler?**                        | Debatable                    | Obviously yes                |
 
 ---
-
-Honestly this was just a fun weekend project. But it reminded me why programming is great: you can build ridiculous things for no reason and it still counts as productive.
 
 The pharaohs could never.
