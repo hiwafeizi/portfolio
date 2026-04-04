@@ -271,8 +271,46 @@ section {
 }
 
 /* Skills */
-.skills-intro {
-    margin-bottom: 1.5rem;
+.skills-toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: var(--card);
+    color: var(--ink);
+    padding: 2.5rem 3rem;
+    border-radius: 24px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.5;
+    box-shadow: 0 24px 60px rgba(11, 27, 36, 0.25);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    max-width: 520px;
+}
+
+.skills-toast-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 19, 26, 0.5);
+    z-index: 149;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.skills-toast-backdrop.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.skills-toast.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
 }
 
 .domain-grid {
