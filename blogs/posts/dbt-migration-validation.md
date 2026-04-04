@@ -1,4 +1,4 @@
-# I Migrated 600+ Tables to dbt. Here's How I Knew Nothing Broke.
+# We Migrated 600+ Tables to dbt. Here's How I Made Sure Nothing Broke.
 
 **April 2026**
 
@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-I migrated 600+ production tables to dbt and needed to prove every single one produced the same data as the original code. I built a dbt macro that runs automatically at the end of every pipeline execution, compares migrated models against their originals by source, and tells you exactly which rows differ and where they came from. Debugging went from hours to minutes.
+We were migrating 600+ production tables to dbt and needed to prove every single one produced the same data as the original code. I built a dbt macro that runs automatically at the end of every pipeline execution, compares migrated models against their originals by source, and tells you exactly which rows differ and where they came from. Debugging went from hours to minutes.
 
 ---
 
@@ -16,7 +16,7 @@ When you migrate production pipelines to dbt, the hardest question isn't whether
 
 At 600+ tables you can't manually verify each one. Spot checking gives you confidence in a sample, not in the system. And "it looks right" isn't an answer when the data feeds downstream reporting at a financial institution.
 
-I needed something systematic. Automatic. Precise enough to tell me not just that something was wrong, but exactly which rows, from exactly which source.
+We needed something systematic. Automatic. Precise enough to tell us not just that something was wrong, but exactly which rows, from exactly which source.
 
 So I built a dbt macro that runs automatically at the end of every pipeline execution and validates migrated models against their original counterparts without anyone having to think about it.
 
@@ -28,7 +28,7 @@ So I built a dbt macro that runs automatically at the end of every pipeline exec
 
 audit_helper is a strong tool for interactive debugging. You suspect a specific model has an issue, you trigger it manually, you inspect the diff. It's a diagnostic instrument designed for targeted use.
 
-It's not designed for systematic validation across hundreds of tables after every run. At this scale that would require a developer to manually trigger comparisons on every model they wanted to check. That's not a workflow, it's a full time job.
+It's not designed for systematic validation across hundreds of tables after every run. At our scale that would require a developer to manually trigger comparisons on every model they wanted to check. That's not a workflow, it's a full time job.
 
 I needed validation embedded in pipeline execution itself. On run end, automatic, zero manual intervention required.
 
@@ -58,7 +58,7 @@ Only when the aggregate differs do I go deeper to identify the specific rows tha
 
 This is the decision that made debugging actually fast.
 
-Many of the tables are fed by multiple raw sources. Testing the whole table at once tells you something is wrong somewhere. That's not enough information to debug efficiently.
+Many of our tables are fed by multiple raw sources. Testing the whole table at once tells you something is wrong somewhere. That's not enough information to debug efficiently.
 
 By separating validation by raw source, a failure immediately tells you which incoming data caused the discrepancy. You don't investigate the entire table's history. You investigate the specific source that produced the anomaly.
 
