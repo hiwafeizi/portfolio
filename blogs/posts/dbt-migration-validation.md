@@ -1,4 +1,4 @@
-# We Migrated 600+ Tables to dbt. Here's How We Knew Nothing Broke.
+# I Migrated 600+ Tables to dbt. Here's How I Knew Nothing Broke.
 
 **April 2026**
 
@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-We migrated 600+ production tables to dbt and needed to prove every single one produced the same data as the original code. We built a dbt macro that runs automatically at the end of every pipeline execution, compares migrated models against their originals by source, and tells you exactly which rows differ and where they came from. Debugging went from hours to minutes.
+I migrated 600+ production tables to dbt and needed to prove every single one produced the same data as the original code. I built a dbt macro that runs automatically at the end of every pipeline execution, compares migrated models against their originals by source, and tells you exactly which rows differ and where they came from. Debugging went from hours to minutes.
 
 ---
 
@@ -16,9 +16,9 @@ When you migrate production pipelines to dbt, the hardest question isn't whether
 
 At 600+ tables you can't manually verify each one. Spot checking gives you confidence in a sample, not in the system. And "it looks right" isn't an answer when the data feeds downstream reporting at a financial institution.
 
-We needed something systematic. Automatic. Precise enough to tell us not just that something was wrong, but exactly which rows, from exactly which source.
+I needed something systematic. Automatic. Precise enough to tell me not just that something was wrong, but exactly which rows, from exactly which source.
 
-So we built a dbt macro that runs automatically at the end of every pipeline execution and validates migrated models against their original counterparts without anyone having to think about it.
+So I built a dbt macro that runs automatically at the end of every pipeline execution and validates migrated models against their original counterparts without anyone having to think about it.
 
 ---
 
@@ -28,9 +28,9 @@ So we built a dbt macro that runs automatically at the end of every pipeline exe
 
 audit_helper is a strong tool for interactive debugging. You suspect a specific model has an issue, you trigger it manually, you inspect the diff. It's a diagnostic instrument designed for targeted use.
 
-It's not designed for systematic validation across hundreds of tables after every run. At our scale that would require a developer to manually trigger comparisons on every model they wanted to check. That's not a workflow, it's a full time job.
+It's not designed for systematic validation across hundreds of tables after every run. At this scale that would require a developer to manually trigger comparisons on every model they wanted to check. That's not a workflow, it's a full time job.
 
-We needed validation embedded in pipeline execution itself. On run end, automatic, zero manual intervention required.
+I needed validation embedded in pipeline execution itself. On run end, automatic, zero manual intervention required.
 
 ### The filtering layer
 
@@ -46,23 +46,23 @@ Each filter is an early exit. The macro only reaches the expensive comparison lo
 
 ### Stage 1: Row count
 
-A `COUNT(*)` is cheap. If the migrated model and the original produce the same number of rows, we move to hashing. If not, we already know something is wrong and flag it immediately.
+A `COUNT(*)` is cheap. If the migrated model and the original produce the same number of rows, I move to hashing. If not, I already know something is wrong and flag it immediately.
 
 ### Stage 2: Hash of hashes
 
-Rather than comparing every row individually, we hash each row then compare an aggregate of those hashes. If the aggregates match, the tables are identical. No further work needed.
+Rather than comparing every row individually, I hash each row then compare an aggregate of those hashes. If the aggregates match, the tables are identical. No further work needed.
 
-Only when the aggregate differs do we go deeper to identify the specific rows that differ on each side. This means for the majority of tables (the ones that are correct) the validation cost is a count and a hash comparison. The expensive row level diffing only happens when there's actually something wrong.
+Only when the aggregate differs do I go deeper to identify the specific rows that differ on each side. This means for the majority of tables (the ones that are correct) the validation cost is a count and a hash comparison. The expensive row level diffing only happens when there's actually something wrong.
 
 ### Source level separation
 
 This is the decision that made debugging actually fast.
 
-Many of our tables are fed by multiple raw sources. Testing the whole table at once tells you something is wrong somewhere. That's not enough information to debug efficiently.
+Many of the tables are fed by multiple raw sources. Testing the whole table at once tells you something is wrong somewhere. That's not enough information to debug efficiently.
 
 By separating validation by raw source, a failure immediately tells you which incoming data caused the discrepancy. You don't investigate the entire table's history. You investigate the specific source that produced the anomaly.
 
-It also keeps compute proportional to what actually ran. If 10 sources feed a table but only 3 produced new data in this run, we validate 3. The other 7 haven't changed so there's nothing to check.
+It also keeps compute proportional to what actually ran. If 10 sources feed a table but only 3 produced new data in this run, I validate 3. The other 7 haven't changed so there's nothing to check.
 
 ---
 

@@ -16,9 +16,9 @@
   },
   {
     "slug": "dbt-migration-validation",
-    "title": "We Migrated 600+ Tables to dbt. Here's How We Knew Nothing Broke.",
+    "title": "I Migrated 600+ Tables to dbt. Here's How I Knew Nothing Broke.",
     "date": "2026-04-04",
-    "summary": "We built a dbt macro that automatically validates every migrated model against its original counterpart after every run, broken down by source, catching exact row-level discrepancies in seconds instead of hours.",
+    "summary": "I built a dbt macro that automatically validates every migrated model against its original counterpart after every run, broken down by source, catching exact row-level discrepancies in seconds instead of hours.",
     "tags": [
       "dbt",
       "Snowflake",
