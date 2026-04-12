@@ -214,6 +214,5 @@ The context layer helped sustain eating actions across ticks, but the core survi
 
 ---
 
-*The project is called Half Stupid because full intelligence was never the goal. A brainstem doesn't need to be smart. It needs to keep you alive long enough for the smart parts to figure things out.*
 
 *[Code on GitHub](https://github.com/hiwafeizi/half_stupid) | Platform: Minecraft 1.11.2 + Project Malmo 0.37.0 | Windows 11*
