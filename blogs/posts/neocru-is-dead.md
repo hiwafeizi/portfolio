@@ -33,7 +33,3 @@ NeoCru is becoming a free career platform for students and early-career professi
 If you used NeoCru during the beta, thank you. You helped me build something real.
 
 The new NeoCru launches soon.
-
----
-
-*Tags: AI-assisted development · Python · OpenAI API · Automation*
