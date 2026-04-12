@@ -529,6 +529,36 @@
   ],
   "projects": [
     {
+      "name": "Half Stupid - Teaching Minecraft Agents to Survive From Scratch",
+      "timeframe": "Apr 2025",
+      "bullets": [
+        {
+          "text": "Built a dual-timescale neural network (reflex layer at every tick, context layer every 5 ticks) using shared learned embeddings across 2048 block/item/entity types, processing 557 raw inputs into 23 actions with zero human-labeled knowledge.",
+          "skills": [
+            "Neural networks",
+            "Python",
+            "NumPy",
+            "Feature engineering"
+          ]
+        },
+        {
+          "text": "Implemented vanilla REINFORCE policy gradient training with survival-only reward (+1 alive, -10,000 on death), achieving emergent food-seeking behavior, distinct agent personalities, and inter-agent social dynamics without any reward shaping.",
+          "skills": [
+            "Python",
+            "PyTorch",
+            "NumPy"
+          ]
+        },
+        {
+          "text": "Identified fundamental scaling limitations of building on Minecraft/Malmo (4 agents max, 4,000 ticks/sec ceiling, platform constraints), motivating a pivot to a custom Rust-based simulation engine designed for 10,000-100,000x training throughput.",
+          "skills": [
+            "Analytical mindset",
+            "Rust"
+          ]
+        }
+      ]
+    },
+    {
       "name": "Thesis - Predicting Perceptions of Dutch Company Names",
       "timeframe": "Jan 2025 - May 2025",
       "bullets": [

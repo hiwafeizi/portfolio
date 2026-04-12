@@ -141,6 +141,7 @@ const createProjectCard = (project) => {
     card.appendChild(bullets);
 
     const projectLinks = {
+        "Half Stupid - Teaching Minecraft Agents to Survive From Scratch": "https://github.com/hiwafeizi/half_stupid",
         "Thesis - Predicting Perceptions of Dutch Company Names": "https://github.com/hiwafeizi/thesis",
         "Group Thesis - Multimodal Speech Recognition with AV-HuBERT": "https://github.com/hiwafeizi/research-workshop/tree/main",
         "Software Engineering Course - PetMatters": "https://github.com/hiwafeizi/SE4CSAI-Project",
