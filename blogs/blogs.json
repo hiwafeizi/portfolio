@@ -1,5 +1,19 @@
 [
   {
+    "slug": "neocru-is-dead",
+    "title": "NeoCru is dead. Here's what it was.",
+    "date": "2026-04-12",
+    "summary": "I built an AI-powered recruitment tool that automatically evaluated candidates against job requirements. It worked. But B2B SaaS go-to-market as a solo founder is a different beast. So I'm pivoting.",
+    "tags": [
+      "AI-assisted development",
+      "Python",
+      "OpenAI API",
+      "Automation"
+    ],
+    "readTime": "2 min",
+    "cover": "neocru-dashboard.png"
+  },
+  {
     "slug": "python-pyramid-minecraft",
     "title": "Egyptians Built Pyramids in Decades. I Built a Cooler One with Python in a Few Hours.",
     "date": "2026-04-04",
