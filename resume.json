@@ -43,7 +43,11 @@
         "Metadata automation",
         "dbt Cloud",
         "Power BI",
-        "SAS"
+        "SAS",
+        "Snowflake API",
+        "Zero-copy clones",
+        "Mainframe PD binary",
+        "Streaming"
       ]
     },
     {
@@ -74,7 +78,14 @@
         "Jira",
         "Analytical mindset",
         "Clear cross-functional communication",
-        "Mentorship"
+        "Mentorship",
+        "Technical leadership",
+        "Code review",
+        "Cross-team coordination",
+        "Threading",
+        "Binary parsing",
+        "Azure Blob Storage",
+        "Streaming"
       ]
     },
     {
@@ -126,7 +137,11 @@
       "Metadata automation",
       "dbt Cloud",
       "Power BI",
-      "SAS"
+      "SAS",
+      "Snowflake API",
+      "Zero-copy clones",
+      "Mainframe PD binary",
+      "Streaming"
     ],
     "software_engineering": [
       "Python",
@@ -135,7 +150,9 @@
       "Flask",
       "API design",
       "Internal tooling",
-      "Automation"
+      "Automation",
+      "Threading",
+      "Binary parsing"
     ],
     "infrastructure_delivery": [
       "GCP Cloud Run",
@@ -148,6 +165,7 @@
       "CI/CD (GitHub Actions)",
       "Containerization",
       "Azure ADP",
+      "Azure Blob Storage",
       "Documentation"
     ],
     "applied_ai_automation": [
@@ -175,7 +193,10 @@
       "Jira",
       "Analytical mindset",
       "Clear cross-functional communication",
-      "Mentorship"
+      "Mentorship",
+      "Technical leadership",
+      "Code review",
+      "Cross-team coordination"
     ]
   },
   "experience": [
@@ -189,7 +210,76 @@
           "timeframe": "Jul 2025 - Present",
           "bullets": [
             {
-              "text": "Built an AI-driven column matching pipeline that chains LLM API calls with live SAS and Snowflake connections — parsing metadata, sampling row-level values, and validating matches programmatically — achieving 93% average accuracy (with several tables at 100%), where residual mismatches traced to upstream data quality issues rather than pipeline logic. Reduced per-table mapping effort from days to minutes.",
+              "text": "Acted as Allianz-side technical lead for a 10+ person IBM delivery team on the SAS-to-Snowflake migration — owned acceptance criteria, dbt code review, and model-design review; coordinated across IBM, SAS, IT, and the Data Office; mentored a junior engineer on the Allianz side.",
+              "project": "SAS to Snowflake migration",
+              "skills": [
+                "Technical leadership",
+                "Code review",
+                "Cross-team coordination",
+                "Mentorship",
+                "Clear cross-functional communication",
+                "dbt",
+                "Snowflake",
+                "SAS",
+                "Large-scale migrations"
+              ]
+            },
+            {
+              "text": "Defined the SAS team's tasks throughout the migration and gave them targeted dbt/Snowflake training as needed, enabling them to validate parity from the SAS side.",
+              "project": "SAS to Snowflake migration",
+              "skills": [
+                "Cross-team coordination",
+                "Mentorship",
+                "Clear cross-functional communication",
+                "dbt",
+                "Snowflake",
+                "SAS",
+                "Data validation",
+                "Parity testing"
+              ]
+            },
+            {
+              "text": "Owned technical decisions on pstag, the Data Office's upstream source: reviewed pull requests, validated results against data, set the team's PR standards, and proposed enhancements to the project.",
+              "project": "pstag ownership",
+              "skills": [
+                "Technical leadership",
+                "Code review",
+                "dbt",
+                "Snowflake",
+                "Data validation",
+                "Data quality"
+              ]
+            },
+            {
+              "text": "Defined the SAS-migration source-loading strategy and co-designed new ingestion processes with IT for previously missing sources.",
+              "project": "SAS to Snowflake migration",
+              "skills": [
+                "SAS",
+                "Snowflake",
+                "Large-scale migrations",
+                "Data modeling",
+                "Cross-team coordination",
+                "ETL pipelines"
+              ]
+            },
+            {
+              "text": "Built a generic Python parser for the mainframe PD binary format after spotting data loss in the prior CSV ingestion. Switched input to binary while keeping CSV output, added batching and structured logging, and moved per-table config to JSON files in the repo so changes ship through version control instead of IT tickets.",
+              "project": "PD binary parser",
+              "skills": [
+                "Python",
+                "Mainframe PD binary",
+                "Binary parsing",
+                "ETL pipelines",
+                "Batch processing",
+                "Automation",
+                "Internal tooling",
+                "JSON",
+                "CSV",
+                "Data quality"
+              ]
+            },
+            {
+              "text": "Built an AI-driven SAS↔Snowflake column matching pipeline — chains LLM API calls with live SAS and Snowflake connections, parses metadata, samples row-level values, and validates matches programmatically. Reached 93% average accuracy and became what the team uses to validate the migration and review dbt developers' PRs.",
               "project": "AI column matching pipeline",
               "skills": [
                 "LLM API chaining",
@@ -201,11 +291,25 @@
                 "Snowflake",
                 "Data validation",
                 "Parity testing",
+                "Automation",
+                "Code review"
+              ]
+            },
+            {
+              "text": "Crawled SAS server directories to extract transformation logic from 1,000+ SAS files, cataloguing reusable code to accelerate the migration of legacy pipelines to dbt on Snowflake.",
+              "project": "SAS to Snowflake migration",
+              "skills": [
+                "SAS",
+                "dbt",
+                "Snowflake",
+                "Large-scale migrations",
+                "Data modeling",
+                "Python",
                 "Automation"
               ]
             },
             {
-              "text": "Migrated the pstag project from script-based logic to dbt models and YAML configurations; programmatically generated ~660 YAML files and 2,000+ SQL models using Python and Snowflake metadata.",
+              "text": "Migrated pstag from script-based logic to dbt models and YAML configurations; programmatically generated ~660 YAML files and 2,000+ SQL models using Python and Snowflake metadata.",
               "project": "pstag migration",
               "skills": [
                 "dbt",
@@ -230,6 +334,32 @@
               ]
             },
             {
+              "text": "Built an API over Azure Blob Storage that streams and analyzes 20+ GB files in place (no full download), producing cross-table data-quality reports in seconds and flagging source issues to fix at the source.",
+              "project": "Azure Blob streaming API",
+              "skills": [
+                "Azure Blob Storage",
+                "Streaming",
+                "Python",
+                "API design",
+                "Data quality",
+                "Internal tooling",
+                "Automation"
+              ]
+            },
+            {
+              "text": "Automated recurring data-engineering work against the Snowflake API at scale — zero-copy clones for source-specific schemas, parallel test/data extraction, and Python-threaded data manipulation with structured logging.",
+              "project": "Snowflake API automation",
+              "skills": [
+                "Snowflake API",
+                "Snowflake",
+                "Zero-copy clones",
+                "Threading",
+                "Python",
+                "Automation",
+                "Internal tooling"
+              ]
+            },
+            {
               "text": "Designed and implemented an automated documentation system that extracts and structures raw-level metadata from multi-format, multi-language source files into table-based documentation across three languages.",
               "project": "multi-language documentation automation",
               "skills": [
@@ -246,19 +376,6 @@
               ]
             },
             {
-              "text": "Crawled SAS server directories to extract transformation logic from 1,000+ SAS files, cataloguing reusable code to accelerate the migration of legacy pipelines to dbt on Snowflake.",
-              "project": "SAS to Snowflake migration",
-              "skills": [
-                "SAS",
-                "dbt",
-                "Snowflake",
-                "Large-scale migrations",
-                "Data modeling",
-                "Python",
-                "Automation"
-              ]
-            },
-            {
               "text": "Co-designed and implemented reusable dbt macros for automated table and view generation, standardizing transformations across schemas.",
               "project": "dbt macro library",
               "skills": [
@@ -269,7 +386,18 @@
               ]
             },
             {
-              "text": "Introduced LLM API chaining and Claude Code as engineering tools within the data office, delivering working demos for data engineering and data science use cases, writing setup documentation, and driving adoption across the team.",
+              "text": "Operate dbt Cloud as the team's orchestration layer: scheduled jobs, ad-hoc runs, and CI/CD pipelines for development and production deployments.",
+              "project": "dbt Cloud operations",
+              "skills": [
+                "dbt",
+                "dbt Cloud",
+                "CI/CD (GitHub Actions)",
+                "Automation",
+                "Internal tooling"
+              ]
+            },
+            {
+              "text": "Got Claude Code adopted across the Data Office: built working demos for data engineering and data science, and authored an end-to-end setup guide (permissions, configuration, VS Code integration) now used by engineers in multiple Allianz country offices.",
               "project": "AI tooling adoption",
               "skills": [
                 "Claude Code",
@@ -281,42 +409,15 @@
               ]
             },
             {
-              "text": "Supported dbt Cloud operations by building developer-facing macros, managing jobs and executions, and investigating production data quality and pipeline issues.",
-              "project": "dbt Cloud operations",
-              "skills": [
-                "dbt",
-                "dbt Cloud",
-                "Runtime checks",
-                "Data quality",
-                "Automation"
-              ]
-            },
-            {
-              "text": "Enabled local dbt-core development in a highly regulated environment through internal developer documentation.",
-              "project": "dbt-core enablement",
-              "skills": [
-                "dbt",
-                "Internal tooling",
-                "Clear cross-functional communication",
-                "Documentation"
-              ]
-            },
-            {
-              "text": "Mentored a junior engineer on technical delivery, coordinating task allocation and providing guidance on implementation decisions alongside individual engineering work.",
-              "project": "team mentorship",
+              "text": "Helped peer technical leads on other teams build their own agents on Allianz's internal AI platform and adopt Snowflake-API automation patterns for their projects.",
+              "project": "cross-team enablement",
               "skills": [
                 "Mentorship",
                 "Clear cross-functional communication",
-                "Analytical mindset"
-              ]
-            },
-            {
-              "text": "Regularly reported progress and design trade-offs to the manager, aligning data engineering work with downstream consumer requirements.",
-              "project": "stakeholder alignment",
-              "skills": [
-                "Clear cross-functional communication",
-                "Analytical mindset",
-                "Jira"
+                "Cross-team coordination",
+                "AI-assisted development",
+                "Snowflake API",
+                "Internal tooling"
               ]
             }
           ]
