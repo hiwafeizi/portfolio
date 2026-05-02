@@ -1,5 +1,20 @@
 [
   {
+    "slug": "recursive-function-unblocked-allianz-developers",
+    "title": "How a Recursive Function Unblocked 10+ Developers at Allianz",
+    "date": "2026-05-02",
+    "summary": "Thousands of SAS scripts. A clunky viewer. Weeks of permission tickets. Then a tiny recursive Python script that walked the tree once and put every file in front of every developer in VS Code.",
+    "tags": [
+      "Python",
+      "Recursion",
+      "Internal tooling",
+      "SAS",
+      "AI-assisted development"
+    ],
+    "readTime": "3 min",
+    "cover": null
+  },
+  {
     "slug": "half-stupid-minecraft-agents",
     "title": "Half Stupid: Teaching Minecraft Agents to Survive From Scratch",
     "date": "2026-04-12",
