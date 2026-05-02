@@ -239,6 +239,7 @@ section {
 .summary-text {
     color: var(--muted);
     font-size: 1.05rem;
+    white-space: pre-line;
 }
 
 .hero-panel ul {
