@@ -4,6 +4,10 @@
 
 ---
 
+**TL;DR.** Thousands of SAS scripts lived in a production filesystem behind individual permission tickets and a search-less viewer. 10+ developers needed to read them as part of a SAS-to-dbt migration. A small recursive Python script walked the tree, dumped every file to JSON, and rebuilt the structure inside our team's Git repo — putting every script in front of every developer in VS Code with full search and Git history. A few hours of work erased weeks of recurring friction.
+
+---
+
 There were thousands of SAS scripts in production. 10+ developers needed to read them. The official viewer was clunky, getting access took weeks, and grep didn't exist.
 
 A recursive function fixed it.
