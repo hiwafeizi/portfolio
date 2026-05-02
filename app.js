@@ -278,7 +278,6 @@ const loadResume = async () => {
 
     document.title = data.name || "Hiwa Feizi";
     setText("hero-name", data.name);
-    setText("hero-subtitle", data.tagline || "Designing scalable data systems, full-stack products, and applied AI automation.");
     setText("hero-location", data.location);
     setText("hero-email", data.email);
     setText("summary-text", data.summary);
@@ -333,8 +332,8 @@ const loadResume = async () => {
         }
     });
 
-    if (skillsContainer && Array.isArray(data.domains)) {
-        const cards = data.domains.map((domain) => createDomainCard(domain, (skill) => {
+    if (skillsContainer && Array.isArray(data.skills)) {
+        const cards = data.skills.map((domain) => createDomainCard(domain, (skill) => {
             openEvidence(skill);
         }));
         renderCards(skillsContainer, cards);
