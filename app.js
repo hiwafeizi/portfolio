@@ -41,10 +41,13 @@ const renderCards = (container, cards) => {
     });
 };
 
-const createSkillBubble = (skill, onClick) => {
+const createSkillBubble = (skill, onClick, domainId) => {
     const button = document.createElement("button");
     button.type = "button";
     button.className = "skill-chip";
+    if (domainId) {
+        button.dataset.domain = domainId;
+    }
     button.textContent = skill;
     button.addEventListener("click", () => onClick(skill, button));
     return button;
@@ -333,10 +336,27 @@ const loadResume = async () => {
     });
 
     if (skillsContainer && Array.isArray(data.domains)) {
-        const cards = data.domains.map((domain) => createDomainCard(domain, (skill) => {
-            openEvidence(skill);
-        }));
-        renderCards(skillsContainer, cards);
+        skillsContainer.innerHTML = "";
+
+        const legend = document.createElement("div");
+        legend.className = "skill-legend";
+        data.domains.forEach((domain) => {
+            const item = document.createElement("span");
+            item.className = "skill-legend-item";
+            item.dataset.domain = domain.id;
+            item.textContent = domain.label;
+            legend.appendChild(item);
+        });
+        skillsContainer.appendChild(legend);
+
+        const cloud = document.createElement("div");
+        cloud.className = "skill-cloud";
+        data.domains.forEach((domain) => {
+            (domain.skills || []).forEach((skill) => {
+                cloud.appendChild(createSkillBubble(skill, openEvidence, domain.id));
+            });
+        });
+        skillsContainer.appendChild(cloud);
     }
 
     const experienceContainer = document.getElementById("experience-container");

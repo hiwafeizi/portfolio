@@ -308,35 +308,74 @@ section {
 }
 
 .domain-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    display: block;
 }
 
-.domain-card {
-    background: var(--card);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(11, 27, 36, 0.1);
-    box-shadow: 0 12px 24px rgba(14, 86, 105, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    min-width: 0;
+.skill-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.domain-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 24px 40px rgba(14, 86, 105, 0.14);
+.skill-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--muted);
 }
 
-.domain-card h3 {
-    margin-bottom: 0.6rem;
-    min-height: 2.6rem;
-    line-height: 1.2;
+.skill-legend-item::before {
+    content: "";
+    display: inline-block;
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 50%;
+    background: var(--teal);
 }
 
-.domain-card p {
-    min-height: 3.2rem;
-    line-height: 1.5;
+.skill-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.skill-legend-item[data-domain="languages"]::before { background: #0e5669; }
+.skill-chip[data-domain="languages"] {
+    background: rgba(14, 86, 105, 0.12);
+    border-color: rgba(14, 86, 105, 0.3);
+}
+
+.skill-legend-item[data-domain="data_warehouse"]::before { background: #14a4a6; }
+.skill-chip[data-domain="data_warehouse"] {
+    background: rgba(20, 164, 166, 0.12);
+    border-color: rgba(20, 164, 166, 0.3);
+}
+
+.skill-legend-item[data-domain="cloud_devops"]::before { background: #f4b942; }
+.skill-chip[data-domain="cloud_devops"] {
+    background: rgba(244, 185, 66, 0.18);
+    border-color: rgba(244, 185, 66, 0.5);
+}
+
+.skill-legend-item[data-domain="software_engineering"]::before { background: #f26b4f; }
+.skill-chip[data-domain="software_engineering"] {
+    background: rgba(242, 107, 79, 0.12);
+    border-color: rgba(242, 107, 79, 0.3);
+}
+
+.skill-legend-item[data-domain="ai_ml"]::before { background: #7c5cff; }
+.skill-chip[data-domain="ai_ml"] {
+    background: rgba(124, 92, 255, 0.1);
+    border-color: rgba(124, 92, 255, 0.3);
+}
+
+.skill-legend-item[data-domain="working_style"]::before { background: #5c6a72; }
+.skill-chip[data-domain="working_style"] {
+    background: rgba(92, 106, 114, 0.12);
+    border-color: rgba(92, 106, 114, 0.3);
 }
 
 .skill-chip-list {
@@ -806,10 +845,6 @@ section {
         align-items: flex-start;
         gap: 0.8rem;
     }
-
-    .domain-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 @media (max-width: 600px) {
@@ -824,10 +859,6 @@ section {
     .nav-links {
         gap: 0.6rem;
         font-size: 0.85rem;
-    }
-
-    .domain-grid {
-        grid-template-columns: 1fr;
     }
 
     .hero-links {
