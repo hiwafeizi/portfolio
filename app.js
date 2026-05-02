@@ -332,8 +332,8 @@ const loadResume = async () => {
         }
     });
 
-    if (skillsContainer && Array.isArray(data.skills)) {
-        const cards = data.skills.map((domain) => createDomainCard(domain, (skill) => {
+    if (skillsContainer && Array.isArray(data.domains)) {
+        const cards = data.domains.map((domain) => createDomainCard(domain, (skill) => {
             openEvidence(skill);
         }));
         renderCards(skillsContainer, cards);
