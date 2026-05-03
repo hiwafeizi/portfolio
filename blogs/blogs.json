@@ -18,7 +18,7 @@
     "slug": "half-stupid-minecraft-agents",
     "title": "Half Stupid: Teaching Minecraft Agents to Survive From Scratch",
     "date": "2026-04-12",
-    "summary": "Four AI agents dropped into Minecraft with no instructions, no labels, and no pre-built knowledge. They learned to eat, developed personalities, and formed social dynamics. Then I hit the ceiling and decided to build the whole world from scratch in Rust.",
+    "summary": "Four AI agents dropped into Minecraft with no instructions, no labels, and no pre-built knowledge. They learned to eat, developed personalities, and formed social dynamics. Stage 1 of a brainstem-up survival experiment, complete — with a clear lesson about the platform limits any further stages would need to push past.",
     "tags": [
       "Reinforcement learning",
       "Neural networks",

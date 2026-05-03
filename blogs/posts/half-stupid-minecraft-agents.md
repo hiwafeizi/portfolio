@@ -212,6 +212,12 @@ The reflex layer alone was enough for Stage 1. After ~1,950 episodes, all four a
 
 The context layer helped sustain eating actions across ticks, but the core survival behavior lives in the reflex. A 557->32->23 network with 25,000 parameters, trained on nothing but +1 alive and -10,000 dead, learned to keep itself alive. That's what a brainstem is supposed to do.
 
+## What's next
+
+Stage 1 is closed. The question — can a reflex-grade network learn to keep itself alive on raw IDs and survival reward alone — has its answer. Eating, embedding structure, and personality differentiation all emerged. Poison classification did not, and the architecture predicts why.
+
+The bottleneck for any future stages is the substrate, not the algorithm. Minecraft/Malmo caps you at ~4,000 ticks per second and four concurrent agents per machine. Memory, fear, planning, and the rest of the brain stack each need orders of magnitude more training throughput than that ceiling allows. Continuing the brainstem-up project past this point would mean rebuilding the world on a more efficient substrate, one designed for training at scale instead of human gameplay — a separate project with its own design choices.
+
 ---
 
 
