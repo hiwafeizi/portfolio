@@ -12,6 +12,10 @@ I called the project "Half Stupid" because the goal isn't artificial general int
 
 This is the story of Stage 1: learning to eat.
 
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7449205929058656256" height="600" width="100%" frameborder="0" allowfullscreen="" title="Four AI agents trying to survive in Minecraft"></iframe>
+
+*Embed not loading? [Watch on LinkedIn](https://www.linkedin.com/posts/hiwa-feizi_i-dropped-4-ai-agents-into-minecraft-with-ugcPost-7449205929058656256-Tub2).*
+
 ## Why Minecraft? Why Malmo?
 
 Minecraft is one of the few environments that gives you everything at once — 3D space, physics, inventory, crafting, other agents, day/night cycles, hunger, health, combat. It's complex enough to need real intelligence but structured enough to control.
