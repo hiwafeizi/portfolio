@@ -225,6 +225,7 @@
             {
               "text": "Built an AI-driven SAS↔Snowflake column matching pipeline: chains LLM API calls with live SAS and Snowflake connections, parses metadata, samples row-level values, and validates matches programmatically. Reached 93% average accuracy and became what the team uses to validate the migration and review dbt developers' PRs.",
               "project": "AI column matching pipeline",
+              "blog": "ai-column-matching-pipeline",
               "skills": [
                 "LLM API chaining",
                 "Prompt engineering",
@@ -242,6 +243,7 @@
             {
               "text": "Crawled SAS server directories to extract transformation logic from 1,000+ SAS files, cataloguing reusable code to accelerate the migration of legacy pipelines to dbt on Snowflake.",
               "project": "SAS to Snowflake migration",
+              "blog": "recursive-function-unblocked-allianz-developers",
               "skills": [
                 "SAS",
                 "dbt",
@@ -269,6 +271,7 @@
             {
               "text": "Built a validation framework using dbt macros and runtime checks, achieving 100 percent row- and column-level parity against production for daily data loads exceeding 50 million rows.",
               "project": "pstag migration",
+              "blog": "dbt-migration-validation",
               "skills": [
                 "dbt",
                 "Data validation",
@@ -306,6 +309,7 @@
             {
               "text": "Designed and implemented an automated documentation system that extracts and structures raw-level metadata from multi-format, multi-language source files into table-based documentation across three languages.",
               "project": "multi-language documentation automation",
+              "blog": "automating-multilingual-documentation",
               "skills": [
                 "Metadata automation",
                 "Automation",
@@ -427,6 +431,7 @@
             {
               "text": "Designed and built an AI-assisted recruitment platform enabling Dutch businesses to manage job postings and applications without full HR systems.",
               "project": "NeoCru platform",
+              "blog": "neocru-is-dead",
               "skills": [
                 "Python",
                 "Flask",
@@ -579,6 +584,7 @@
       "bullets": [
         {
           "text": "Built a dual-timescale neural network (reflex layer at every tick, context layer every 5 ticks) using shared learned embeddings across 2048 block/item/entity types, processing 557 raw inputs into 23 actions with zero human-labeled knowledge.",
+          "blog": "half-stupid-minecraft-agents",
           "skills": [
             "Neural networks",
             "Python",

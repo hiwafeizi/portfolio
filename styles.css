@@ -621,6 +621,25 @@ section {
     color: var(--ocean);
 }
 
+.bullet-blog-link {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(11, 27, 36, 0.18);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.bullet-blog-link:hover {
+    border-color: var(--sun);
+    color: var(--ocean);
+}
+
 /* Recommendations */
 .recommendations .container {
     --rec-media-height: auto;
