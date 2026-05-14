@@ -4,7 +4,7 @@
 
 ---
 
-**TL;DR.** Thousands of SAS scripts lived in a production filesystem behind individual permission tickets and a search-less viewer. 10+ developers needed to read them as part of a SAS-to-dbt migration. A small recursive Python script walked the tree, dumped every file to JSON, and rebuilt the structure inside our team's Git repo — putting every script in front of every developer in VS Code with full search and Git history. A few hours of work erased weeks of recurring friction.
+**TL;DR.** Thousands of SAS scripts lived in a production filesystem behind individual permission tickets and a search-less viewer. 10+ developers needed to read them as part of a SAS-to-dbt migration. A small recursive Python script walked the tree, dumped every file to JSON, and rebuilt the structure inside our team's Git repo, putting every script in front of every developer in VS Code with full search and Git history. A few hours of work erased weeks of recurring friction.
 
 ---
 
@@ -30,7 +30,7 @@ So even after permissions cleared, every "let me check how this SAS program hand
 
 ## The bottleneck wasn't technical
 
-The files existed. The filesystem was reachable from within Allianz's network with the access I had. **The friction was institutional** — the permissions process for the official viewer, the limitations of the viewer itself, the fact that engineers had to use a tool that wasn't their normal environment.
+The files existed. The filesystem was reachable from within Allianz's network with the access I had. **The friction was institutional**: the permissions process for the official viewer, the limitations of the viewer itself, the fact that engineers had to use a tool that wasn't their normal environment.
 
 So the right move wasn't to fight the permissions process. It was to read the files once, extract them into our team's space, and give everyone instant access through tools they already used.
 

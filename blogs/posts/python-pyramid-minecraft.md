@@ -6,7 +6,7 @@
 
 Egyptians spent decades dragging limestone across the desert. I spent a few hours writing Python and let the computer do the dragging. Jokes on them.
 
-I wrote a script that procedurally generates a full pyramid complex in Minecraft — pyramid, walls, moat, grand entrance, interior halls, the works. No blocks placed by hand. Just math, loops, and questionable priorities.
+I wrote a script that procedurally generates a full pyramid complex in Minecraft: pyramid, walls, moat, grand entrance, interior halls, the works. No blocks placed by hand. Just math, loops, and questionable priorities.
 
 ---
 

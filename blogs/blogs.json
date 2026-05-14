@@ -1,5 +1,31 @@
 [
   {
+    "slug": "automating-multilingual-documentation",
+    "title": "No Docs, Just Data: Automating Documentation Across 80 Multilingual Files",
+    "date": "2026-05-14",
+    "summary": "At enterprise scale, data documentation lives across PDFs, Word, Excel, and PowerPoint in multiple languages with embedded images and charts. I built a pipeline that consolidates 80 such files into structured documentation cross-referenced against the live Snowflake schema, with AI assumptions kept separate from verified facts and every claim traceable to its source.",
+    "tags": [
+      "Python",
+      "OpenAI API",
+      "Document parsing",
+      "Multilingual",
+      "Translation",
+      "Computer vision",
+      "Snowflake",
+      "Snowflake API",
+      "Data governance",
+      "Data quality",
+      "Automation",
+      "AI-assisted development",
+      "Prompt engineering",
+      "LLM API chaining",
+      "JSON",
+      "Excel"
+    ],
+    "readTime": "7 min",
+    "cover": null
+  },
+  {
     "slug": "recursive-function-unblocked-allianz-developers",
     "title": "How a Recursive Function Unblocked 10+ Developers at Allianz",
     "date": "2026-05-02",
@@ -23,7 +49,7 @@
     "slug": "half-stupid-minecraft-agents",
     "title": "Half Stupid: Teaching Minecraft Agents to Survive From Scratch",
     "date": "2026-04-12",
-    "summary": "Four AI agents dropped into Minecraft with no instructions, no labels, and no pre-built knowledge. They learned to eat, developed personalities, and formed social dynamics. Stage 1 of a brainstem-up survival experiment, complete — with a clear lesson about the platform limits any further stages would need to push past.",
+    "summary": "Four AI agents dropped into Minecraft with no instructions, no labels, and no pre-built knowledge. They learned to eat, developed personalities, and formed social dynamics. Stage 1 of a brainstem-up survival experiment, complete, with a clear lesson about the platform limits any further stages would need to push past.",
     "tags": [
       "Reinforcement learning",
       "Neural networks",
@@ -63,7 +89,7 @@
     "slug": "python-pyramid-minecraft",
     "title": "Egyptians Built Pyramids in Decades. I Built a Cooler One with Python in a Few Hours.",
     "date": "2026-04-04",
-    "summary": "I wrote a Python script that generates a full pyramid complex inside Minecraft — central pyramid, walls, moat, entrance corridor, and interior halls. The whole thing took a few hours. The Egyptians needed 20 years.",
+    "summary": "I wrote a Python script that generates a full pyramid complex inside Minecraft: central pyramid, walls, moat, entrance corridor, and interior halls. The whole thing took a few hours. The Egyptians needed 20 years.",
     "tags": [
       "Python",
       "Minecraft",
