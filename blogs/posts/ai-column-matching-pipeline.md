@@ -167,4 +167,4 @@ This changed how I think about engineering. The bottleneck isn't writing code an
 
 ---
 
-*Tags: LLM API chaining · SAS · Snowflake · Data validation · Python · Automation · AI-assisted development · Prompt engineering · OpenAI API · Parity testing*
+*Tags: LLM API chaining · SAS · Snowflake · Data validation · Python · Automation · AI-assisted development · Prompt engineering · OpenAI API · Parity testing · Migration · Schema matching · SQL · Mainframe*

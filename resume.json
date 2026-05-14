@@ -143,17 +143,28 @@
           "timeframe": "Jul 2025 - Present",
           "bullets": [
             {
-              "text": "Acted as Allianz-side technical lead for a 10+ person IBM delivery team on the SAS-to-Snowflake migration: owned acceptance criteria, dbt code review, and model-design review; coordinated across IBM, SAS, IT, and the Data Office; mentored a junior engineer on the Allianz side.",
+              "text": "Allianz technical lead for a 10+ person IBM delivery team on the SAS-to-Snowflake migration: embedded in their daily standups, single escalation point for IBM-side issues, and the technical authority their design decisions ran through.",
               "project": "SAS to Snowflake migration",
               "skills": [
                 "Technical leadership",
-                "Code review",
                 "Cross-team coordination",
-                "Mentorship",
                 "Clear cross-functional communication",
+                "Large-scale migrations",
+                "SAS",
+                "Snowflake"
+              ]
+            },
+            {
+              "text": "Drove validation and data-movement design changes IBM adopted; owned acceptance criteria, dbt code review, and model-design review; coordinated across IBM, the SAS team, IT, and the Data Office; mentored a junior Allianz engineer.",
+              "project": "SAS to Snowflake migration",
+              "skills": [
+                "Code review",
+                "Mentorship",
+                "Cross-team coordination",
                 "dbt",
                 "Snowflake",
                 "SAS",
+                "Data validation",
                 "Large-scale migrations"
               ]
             },

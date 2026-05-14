@@ -108,4 +108,4 @@ A separate validation step that runs after the pipeline, or on a schedule, or wh
 
 ---
 
-*Tags: dbt · Snowflake · Data validation · Parity testing · SQL · Data quality · Automation · Metadata automation*
+*Tags: dbt · Snowflake · Data validation · Parity testing · SQL · Data quality · Automation · Metadata automation · Jinja · Migration · Data engineering*
