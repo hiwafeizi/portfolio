@@ -2,7 +2,7 @@
   {
     "slug": "linkedin-meme-factory",
     "title": "200 Memes a Day, Hands-Off: A LinkedIn Content Pipeline",
-    "date": "2026-02-20",
+    "date": "2026-06-14",
     "summary": "A Python pipeline that generates niche-specific memes with Grok, validates each batch with a second LLM pass, renders 20 PIL templates, and posts on a schedule via GCP Cloud Functions and Cloud Tasks. Two execution modes (eager pre-render and lazy render-on-demand) share one codebase. Ran it on 3 LinkedIn pages until LinkedIn capped me from creating more.",
     "tags": [
       "Python",

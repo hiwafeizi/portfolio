@@ -13,7 +13,6 @@
 Same pipeline, two of the three niches: `devhumormeme` and `financebromeme`.
 
 <div class="linkedin-embeds">
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7462192290648924161" frameborder="0" allowfullscreen="" title="DevHumor — Confessing with a smile"></iframe>
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461373147729133568" frameborder="0" allowfullscreen="" title="DevHumor — Turning glitches into gold standards"></iframe>
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7460380356593106944" frameborder="0" allowfullscreen="" title="DevHumor — Activity 7460380356593106944"></iframe>
 <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7462114780913373184" frameborder="0" allowfullscreen="" title="FinanceBro — Trusty automation until it isn't"></iframe>
