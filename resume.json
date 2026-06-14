@@ -98,6 +98,7 @@
       "description": "LLM tooling, ML libraries, and applied AI.",
       "skills": [
         "OpenAI API",
+        "Grok API",
         "Claude Code",
         "Transformers",
         "PyTorch",
@@ -578,6 +579,43 @@
     }
   ],
   "projects": [
+    {
+      "name": "LinkedIn Meme Factory - Automated Content Pipeline",
+      "timeframe": "Feb 2026 - Jun 2026",
+      "bullets": [
+        {
+          "text": "Built a Python pipeline that generates niche-specific LinkedIn meme content with Grok, validates each batch through a second LLM pass against a per-template humor model in a 1,000-line catalog, and renders 20 PIL meme templates with slot-aware text fitting, rotation, and stroke.",
+          "blog": "linkedin-meme-factory",
+          "skills": [
+            "Python",
+            "Grok API",
+            "LLM API chaining",
+            "Prompt engineering",
+            "AI-assisted development",
+            "JSON",
+            "Automation"
+          ]
+        },
+        {
+          "text": "Designed two execution modes sharing one codebase: eager pre-rendering with direct Cloud Tasks scheduling, and lazy storage of meme copy in Postgres with rendering on demand inside a GCP Cloud Function. Lazy mode used a self-perpetuating task-loader Cloud Function that queues a day of Cloud Tasks then schedules itself for tomorrow.",
+          "skills": [
+            "PostgreSQL",
+            "GCP Cloud Functions",
+            "GCP Cloud Tasks",
+            "GCP Cloud Storage",
+            "Internal tooling",
+            "Automation"
+          ]
+        },
+        {
+          "text": "Ran the pipeline across 3 LinkedIn business pages on a pre-registered 100-day window, posting twice a day. Total Grok cost: $0.34. Engagement was effectively zero; scale was capped because LinkedIn does not allow one personal account to spin up more business pages, blocking the 10-niche fan-out the architecture was built for.",
+          "skills": [
+            "Analytical mindset",
+            "Automation"
+          ]
+        }
+      ]
+    },
     {
       "name": "Half Stupid - Teaching Minecraft Agents to Survive From Scratch",
       "timeframe": "Apr 2025",

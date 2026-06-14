@@ -1,5 +1,27 @@
 [
   {
+    "slug": "linkedin-meme-factory",
+    "title": "200 Memes a Day, Hands-Off: A LinkedIn Content Pipeline",
+    "date": "2026-02-20",
+    "summary": "A Python pipeline that generates niche-specific memes with Grok, validates each batch with a second LLM pass, renders 20 PIL templates, and posts on a schedule via GCP Cloud Functions and Cloud Tasks. Two execution modes (eager pre-render and lazy render-on-demand) share one codebase. Ran it on 3 LinkedIn pages until LinkedIn capped me from creating more.",
+    "tags": [
+      "Python",
+      "Grok API",
+      "LLM API chaining",
+      "Prompt engineering",
+      "AI-assisted development",
+      "Automation",
+      "Internal tooling",
+      "JSON",
+      "PostgreSQL",
+      "GCP Cloud Functions",
+      "GCP Cloud Tasks",
+      "GCP Cloud Storage"
+    ],
+    "readTime": "11 min",
+    "cover": null
+  },
+  {
     "slug": "automating-multilingual-documentation",
     "title": "No Docs, Just Data: Automating Documentation Across 80 Multilingual Files",
     "date": "2026-05-14",
