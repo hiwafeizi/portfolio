@@ -13,10 +13,10 @@
 Same pipeline, two of the three niches: `devhumormeme` and `financebromeme`.
 
 <div class="linkedin-embeds">
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461373147729133568" frameborder="0" allowfullscreen="" title="DevHumor — Turning glitches into gold standards"></iframe>
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7460380356593106944" frameborder="0" allowfullscreen="" title="DevHumor — Activity 7460380356593106944"></iframe>
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7462114780913373184" frameborder="0" allowfullscreen="" title="FinanceBro — Trusty automation until it isn't"></iframe>
-<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7462044610916282369" frameborder="0" allowfullscreen="" title="FinanceBro — Auditing evolution"></iframe>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7461373147729133568" width="504" height="700" frameborder="0" allowfullscreen="" title="DevHumor — Turning glitches into gold standards"></iframe>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7460380356593106944" width="504" height="700" frameborder="0" allowfullscreen="" title="DevHumor — Activity 7460380356593106944"></iframe>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7462114780913373184" width="504" height="700" frameborder="0" allowfullscreen="" title="FinanceBro — Trusty automation until it isn't"></iframe>
+<iframe src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7462044610916282369" width="504" height="700" frameborder="0" allowfullscreen="" title="FinanceBro — Auditing evolution"></iframe>
 </div>
 
 ## Why I built it
