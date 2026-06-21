@@ -1,5 +1,25 @@
 [
   {
+    "slug": "how-to-actually-use-ai",
+    "title": "How to Actually Use AI (It's Not That Complicated)",
+    "date": "2026-06-21",
+    "summary": "Three principles cut through the prompt engineering noise: mindset, context, and clarity on output. Applied across personal use, a team chatbot for 20+ data engineers, and a workflow that went from 8 hours to 5 minutes plus validation.",
+    "tags": [
+      "Prompt engineering",
+      "AI-assisted development",
+      "Claude Code",
+      "LLM API chaining",
+      "Mentorship",
+      "Internal tooling",
+      "Automation",
+      "Documentation",
+      "dbt",
+      "Snowflake"
+    ],
+    "readTime": "11 min",
+    "cover": null
+  },
+  {
     "slug": "linkedin-meme-factory",
     "title": "200 Memes a Day, Hands-Off: A LinkedIn Content Pipeline",
     "date": "2026-06-14",
