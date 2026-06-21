@@ -100,6 +100,7 @@
         "OpenAI API",
         "Grok API",
         "Claude Code",
+        "GitHub Copilot",
         "Transformers",
         "PyTorch",
         "scikit-learn",
@@ -348,7 +349,6 @@
             {
               "text": "Got Claude Code adopted across the Data Office: built a shared data-engineering agent with council-style review and plan-before-code baked into its context (used by 20+ engineers), working demos for data engineering and data science, and an end-to-end setup guide (permissions, configuration, VS Code integration) used by engineers in multiple Allianz country offices.",
               "project": "AI tooling adoption",
-              "blog": "how-to-actually-use-ai",
               "skills": [
                 "Claude Code",
                 "AI-assisted development",
@@ -363,11 +363,11 @@
             {
               "text": "Built a context-locked AI workflow for onboarding new sources to the pipeline: tasks estimated at 8 hours now take 5 minutes of AI work plus 5 to 55 minutes of validation. Predefined deliverables (three SQL files, one YAML, dbt commands, validation queries) make the result identical run to run and let engineers with no prior pipeline knowledge debug it.",
               "project": "AI source onboarding automation",
-              "blog": "how-to-actually-use-ai",
+              "blog": "how-to-automate-your-job",
               "skills": [
                 "AI-assisted development",
                 "Prompt engineering",
-                "Claude Code",
+                "GitHub Copilot",
                 "Automation",
                 "Internal tooling",
                 "dbt",

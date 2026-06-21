@@ -1,22 +1,24 @@
 [
   {
-    "slug": "how-to-actually-use-ai",
-    "title": "How to Actually Use AI (It's Not That Complicated)",
+    "slug": "how-to-automate-your-job",
+    "title": "How to automate your job (still employed btw)",
     "date": "2026-06-21",
-    "summary": "Three principles cut through the prompt engineering noise: mindset, context, and clarity on output. Applied across personal use, a team chatbot for 20+ data engineers, and a workflow that went from 8 hours to 5 minutes plus validation.",
+    "summary": "How I turned an 8-hour source-onboarding task into a Copilot prompt that anyone on the team can run, with the dbt parse trick and Snowflake validation baked in. The speed wasn't the point: the knowledge moving out of a few people's heads and into the prompt was.",
     "tags": [
-      "Prompt engineering",
+      "GitHub Copilot",
       "AI-assisted development",
-      "Claude Code",
-      "LLM API chaining",
-      "Mentorship",
-      "Internal tooling",
+      "Prompt engineering",
       "Automation",
+      "Internal tooling",
       "Documentation",
+      "Mentorship",
       "dbt",
-      "Snowflake"
+      "Snowflake",
+      "SQL",
+      "YAML",
+      "CSV"
     ],
-    "readTime": "11 min",
+    "readTime": "4 min",
     "cover": null
   },
   {
