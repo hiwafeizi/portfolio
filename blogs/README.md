@@ -37,6 +37,15 @@ Every blog post follows this structure:
 - Every post must have a corresponding entry in `blogs/blogs.json` with: slug, title, date, summary, tags, readTime, cover.
 - Tags must match skill names from `resume.json` exactly. This is how blog posts link to portfolio skills.
 
+## Standalone HTML posts
+
+Some posts are self-contained interactive HTML pages (embedded data, canvas animations) that cannot flow through the markdown renderer. For those:
+
+- Put the page in `blog/` next to `index.html`, named after the slug: `blog/my-post.html`.
+- Add an `"href"` field to the blogs.json entry (path relative to `blog/`, e.g. `"href": "my-post.html"`). The listing page links straight to that file instead of `post.html?slug=...`.
+- The page must ship its own document shell (doctype, charset, viewport, title, description) and a back link to `index.html`. Follow the same style rules as markdown posts, including no dashes.
+- Example: `mad-pod-racing.html`.
+
 ## Images
 
 - All images go in `blogs/images/`.

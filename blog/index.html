@@ -298,7 +298,7 @@
             filtered.forEach(post => {
                 const card = document.createElement('a');
                 card.className = 'blog-card';
-                card.href = `post.html?slug=${post.slug}`;
+                card.href = post.href ? post.href : `post.html?slug=${post.slug}`;
 
                 let coverHTML = '';
                 if (post.cover) {

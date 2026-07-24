@@ -1,5 +1,25 @@
 [
   {
+    "slug": "mad-pod-racing",
+    "href": "mad-pod-racing.html",
+    "title": "What 29 experiments taught me about training a game bot",
+    "date": "2026-07-23",
+    "summary": "I trained a Mad Pod Racing bot end to end: GPU-parallel PPO self-play, DAgger imitation of a blocker I could not beat, then leagues that evolved past the teacher. The real output was a recipe. A detailed low-noise reward designed before training, a small league of 15 with a drop system, and evaluation kept separate from training. With those from day one, three weeks becomes three days. The shipped bot ranked 459th of 233,508 worldwide, top 0.2%, in Python, with every fight an interactive replay of a real recorded match.",
+    "tags": [
+      "Reinforcement learning",
+      "Imitation learning",
+      "Self-play",
+      "Genetic algorithms",
+      "Neural networks",
+      "PyTorch",
+      "Python",
+      "NumPy",
+      "CodinGame"
+    ],
+    "readTime": "12 min",
+    "cover": null
+  },
+  {
     "slug": "how-to-automate-your-job",
     "title": "How to automate your job (still employed btw)",
     "date": "2026-06-21",
