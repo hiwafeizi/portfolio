@@ -600,6 +600,67 @@
   ],
   "projects": [
     {
+      "name": "Mad Pod Racing - A Learned Game Bot in the World Top 500",
+      "timeframe": "Jun 2026 - Jul 2026",
+      "bullets": [
+        {
+          "text": "Reached 459th of 233,508 on CodinGame's Mad Pod Racing world leaderboard with a learned bot: PPO self-play, DAgger imitation, and league evolution.",
+          "blog": "mad-pod-racing.html",
+          "skills": [
+            "Reinforcement learning",
+            "Self-play",
+            "Imitation learning",
+            "Genetic algorithms",
+            "Neural networks",
+            "PyTorch",
+            "Python"
+          ]
+        },
+        {
+          "text": "Rebuilt the game physics as a GPU-vectorized PyTorch simulator averaging 600 games per second on one consumer RTX 4060: the throughput behind all 29 experiments.",
+          "skills": [
+            "PyTorch",
+            "NumPy",
+            "Simulation",
+            "Python"
+          ]
+        },
+        {
+          "text": "Iterated the reward function against turn-by-turn visualizations of games and reward signals, raising the win rate against the fixed hand-coded benchmark bot from 18% to 100%.",
+          "skills": [
+            "Reinforcement learning",
+            "Data visualization",
+            "Analytical mindset",
+            "Python"
+          ]
+        },
+        {
+          "text": "Built a dedicated defender bootcamp with adversarial spawns and urgency-weighted rewards, turning near-certain breaches into full-lap holds.",
+          "skills": [
+            "Reinforcement learning",
+            "Simulation",
+            "Python"
+          ]
+        },
+        {
+          "text": "Kept networks tiny and training short by engineering the inputs (calculated features in, noise excluded) instead of hoping a bigger net would sort it out.",
+          "skills": [
+            "Feature engineering",
+            "Neural networks",
+            "Analytical mindset"
+          ]
+        },
+        {
+          "text": "Shipped the whole system (nets, weights, geometry) as one self-contained Python file with embedded weights trimmed to fit CodinGame's submission limit.",
+          "skills": [
+            "Model deployment",
+            "NumPy",
+            "Python"
+          ]
+        }
+      ]
+    },
+    {
       "name": "LinkedIn Meme Factory - Automated Content Pipeline",
       "timeframe": "Feb 2026 - Jun 2026",
       "bullets": [

@@ -32,7 +32,9 @@ const renderList = (items) => {
         if (typeof item === "object" && item?.blog) {
             const link = document.createElement("a");
             link.className = "bullet-blog-link";
-            link.href = `blog/post.html?slug=${encodeURIComponent(item.blog)}`;
+            link.href = item.blog.endsWith(".html")
+                ? `blog/${item.blog}`
+                : `blog/post.html?slug=${encodeURIComponent(item.blog)}`;
             link.textContent = "Read in depth →";
             li.appendChild(document.createTextNode(" "));
             li.appendChild(link);

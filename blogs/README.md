@@ -45,6 +45,7 @@ Some posts are self-contained interactive HTML pages (embedded data, canvas anim
 - Add an `"href"` field to the blogs.json entry (path relative to `blog/`, e.g. `"href": "my-post.html"`). The listing page links straight to that file instead of `post.html?slug=...`.
 - The page must ship its own document shell (doctype, charset, viewport, title, description) and a back link to `index.html`. Follow the same style rules as markdown posts, including no dashes.
 - Example: `mad-pod-racing.html`.
+- To link a resume bullet to a standalone post, set its `"blog"` field to the file name (e.g. `"blog": "mad-pod-racing.html"`); values ending in `.html` link directly, anything else is treated as a markdown slug.
 
 ## Images
 
