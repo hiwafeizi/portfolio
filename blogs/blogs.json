@@ -7,9 +7,6 @@
     "summary": "I trained a Mad Pod Racing bot end to end: GPU-parallel PPO self-play, DAgger imitation of a blocker I could not beat, then leagues that evolved past the teacher. The real output was a recipe. A detailed low-noise reward designed before training, a small league of 15 with a drop system, and evaluation kept separate from training. With those from day one, three weeks becomes three days. The shipped bot ranked 459th of 233,508 worldwide, top 0.2%, in Python, with every fight an interactive replay of a real recorded match.",
     "tags": [
       "Reinforcement learning",
-      "Imitation learning",
-      "Self-play",
-      "Genetic algorithms",
       "Neural networks",
       "PyTorch",
       "Python",
@@ -29,14 +26,11 @@
       "AI-assisted development",
       "Prompt engineering",
       "Automation",
-      "Internal tooling",
       "Documentation",
       "Mentorship",
       "dbt",
       "Snowflake",
-      "SQL",
-      "YAML",
-      "CSV"
+      "SQL"
     ],
     "readTime": "4 min",
     "cover": null
@@ -53,8 +47,6 @@
       "Prompt engineering",
       "AI-assisted development",
       "Automation",
-      "Internal tooling",
-      "JSON",
       "PostgreSQL",
       "GCP Cloud Functions",
       "GCP Cloud Tasks",
@@ -82,9 +74,7 @@
       "Automation",
       "AI-assisted development",
       "Prompt engineering",
-      "LLM API chaining",
-      "JSON",
-      "Excel"
+      "LLM API chaining"
     ],
     "readTime": "7 min",
     "cover": null
@@ -97,11 +87,8 @@
     "tags": [
       "Python",
       "Recursion",
-      "Internal tooling",
       "SAS",
       "AI-assisted development",
-      "JSON",
-      "Git",
       "VS Code",
       "Migration",
       "Automation"

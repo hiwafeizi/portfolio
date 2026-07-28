@@ -155,11 +155,7 @@ const createProjectCard = (project) => {
 
     const projectLinks = {
         "Half Stupid - Teaching Minecraft Agents to Survive From Scratch": "https://github.com/hiwafeizi/half_stupid",
-        "Thesis - Predicting Perceptions of Dutch Company Names": "https://github.com/hiwafeizi/thesis",
-        "Group Thesis - Multimodal Speech Recognition with AV-HuBERT": "https://github.com/hiwafeizi/research-workshop/tree/main",
-        "Software Engineering Course - PetMatters": "https://github.com/hiwafeizi/SE4CSAI-Project",
-        "C++ Course Project - Battle-C": "https://github.com/hiwafeizi/Battle-C",
-        "AI for Nature and Environment Project": "https://github.com/hiwafeizi/AI4NE"
+        "Thesis - Predicting Perceptions of Dutch Company Names": "https://github.com/hiwafeizi/thesis"
     };
 
     const link = projectLinks[project.name];
@@ -247,6 +243,23 @@ const buildSkillIndex = (data) => {
     }
 
     (data?.experience || []).forEach((entry) => {
+        (entry.roles || []).forEach((role) => {
+            (role.bullets || []).forEach((bullet) => {
+                const detail = typeof bullet === "string" ? { text: bullet, skills: [] } : bullet;
+                (detail.skills || []).forEach((skill) => {
+                    addSkillItem(skill, {
+                        text: detail.text,
+                        project: detail.project,
+                        company: entry.company,
+                        role: role.title,
+                        timeframe: role.timeframe
+                    });
+                });
+            });
+        });
+    });
+
+    (data?.founder_projects || []).forEach((entry) => {
         (entry.roles || []).forEach((role) => {
             (role.bullets || []).forEach((bullet) => {
                 const detail = typeof bullet === "string" ? { text: bullet, skills: [] } : bullet;
@@ -374,6 +387,14 @@ const loadResume = async () => {
         renderCards(
             experienceContainer,
             data.experience.map((entry) => createExperienceItem(entry))
+        );
+    }
+
+    const founderContainer = document.getElementById("founder-projects-container");
+    if (founderContainer && Array.isArray(data.founder_projects)) {
+        renderCards(
+            founderContainer,
+            data.founder_projects.map((entry) => createExperienceItem(entry))
         );
     }
 

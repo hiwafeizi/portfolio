@@ -8,11 +8,6 @@
     "github": "https://github.com/hiwafeizi"
   },
   "summary": "Data engineer at Allianz Netherlands. Driving the technical direction of a SAS-to-Snowflake migration. Leading an external 10+ person delivery team, owning the core upstream layer of the Data Office, and setting the AI tooling patterns the wider data org now uses across multiple country offices.\n\nStrong in dbt, Snowflake, Python, SQL, and the surrounding cloud stack. The work I'm proudest of is the kind that makes whole teams faster. Automation that compounds, tooling other people adopt, decisions that hold up over time.\n\nBackground in cognitive science and AI. Before Allianz, shipped two production products solo on GCP with CI/CD (NeoCru, LinkInLead).",
-  "traits": [
-    "Structured, creative, and multidisciplinary engineering mindset",
-    "Fast learning with a focus on clean abstractions",
-    "Clear cross-functional communication"
-  ],
   "domains": [
     {
       "id": "languages",
@@ -39,22 +34,13 @@
         "Oracle SQL",
         "Power BI",
         "Mainframe PD binary",
-        "Zero-copy clones",
         "ETL pipelines",
-        "Batch processing",
         "Data modeling",
         "Large-scale migrations",
         "Data validation",
         "Parity testing",
-        "Runtime checks",
         "Data quality",
-        "Metadata automation",
-        "Streaming",
-        "Parquet",
-        "CSV",
-        "JSON",
-        "XLSX",
-        "YAML"
+        "Metadata automation"
       ]
     },
     {
@@ -67,15 +53,10 @@
         "GCP Cloud Build",
         "GCP Cloud Functions",
         "GCP Cloud Tasks",
-        "GCP reCAPTCHA",
-        "GCP Logs",
-        "Azure ADP",
+        "Azure",
         "Azure Blob Storage",
         "CI/CD (GitHub Actions)",
-        "Containerization",
-        "Git",
-        "GitHub",
-        "Jira"
+        "Containerization"
       ]
     },
     {
@@ -85,9 +66,7 @@
       "skills": [
         "Flask",
         "API design",
-        "Internal tooling",
         "Automation",
-        "Threading",
         "Binary parsing",
         "Documentation"
       ]
@@ -106,18 +85,18 @@
         "scikit-learn",
         "pandas",
         "NumPy",
-        "Dlib",
-        "RobBERT",
-        "T5",
         "LightGBM",
         "NLP",
         "Computer vision",
         "Feature engineering",
         "Neural networks",
-        "Elastic Net regression",
         "LLM API chaining",
         "Prompt engineering",
-        "AI-assisted development"
+        "AI-assisted development",
+        "Reinforcement learning",
+        "Simulation",
+        "Data visualization",
+        "Model deployment"
       ]
     },
     {
@@ -128,9 +107,7 @@
         "Code review",
         "Technical leadership",
         "Mentorship",
-        "Cross-team coordination",
-        "Analytical mindset",
-        "Clear cross-functional communication"
+        "Cross-team coordination"
       ]
     }
   ],
@@ -150,7 +127,6 @@
               "skills": [
                 "Technical leadership",
                 "Cross-team coordination",
-                "Clear cross-functional communication",
                 "Large-scale migrations",
                 "SAS",
                 "Snowflake"
@@ -176,7 +152,6 @@
               "skills": [
                 "Cross-team coordination",
                 "Mentorship",
-                "Clear cross-functional communication",
                 "dbt",
                 "Snowflake",
                 "SAS",
@@ -216,11 +191,7 @@
                 "Mainframe PD binary",
                 "Binary parsing",
                 "ETL pipelines",
-                "Batch processing",
                 "Automation",
-                "Internal tooling",
-                "JSON",
-                "CSV",
                 "Data quality"
               ]
             },
@@ -261,7 +232,6 @@
               "project": "pstag migration",
               "skills": [
                 "dbt",
-                "YAML",
                 "SQL",
                 "Python",
                 "Snowflake",
@@ -278,7 +248,6 @@
                 "dbt",
                 "Data validation",
                 "Parity testing",
-                "Runtime checks",
                 "Data quality"
               ]
             },
@@ -287,11 +256,9 @@
               "project": "Azure Blob streaming API",
               "skills": [
                 "Azure Blob Storage",
-                "Streaming",
                 "Python",
                 "API design",
                 "Data quality",
-                "Internal tooling",
                 "Automation"
               ]
             },
@@ -301,11 +268,8 @@
               "skills": [
                 "Snowflake API",
                 "Snowflake",
-                "Zero-copy clones",
-                "Threading",
                 "Python",
-                "Automation",
-                "Internal tooling"
+                "Automation"
               ]
             },
             {
@@ -316,12 +280,9 @@
                 "Metadata automation",
                 "Automation",
                 "Python",
-                "JSON",
-                "CSV",
-                "XLSX",
                 "Data modeling",
                 "OpenAI API",
-                "Azure ADP",
+                "Azure",
                 "Documentation"
               ]
             },
@@ -342,8 +303,7 @@
                 "dbt",
                 "dbt Cloud",
                 "CI/CD (GitHub Actions)",
-                "Automation",
-                "Internal tooling"
+                "Automation"
               ]
             },
             {
@@ -354,10 +314,8 @@
                 "AI-assisted development",
                 "Prompt engineering",
                 "LLM API chaining",
-                "Internal tooling",
                 "Documentation",
-                "Mentorship",
-                "Clear cross-functional communication"
+                "Mentorship"
               ]
             },
             {
@@ -369,11 +327,9 @@
                 "Prompt engineering",
                 "GitHub Copilot",
                 "Automation",
-                "Internal tooling",
                 "dbt",
                 "Snowflake",
                 "SQL",
-                "YAML",
                 "Documentation"
               ]
             },
@@ -382,11 +338,9 @@
               "project": "cross-team enablement",
               "skills": [
                 "Mentorship",
-                "Clear cross-functional communication",
                 "Cross-team coordination",
                 "AI-assisted development",
-                "Snowflake API",
-                "Internal tooling"
+                "Snowflake API"
               ]
             }
           ]
@@ -400,7 +354,6 @@
               "project": "pipeline architecture redesign",
               "skills": [
                 "ETL pipelines",
-                "Batch processing",
                 "Data modeling"
               ]
             },
@@ -422,8 +375,7 @@
               "project": "pipeline optimization",
               "skills": [
                 "Data modeling",
-                "ETL pipelines",
-                "Batch processing"
+                "ETL pipelines"
               ]
             },
             {
@@ -439,7 +391,9 @@
           ]
         }
       ]
-    },
+    }
+  ],
+  "founder_projects": [
     {
       "company": "NeoCru",
       "location": "Founder Project",
@@ -450,21 +404,7 @@
           "timeframe": "Apr 2025 - Dec 2025",
           "bullets": [
             {
-              "text": "Designed and built an AI-assisted recruitment platform enabling Dutch businesses to manage job postings and applications without full HR systems.",
-              "project": "NeoCru platform",
-              "blog": "neocru-is-dead",
-              "skills": [
-                "Python",
-                "Flask",
-                "PostgreSQL",
-                "API design",
-                "Automation",
-                "OpenAI API",
-                "Data modeling"
-              ]
-            },
-            {
-              "text": "Implemented an end-to-end full-stack system with a focus on data modeling, application workflows, and recruiter-facing dashboards.",
+              "text": "Built an AI-assisted recruitment platform solo, end to end: Flask/PostgreSQL backend, recruiter dashboards with role-based access, and OpenAI-driven job-description generation for Dutch businesses running without full HR systems.",
               "project": "NeoCru platform",
               "skills": [
                 "Python",
@@ -472,39 +412,26 @@
                 "Flask",
                 "PostgreSQL",
                 "API design",
-                "Internal tooling",
+                "OpenAI API",
                 "Data modeling"
               ]
             },
             {
-              "text": "Integrated AI-driven automation to generate job descriptions and structure candidate data, reducing manual effort for recruiters.",
-              "project": "NeoCru automation",
-              "skills": [
-                "OpenAI API",
-                "Automation",
-                "NLP"
-              ]
-            },
-            {
-              "text": "Designed secure, role-based access and dashboards for recruiters, focusing on data integrity, privacy, and maintainability.",
-              "project": "NeoCru access control",
-              "skills": [
-                "API design",
-                "Data modeling",
-                "Internal tooling",
-                "GCP reCAPTCHA"
-              ]
-            },
-            {
-              "text": "Deployed and operated the platform on Google Cloud Platform, using containerized services, CI/CD, and Cloud Storage for applicant resumes.",
+              "text": "Ran it as a production system on GCP: containerized Cloud Run services, Cloud Build CI/CD, Cloud Storage for applicant resumes, and structured logging, the same deploy discipline I'd expect at work, applied to my own product.",
               "project": "NeoCru deployment",
               "skills": [
                 "GCP Cloud Run",
                 "GCP Cloud Build",
                 "GCP Cloud Storage",
-                "GCP Logs",
-                "CI/CD (GitHub Actions)",
                 "Containerization"
+              ]
+            },
+            {
+              "text": "Killed it deliberately in Dec 2025 and shut the company down properly, KVK deregistration included. The full reasoning is in the post-mortem.",
+              "project": "NeoCru wind-down",
+              "blog": "neocru-is-dead",
+              "skills": [
+                "Documentation"
               ]
             }
           ]
@@ -521,59 +448,32 @@
           "timeframe": "Jan 2024 - Dec 2024",
           "bullets": [
             {
-              "text": "Built an AI-driven automation platform for generating and publishing LinkedIn content, integrating the LinkedIn API with AI-based text generation.",
+              "text": "Built an automation platform that generates and publishes LinkedIn content end to end: LinkedIn API integration, OpenAI text generation, and scheduled publishing behind user accounts with secure session management.",
               "project": "LinkInLead platform",
               "skills": [
                 "Python",
                 "Flask",
                 "PostgreSQL",
                 "OpenAI API",
-                "Automation",
                 "API design",
-                "NLP"
+                "Automation"
               ]
             },
             {
-              "text": "Designed backend workflows for scheduled content creation, background processing, and job orchestration, emphasizing reliability and scalability.",
+              "text": "Designed the orchestration layer to run without daily attention: Cloud Functions and Cloud Tasks running scheduled content creation and background jobs, deployed as containerized services with CI/CD.",
               "project": "LinkInLead workflows",
               "skills": [
-                "Python",
-                "Automation",
-                "API design",
-                "Batch processing",
                 "GCP Cloud Functions",
-                "GCP Cloud Tasks"
-              ]
-            },
-            {
-              "text": "Implemented secure data handling and session management for user accounts and publishing workflows.",
-              "project": "LinkInLead security",
-              "skills": [
-                "Python",
-                "API design",
-                "Data modeling",
-                "Internal tooling",
-                "PostgreSQL"
-              ]
-            },
-            {
-              "text": "Deployed the system using containerized services and CI/CD pipelines, enabling automated updates and scalable execution.",
-              "project": "LinkInLead deployment",
-              "skills": [
+                "GCP Cloud Tasks",
                 "Containerization",
-                "CI/CD (GitHub Actions)",
-                "GCP Cloud Run",
-                "GCP Cloud Storage",
-                "GCP Logs"
+                "CI/CD (GitHub Actions)"
               ]
             },
             {
-              "text": "Gained hands-on experience designing API-driven systems that coordinate external services, background jobs, and persistent storage.",
-              "project": "LinkInLead architecture",
+              "text": "Retired it after a year; its Cloud Tasks orchestration pattern became the direct ancestor of the Meme Factory pipeline's self-scheduling task loader.",
+              "project": "LinkInLead wind-down",
               "skills": [
-                "API design",
-                "Automation",
-                "Internal tooling"
+                "Automation"
               ]
             }
           ]
@@ -583,7 +483,7 @@
   ],
   "education": [
     {
-      "degree": "B.Sc. Cognitive Science and Artificial Intelligence (graduated)",
+      "degree": "B.Sc. Cognitive Science and Artificial Intelligence",
       "institution": "Tilburg University, Netherlands",
       "timeframe": "2022 - 2025"
     },
@@ -604,13 +504,10 @@
       "timeframe": "Jun 2026 - Jul 2026",
       "bullets": [
         {
-          "text": "Reached 459th of 233,508 on CodinGame's Mad Pod Racing world leaderboard with a learned bot: PPO self-play, DAgger imitation, and league evolution.",
+          "text": "Reached 459th of 233,508 (top 0.2%) on CodinGame's Mad Pod Racing world leaderboard with a learned bot: PPO self-play, DAgger imitation, and league evolution.",
           "blog": "mad-pod-racing.html",
           "skills": [
             "Reinforcement learning",
-            "Self-play",
-            "Imitation learning",
-            "Genetic algorithms",
             "Neural networks",
             "PyTorch",
             "Python"
@@ -630,7 +527,6 @@
           "skills": [
             "Reinforcement learning",
             "Data visualization",
-            "Analytical mindset",
             "Python"
           ]
         },
@@ -646,8 +542,7 @@
           "text": "Kept networks tiny and training short by engineering the inputs (calculated features in, noise excluded) instead of hoping a bigger net would sort it out.",
           "skills": [
             "Feature engineering",
-            "Neural networks",
-            "Analytical mindset"
+            "Neural networks"
           ]
         },
         {
@@ -665,34 +560,31 @@
       "timeframe": "Feb 2026 - Jun 2026",
       "bullets": [
         {
-          "text": "Built a Python pipeline that generates niche-specific LinkedIn meme content with Grok, validates each batch through a second LLM pass against a per-template humor model in a 1,000-line catalog, and renders 20 PIL meme templates with slot-aware text fitting, rotation, and stroke.",
+          "text": "Built a Python pipeline that generates niche-specific LinkedIn meme content with Grok, validates each batch through a second LLM pass against a per-template humor model in a 1,000-line catalog, and renders 20 PIL meme templates.",
           "blog": "linkedin-meme-factory",
           "skills": [
             "Python",
             "Grok API",
             "LLM API chaining",
             "Prompt engineering",
-            "AI-assisted development",
-            "JSON",
             "Automation"
           ]
         },
         {
-          "text": "Designed two execution modes sharing one codebase: eager pre-rendering with direct Cloud Tasks scheduling, and lazy storage of meme copy in Postgres with rendering on demand inside a GCP Cloud Function. Lazy mode used a self-perpetuating task-loader Cloud Function that queues a day of Cloud Tasks then schedules itself for tomorrow.",
+          "text": "Designed two execution modes sharing one codebase: eager pre-rendering with direct Cloud Tasks scheduling, and lazy on-demand rendering inside a GCP Cloud Function, driven by a self-perpetuating task loader that queues a day of Cloud Tasks and then schedules itself for tomorrow.",
           "skills": [
             "PostgreSQL",
             "GCP Cloud Functions",
             "GCP Cloud Tasks",
             "GCP Cloud Storage",
-            "Internal tooling",
             "Automation"
           ]
         },
         {
-          "text": "Ran the pipeline across 3 LinkedIn business pages on a pre-registered 100-day window, posting twice a day. Total Grok cost: $0.34. Engagement was effectively zero; scale was capped because LinkedIn does not allow one personal account to spin up more business pages, blocking the 10-niche fan-out the architecture was built for.",
+          "text": "Ran it fully autonomously across 3 LinkedIn business pages for a pre-registered 100-day window, posting twice a day. Total Grok cost: $0.34. Engagement was effectively zero; the 10-niche fan-out the architecture was built for was blocked by LinkedIn's business-page limits. Wrote the post-mortem with full cost data anyway.",
           "skills": [
-            "Analytical mindset",
-            "Automation"
+            "Automation",
+            "Documentation"
           ]
         }
       ]
@@ -712,7 +604,7 @@
           ]
         },
         {
-          "text": "Implemented vanilla REINFORCE policy gradient training with survival-only reward (+1 alive, -10,000 on death), achieving emergent food-seeking behavior, distinct agent personalities, and inter-agent social dynamics without any reward shaping.",
+          "text": "Trained with vanilla REINFORCE on a survival-only reward (+1 alive, -10,000 on death) and got emergent food-seeking, distinct agent personalities, and inter-agent social dynamics without any reward shaping.",
           "skills": [
             "Python",
             "PyTorch",
@@ -720,10 +612,10 @@
           ]
         },
         {
-          "text": "Profiled the Minecraft/Malmo substrate's scaling limits (4-agent ceiling, ~4,000 ticks/sec) and quantified the throughput ceiling capping further training experiments.",
+          "text": "Closed the project on evidence: profiled the Minecraft/Malmo substrate to a hard 4-agent, ~4,000 ticks/sec ceiling, quantified that further training was compute-starved, and stopped there.",
           "skills": [
-            "Analytical mindset",
-            "Python"
+            "Python",
+            "Simulation"
           ]
         }
       ]
@@ -733,71 +625,38 @@
       "timeframe": "Jan 2025 - May 2025",
       "bullets": [
         {
-          "text": "Built an end-to-end data processing and modeling pipeline to predict human trait judgments (femininity, evilness, trustworthiness, smartness) from Dutch brand-like names.",
+          "text": "Built an end-to-end pipeline predicting human trait judgments (femininity, evilness, trustworthiness, smartness) from Dutch brand-like names, aggregating Bayesian posterior samples from raw ranking experiments into stable regression targets.",
           "skills": [
-            "Feature engineering",
-            "NLP",
             "Python",
             "pandas",
-            "scikit-learn"
-          ]
-        },
-        {
-          "text": "Transformed raw experimental ranking data into model-ready datasets by converting Parquet to CSV, translating metadata, and aggregating Bayesian posterior samples into stable regression targets.",
-          "skills": [
-            "Parquet",
-            "CSV",
-            "Metadata automation",
-            "Python",
-            "pandas"
-          ]
-        },
-        {
-          "text": "Engineered multiple feature pipelines, including character-level unigrams (27D), padded bigrams (479D), and contextual semantic embeddings using RobBERT (768D).",
-          "skills": [
-            "Feature engineering",
-            "RobBERT",
-            "Transformers",
             "NLP",
-            "Python"
+            "Feature engineering"
           ]
         },
         {
-          "text": "Designed controlled experimental data splits to evaluate in-domain, out-of-domain, and few-shot generalization using fixed random seeds for reproducibility.",
+          "text": "Engineered three feature pipelines: character-level unigrams (27D), padded bigrams (479D), and contextual RobBERT embeddings (768D).",
           "skills": [
-            "Analytical mindset",
             "Feature engineering",
-            "Python"
+            "Transformers",
+            "NLP"
           ]
         },
         {
-          "text": "Trained and evaluated Elastic Net regression and feedforward neural networks, resulting in 64+ models with systematic hyperparameter tuning and consistent evaluation using R2.",
+          "text": "Trained and evaluated 64+ models (Elastic Net and feedforward networks) across in-domain, out-of-domain, and few-shot splits with fixed seeds and consistent R² evaluation.",
           "skills": [
-            "Elastic Net regression",
             "Neural networks",
             "scikit-learn",
             "Python"
           ]
-        },
-        {
-          "text": "Implemented the full workflow in Python, using pandas, numpy, scikit-learn, PyTorch, and Hugging Face Transformers, with version-controlled and reproducible experiments.",
-          "skills": [
-            "Python",
-            "pandas",
-            "scikit-learn",
-            "Transformers",
-            "Git",
-            "GitHub"
-          ]
         }
       ]
     },
     {
-      "name": "Group Thesis - Multimodal Speech Recognition with AV-HuBERT",
-      "timeframe": "Jan 2025 - May 2025",
+      "name": "Earlier academic work",
+      "timeframe": "2024 - 2025",
       "bullets": [
         {
-          "text": "Evaluated audio-visual speech recognition using AV-HuBERT on the GLips German lipreading dataset.",
+          "text": "Multimodal speech recognition with AV-HuBERT: built the lip-extraction and audio-video alignment pipeline and a parallelized inference setup processing 21,000+ audio/video files.",
           "skills": [
             "Transformers",
             "Computer vision",
@@ -805,111 +664,24 @@
           ]
         },
         {
-          "text": "Built an end-to-end preprocessing and alignment pipeline for lip-only video input, including lip patch extraction and audio-video synchronization using Dlib, OpenCV, FFmpeg, and Python multiprocessing.",
+          "text": "PetMatters: led a team of 8 building a multi-service AI application; trained and integrated T5 models for English-to-Dutch translation and form-driven content generation.",
           "skills": [
-            "Dlib",
-            "Computer vision",
-            "Python"
-          ]
-        },
-        {
-          "text": "Implemented and tested multiple inference configurations (audio-only, video-only, and audio-video fusion) using Hugging Face transformer APIs.",
-          "skills": [
-            "Transformers",
-            "Python"
-          ]
-        },
-        {
-          "text": "Developed a parallelized inference and evaluation setup to optimize GPU utilization and automatically match and process 21,000+ audio and video files.",
-          "skills": [
-            "Automation",
-            "Python"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Software Engineering Course - PetMatters",
-      "timeframe": "Aug 2024 - Dec 2024",
-      "bullets": [
-        {
-          "text": "Led a team of 8 members, coordinating task allocation, technical decisions, and delivery for a semester-long AI-powered application.",
-          "skills": [
-            "Clear cross-functional communication",
-            "Analytical mindset"
-          ]
-        },
-        {
-          "text": "Designed a multi-service architecture with separate orchestration, AI, and interface components, focusing on modularity, isolation of concerns, and scalability.",
-          "skills": [
-            "API design",
-            "Internal tooling",
-            "Automation"
-          ]
-        },
-        {
-          "text": "Trained and integrated T5-based language models for English-to-Dutch translation, text enhancement, and form-driven content generation using a university GPU server.",
-          "skills": [
-            "T5",
+            "Technical leadership",
             "Transformers",
             "NLP",
-            "Python"
+            "API design"
           ]
         },
         {
-          "text": "Defined service boundaries and data flow between components, gaining hands-on experience with distributed system design in an academic setting.",
+          "text": "Battle-C: modular C++ game engine with AI opponent logic and real-time state tracking.",
           "skills": [
-            "API design",
-            "Analytical mindset"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "C++ Course Project - Battle-C",
-      "timeframe": "Aug 2024 - Dec 2024",
-      "bullets": [
-        {
-          "text": "Designed and implemented a modular C++ application with clear separation of game logic, state management, and AI behavior.",
-          "skills": [
-            "C++",
-            "Internal tooling"
+            "C++"
           ]
         },
         {
-          "text": "Developed AI-driven bot logic to simulate opponent decision-making within a turn-based game system.",
-          "skills": [
-            "C++",
-            "Automation"
-          ]
-        },
-        {
-          "text": "Implemented real-time game state tracking, including scores and entity status, reinforcing structured program design and state consistency.",
-          "skills": [
-            "C++",
-            "Data modeling"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "AI for Nature and Environment Project",
-      "timeframe": "Aug 2024 - Dec 2024",
-      "bullets": [
-        {
-          "text": "Collected, cleaned, and processed environmental and fire occurrence data for predictive analysis.",
-          "skills": [
-            "ETL pipelines",
-            "Data modeling",
-            "pandas",
-            "Python"
-          ]
-        },
-        {
-          "text": "Built a LightGBM-based prediction pipeline to model fire outbreak risk using environmental variables.",
+          "text": "Wildfire-risk prediction: LightGBM pipeline modeling fire outbreak risk from environmental data.",
           "skills": [
             "LightGBM",
-            "Feature engineering",
             "pandas",
             "Python"
           ]
