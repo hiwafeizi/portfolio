@@ -127,7 +127,16 @@ const createExperienceItem = (experience) => {
         const roleTitle = document.createElement("h4");
         roleTitle.textContent = `${role.title} (${role.timeframe})`;
         item.appendChild(roleTitle);
-        item.appendChild(renderList(role.bullets));
+        if (Array.isArray(role.groups)) {
+            role.groups.forEach((group) => {
+                const heading = document.createElement("h5");
+                heading.textContent = group.heading;
+                item.appendChild(heading);
+                item.appendChild(renderList(group.bullets || []));
+            });
+        } else {
+            item.appendChild(renderList(role.bullets || []));
+        }
     });
 
     return item;
@@ -244,7 +253,10 @@ const buildSkillIndex = (data) => {
 
     (data?.experience || []).forEach((entry) => {
         (entry.roles || []).forEach((role) => {
-            (role.bullets || []).forEach((bullet) => {
+            const roleBullets = (role.bullets || []).concat(
+                (role.groups || []).flatMap((group) => group.bullets || [])
+            );
+            roleBullets.forEach((bullet) => {
                 const detail = typeof bullet === "string" ? { text: bullet, skills: [] } : bullet;
                 (detail.skills || []).forEach((skill) => {
                     addSkillItem(skill, {

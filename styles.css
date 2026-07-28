@@ -575,6 +575,14 @@ section {
     font-size: 1.1rem;
 }
 
+.timeline h5 {
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--ocean);
+}
+
 .timeline ul {
     list-style: none;
     display: grid;
