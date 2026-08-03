@@ -1,5 +1,23 @@
 [
   {
+    "slug": "dbt-upstream-freshness",
+    "href": "dbt-upstream-freshness.html",
+    "title": "Your dbt run succeeded. Was it built on fresh data?",
+    "date": "2026-07-30",
+    "summary": "dbt's built-in freshness check stops at the source, and extending it model by model doesn't survive a 10,000-model project. I designed the check I actually needed: post-run, per deliverable, walking the full upstream DAG (1,744 nodes at the deepest) with SLAs from folder paths, staleness judged on loaded file dates instead of run times, mid-chain detection, and exactly one monitoring query.",
+    "tags": [
+      "dbt",
+      "Snowflake",
+      "SQL",
+      "Data quality",
+      "Data validation",
+      "Data lineage",
+      "Automation"
+    ],
+    "readTime": "9 min",
+    "cover": null
+  },
+  {
     "slug": "mad-pod-racing",
     "href": "mad-pod-racing.html",
     "title": "What 29 experiments taught me about training a game bot",
