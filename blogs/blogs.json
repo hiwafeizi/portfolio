@@ -1,5 +1,22 @@
 [
   {
+    "slug": "dbt-dead-model-cleanup",
+    "href": "dbt-dead-model-cleanup.html",
+    "title": "Finding 5,000 dead tables in a 10,000+ model warehouse",
+    "date": "2026-08-04",
+    "summary": "Most of the dead weight was not in the code at all: it was warehouse objects the codebase never mentions. The method: diff the catalog against the code graph, walk the graph upstream from an opt-in list of needed endpoints, then grep the entire repo for every candidate's name before dropping anything. Zero references anywhere: ~5,000 tables retired. One or more mentions: 2,000 queued for review. Nothing dropped outright: renamed first, deleted months later. The dbt + Snowflake specifics are at the end.",
+    "tags": [
+      "dbt",
+      "Snowflake",
+      "Data lineage",
+      "Data quality",
+      "Python",
+      "Automation"
+    ],
+    "readTime": "6 min",
+    "cover": null
+  },
+  {
     "slug": "dbt-upstream-freshness",
     "href": "dbt-upstream-freshness.html",
     "title": "Your dbt run succeeded. Was it built on fresh data?",

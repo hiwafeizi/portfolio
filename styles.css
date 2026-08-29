@@ -99,6 +99,11 @@ section {
     padding: 1rem 24px;
 }
 
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
 .logo {
     font-weight: 700;
     font-size: 1.3rem;

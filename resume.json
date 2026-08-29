@@ -227,7 +227,7 @@
                   ]
                 },
                 {
-                  "text": "Built cleanup tooling over the repo and dbt manifest lineage: removed ~5,000 idle tables, flagged 2,000 more that are unreferenced anywhere in the repo for team investigation, and identified 400 models no longer consumed by the user layer.",
+                  "text": "Built cleanup tooling over the warehouse catalog, dbt manifest lineage, and repo-wide reference search: retired ~5,000 tables with zero references anywhere, flagged 2,000 more with lingering references for team investigation, and identified 400 models no longer consumed by the user layer.",
                   "project": "repo cleanup tooling",
                   "skills": [
                     "Python",
@@ -235,7 +235,8 @@
                     "Automation",
                     "Data quality",
                     "Data lineage"
-                  ]
+                  ],
+                  "blog": "dbt-dead-model-cleanup.html"
                 },
                 {
                   "text": "Restructured the staging layer (2,000+ models across 50+ schedules) and its tagging system end to end; when a downstream cross-team break surfaced, traced it to the IT side, requested the code change, and had every issue resolved by 9am with stakeholders notified at each step.",
