@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Finding 5,000 dead tables in a 10,000-model warehouse | Hiwa Feizi</title>
-<meta name="description" content="Most of the dead weight in our warehouse was not in the code at all. Diff the catalog against the code graph, walk upstream from an opt-in list of needed endpoints, then grep the whole repo before dropping anything: 5,000 tables retired with zero references, renamed first and deleted months later.">
-<meta property="og:title" content="Finding 5,000 dead tables in a 10,000-model warehouse">
-<meta property="og:description" content="Diff the catalog against the code graph, opt in the endpoints that matter, grep everything before deleting. 5,000 tables retired, nobody missed them.">
+<title>5,000 tables gone, and nobody noticed | Hiwa Feizi</title>
+<meta name="description" content="Most of the dead weight in our warehouse was not in the code at all. Diff the catalog against the code graph, then grep the whole repo before dropping anything: 5,000 tables retired with zero references, renamed first and deleted months later.">
+<meta property="og:title" content="5,000 tables gone, and nobody noticed">
+<meta property="og:description" content="The lineage graph is blind to most of what actually sits in a warehouse: our dead weight was mostly objects the code never mentions. How we found it and deleted 5,000 tables safely.">
 <meta property="og:type" content="article">
 <link rel="icon" type="image/png" href="../favicon.png">
 <style>
@@ -31,7 +31,6 @@
   main{padding:42px 44px 90px;min-width:0}
   @media(max-width:900px){main{padding:28px 20px 70px}}
 
-  .doctitle{font-size:12px;color:var(--accent);font-weight:700;letter-spacing:2px;text-transform:uppercase}
   h1{font-size:clamp(23px,5.5vw,32px);margin:10px 0 6px;letter-spacing:-.4px}
   .lede{color:var(--muted);font-size:16.5px;margin:0 0 20px;max-width:740px}
   .tldr{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
@@ -49,11 +48,7 @@
 
   .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
         border-radius:10px;padding:14px 18px;margin:16px 0;max-width:760px;font-size:15px}
-  .callout.warn{border-left-color:var(--warn)}
   .callout b{color:var(--ink)}
-
-  pre{background:#0a0f1f;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;
-      font-family:var(--mono);font-size:14px;line-height:1.6;color:#cdd7ff;margin:0 0 18px;max-width:820px}
 
   table{width:100%;border-collapse:collapse;font-size:14.5px;margin:0 0 20px;max-width:900px}
   th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
@@ -80,93 +75,134 @@
 
   .foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
   @media(max-width:700px){h2{font-size:19px}table{display:block;overflow-x:auto}}
+
+  /* diagram, same visual language as the freshness post */
+  .dscroll{overflow-x:auto;margin:18px 0 4px}
+  .diagram{position:relative;margin:0 auto}
+  .diagram svg{position:absolute;inset:0;overflow:visible}
+  .edge{fill:none;stroke:#3a4c86;stroke-width:2;opacity:.9}
+  .node{position:absolute;width:132px;min-height:44px;border-radius:10px;border:1px solid var(--line);
+        background:var(--card2);z-index:1;padding:6px 8px}
+  .node .lname{font-family:var(--mono);font-size:9.5px;line-height:1.25;color:var(--ink);word-break:break-word}
+  .node .llayer{font-size:8.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:2px}
+  .node.ok{border-color:rgba(61,220,151,.5);background:rgba(61,220,151,.09)}
+  .node.bad{border-color:var(--bad);background:rgba(255,107,125,.18);box-shadow:0 0 16px rgba(255,107,125,.35)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 4px;font-size:12px;color:var(--muted)}
+  .legend .li{display:flex;align-items:center;gap:6px}
+  .legend .sw{width:12px;height:12px;border-radius:4px;border:1px solid var(--line)}
+  .dcap{font-size:13px;color:var(--muted);max-width:760px;margin:8px 0 14px}
+  .mb{display:none}
+  @media(max-width:700px){
+    .dscroll{display:none}
+    .mb{display:flex;flex-direction:column;margin:18px 0 4px}
+    .mb .mband{position:relative;padding:0 0 24px}
+    .mb .mband:not(:last-child)::after{content:'';position:absolute;left:50%;bottom:5px;width:1px;height:15px;
+      background:linear-gradient(180deg,var(--line),var(--accent))}
+    .mb .mnodes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .mb .node{position:relative;width:calc(50% - 4px);min-height:0}
+  }
 </style>
 </head>
 <body>
 <div class="shell">
   <main>
     <a class="backlink" href="index.html">&#8592; All blogs</a>
-    <div class="doctitle">Design write-up &middot; warehouse cleanup</div>
-    <h1>Finding 5,000 dead tables in a 10,000-model warehouse</h1>
+    <h1>5,000 tables gone, and nobody noticed</h1>
     <p class="lede">
-      After a multi-year migration our platform had over 10,000 models in code and even
-      more objects deployed, and everyone suspected a lot of it was dead. Nobody would
-      delete anything without proof. This is the method that produced the proof, and it
-      isn't specific to any tool: it needs a warehouse catalog, a transformation codebase,
-      and a repo you can search. The dbt + Snowflake specifics are at the end. Names are
-      generic; the methods and numbers are real.
+      After a multi-year migration our platform had over 10,000 models in code, even more
+      objects deployed, and a shared suspicion that a lot of it was dead. The hunt
+      produced one finding that reframed the whole cleanup: <strong>the lineage graph is
+      blind to most of what actually sits in a warehouse</strong>. Most of our dead
+      weight was never in the code at all. This is how we found it, and the proof that
+      made deleting it safe. Names are generic; the methods and numbers are real. The
+      opposite case, models the code keeps updating for nobody, has
+      <a href="dbt-updated-but-unused.html">its own post</a>.
     </p>
-    <div class="tldr"><span class="t">TL;DR</span>Dead weight hides in three places:
-      deployed but never declared in code, declared but feeding nothing that matters, and
-      dropped from use but still mentioned somewhere. So: <strong>diff the warehouse
-      catalog against the code graph</strong>, <strong>walk the graph upstream from an
-      opt-in list of needed endpoints</strong>, and before deleting anything,
-      <strong>grep the entire repo for every candidate's name</strong>. Zero references
-      anywhere: ~5,000 tables, retired. One or more mentions: 2,000, queued for deeper
-      review. Nothing is dropped outright: retired means renamed first, deleted months
-      later.
+    <div class="tldr"><span class="t">TL;DR</span> Your transformation code can only
+      vouch for what it declares, and most of our dead weight was warehouse objects the
+      codebase never mentions. Two checks found it: <strong>diff the catalog against the
+      code graph</strong>, then <strong>grep the entire repo for every candidate's
+      name</strong> before anything moves. Zero references anywhere: ~5,000 tables,
+      retired. One or more mentions: 2,000, queued for review. Nothing is dropped
+      outright: retired means renamed first, deleted months later.
     </p>
 
     <h2 id="problem">Nobody deletes anything, and that's rational</h2>
     <p>
-      Deleting in a large warehouse is asymmetric: keeping a dead table costs a little
-      every day (storage, catalog noise, misleading lineage, one more thing every
-      newcomer reads around), but dropping a live one breaks somebody's Monday. Without
-      evidence, the rational move is always to keep it. That's how a platform ends up
-      with thousands of objects nobody can vouch for.
+      Deleting in a large warehouse is asymmetric: a dead table costs a little every
+      day, but dropping a live one breaks somebody's Monday. Without evidence, keeping
+      everything is the rational move, and that's how a platform ends up with thousands
+      of objects nobody can vouch for.
     </p>
     <p>
-      The instinct is to hunt for dead models <em>inside</em> the transformation code.
-      We did find some there, 400 models nothing user-facing consumes anymore. But the
-      real finding was elsewhere: <strong>most of the dead weight was not in the code at
-      all.</strong> It was objects sitting in the warehouse that the codebase never even
-      mentions: leftovers from migration phases, hand-made backups
-      (<code class="mono">_bkp</code>, <code class="mono">_old</code>,
-      <code class="mono">tmp</code>), experiments, and deployments of models long since
-      deleted. No analysis of the code can find those, because the code doesn't know
-      they exist.
+      The instinct is to hunt for dead models <em>inside</em> the transformation code
+      (that hunt is the companion post). The bigger finding was elsewhere:
+      <strong>most of the dead weight was not in the code at all.</strong> Migration
+      leftovers, hand-made backups (<code class="mono">_bkp</code>,
+      <code class="mono">_old</code>, <code class="mono">tmp</code>), experiments,
+      deployments of models long since deleted: objects the codebase never mentions,
+      which no code analysis can find because the code doesn't know they exist.
     </p>
 
-    <h2 id="method">The method: three checks, in order of value</h2>
+    <h2 id="method">The method: diff, then grep</h2>
     <h3>1 &middot; Diff the warehouse against the code graph</h3>
     <p>
-      Reduce both sides to comparable keys (schema + object name) and set-diff them.
-      Three buckets fall out:
+      Pull the full list of deployed objects from the warehouse catalog, reduce both
+      sides to comparable keys (schema + object name), and subtract everything the code
+      declares. What remains is the target list: objects nothing in the codebase even
+      attempts to reference, invisible to every code-level analysis by definition. Every
+      candidate carries its catalog metadata (row count, size, days since last altered),
+      ready for the decision stage below.
     </p>
-    <ul>
-      <li><strong>In the warehouse, not in the code</strong>: the big one. Objects
-        nothing in the codebase even attempts to reference, invisible to every
-        code-level analysis by definition.</li>
-      <li><strong>In the code, not in the warehouse</strong>: disabled or never-deployed
-        models; repo hygiene rather than warehouse hygiene.</li>
-      <li><strong>In both, but not necessarily earning its keep</strong>: a match only
-        proves the object exists on both sides. Enrich each one with row counts, size,
-        days since last altered, and whether anything needed sits downstream: some turn
-        out untouched for months, and others load fresh data every day into a table
-        nothing needed ever reads. Being loaded and being used are different things.</li>
-    </ul>
-    <h3>2 &middot; Opt in what's needed, subtract the rest</h3>
-    <p>
-      Inside the code graph, don't ask "what looks dead?"; ask the opposite. Enumerate
-      the endpoints that are legitimately needed (the user-facing layer, plus every
-      other sink that counts as a real consumer), walk the dependency graph upstream
-      from all of them, and take the closure: everything that directly or indirectly
-      feeds a needed endpoint is alive. Everything outside that closure has to argue
-      for its life. For each candidate, attach its parents, children, and full
-      downstream tree, so the person reviewing sees context, not just a name. This is
-      what surfaced the 400 unconsumed models.
-    </p>
-    <div class="callout">
-      The whole step rests on the opt-in list being right. Miss a legitimate endpoint
-      and the analysis flags living models as dead; that list deserves more care than
-      the graph walk itself.
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:rgba(61,220,151,.4);border-color:var(--good)"></span> matched: exists in both</div>
+      <div class="li"><span class="sw" style="background:rgba(255,107,125,.4);border-color:var(--bad)"></span> warehouse only: the target list</div>
     </div>
-    <h3>3 &middot; Before deleting: grep everything</h3>
+    <div class="dscroll"><div class="diagram" style="width:650px;height:400px">
+      <svg width="650" height="400" viewBox="0 0 650 400">
+        <path class="edge" d="M138,38 C325,38 325,38 512,38"/>
+        <path class="edge" d="M138,142 C325,142 325,92 512,92"/>
+        <path class="edge" d="M138,246 C325,246 325,146 512,146"/>
+        <path class="edge" d="M138,350 C325,350 325,200 512,200"/>
+      </svg>
+      <div class="node ok" style="left:6px;top:16px"><div class="llayer">code declares</div><div class="lname">stg_orders</div></div>
+      <div class="node ok" style="left:6px;top:120px"><div class="llayer">code declares</div><div class="lname">stg_customers</div></div>
+      <div class="node ok" style="left:6px;top:224px"><div class="llayer">code declares</div><div class="lname">fact_premiums</div></div>
+      <div class="node ok" style="left:6px;top:328px"><div class="llayer">code declares</div><div class="lname">dim_customer</div></div>
+      <div class="node ok" style="left:512px;top:16px"><div class="llayer">warehouse holds</div><div class="lname">STG_ORDERS</div></div>
+      <div class="node ok" style="left:512px;top:70px"><div class="llayer">warehouse holds</div><div class="lname">STG_CUSTOMERS</div></div>
+      <div class="node ok" style="left:512px;top:124px"><div class="llayer">warehouse holds</div><div class="lname">FACT_PREMIUMS</div></div>
+      <div class="node ok" style="left:512px;top:178px"><div class="llayer">warehouse holds</div><div class="lname">DIM_CUSTOMER</div></div>
+      <div class="node bad" style="left:512px;top:232px"><div class="llayer">warehouse only</div><div class="lname">DIM_CUSTOMER_BKP</div></div>
+      <div class="node bad" style="left:512px;top:286px"><div class="llayer">warehouse only</div><div class="lname">TMP_LOAD_TEST</div></div>
+      <div class="node bad" style="left:512px;top:340px"><div class="llayer">warehouse only</div><div class="lname">FACT_PREMIUMS_OLD</div></div>
+    </div></div>
+    <div class="mb">
+      <div class="mband"><div class="mnodes">
+        <div class="node ok"><div class="llayer">code declares</div><div class="lname">stg_orders</div></div>
+        <div class="node ok"><div class="llayer">code declares</div><div class="lname">stg_customers</div></div>
+        <div class="node ok"><div class="llayer">code declares</div><div class="lname">fact_premiums</div></div>
+        <div class="node ok"><div class="llayer">code declares</div><div class="lname">dim_customer</div></div>
+      </div></div>
+      <div class="mband"><div class="mnodes">
+        <div class="node ok"><div class="llayer">warehouse</div><div class="lname">STG_ORDERS</div></div>
+        <div class="node ok"><div class="llayer">warehouse</div><div class="lname">STG_CUSTOMERS</div></div>
+        <div class="node ok"><div class="llayer">warehouse</div><div class="lname">FACT_PREMIUMS</div></div>
+        <div class="node ok"><div class="llayer">warehouse</div><div class="lname">DIM_CUSTOMER</div></div>
+        <div class="node bad"><div class="llayer">warehouse only</div><div class="lname">DIM_CUSTOMER_BKP</div></div>
+        <div class="node bad"><div class="llayer">warehouse only</div><div class="lname">TMP_LOAD_TEST</div></div>
+        <div class="node bad"><div class="llayer">warehouse only</div><div class="lname">FACT_PREMIUMS_OLD</div></div>
+      </div></div>
+    </div>
+    <p class="dcap">Everything the code declares (left) is subtracted from what the
+      warehouse holds (right). Matched objects pair up; whatever has no partner on the
+      left is the target list.</p>
+    <h3>2 &middot; Before deleting: grep everything</h3>
     <p>
-      Graph analysis says "probably dead". We wanted <em>provably unreferenced</em>. So
-      the last gate is deliberately dumb: take every candidate's name and search the
-      entire repo for any mention at all, in any file: SQL, YAML, macros, docs, scripts,
-      tests. The split decides the fate:
+      The diff says "probably dead". We wanted <em>provably unreferenced</em>. So the
+      last gate is deliberately dumb: take every candidate's name and search the entire
+      repo for any mention at all, in any file: SQL, YAML, macros, docs, scripts, tests.
+      The split decides the fate:
     </p>
     <ul>
       <li><strong>Zero mentions anywhere</strong>: provably unreferenced. That was
@@ -181,8 +217,7 @@
       The analyses produce candidates; people approve drops. So everything lands in one
       Excel workbook, one row per object with its schema and name spelled out, and the
       columns a decision actually needs: last altered date on Snowflake, row count, size,
-      days since last change, whether anything needed sits downstream, and where any
-      lingering mentions live. With that in front of a decision maker, the call stops
+      days since last change, and where any lingering mentions live. With that in front of a decision maker, the call stops
       being a debate: sort by last altered, start with objects untouched for nine months
       or more, and every "are we sure?" has a column that answers it. Clear metadata,
       clearly explained, is what turns a drop decision from an argument into a filter.
@@ -191,7 +226,6 @@
     <div class="stat">
       <div class="kv"><b>~5,000</b><span>tables retired: zero references in warehouse graph, code, or repo</span></div>
       <div class="kv"><b>2,000</b><span>with at least one mention, queued for deeper review</span></div>
-      <div class="kv"><b>400</b><span>models in code no longer consumed by the user-facing layer</span></div>
     </div>
 
     <h2 id="notci">Deliberately not a pipeline</h2>
@@ -201,8 +235,7 @@
       feature: deletion is the one operation where the process should be slow, boring,
       and reversible. The tooling's job is to make the candidate list trustworthy and
       the review easy, not to act. Order of operations for anyone repeating this: the
-      warehouse diff first, the endpoint closure second, and nothing gets dropped
-      without passing the grep gate.
+      warehouse diff first, and nothing gets dropped without passing the grep gate.
     </p>
     <p>
       Even retirement itself is soft. Nothing goes straight to <code class="mono">DROP</code>:
@@ -218,15 +251,12 @@
       <li><strong>The biggest dead weight wasn't in the code at all.</strong> Objects the
         codebase never mentions can only be found by diffing the catalog against the
         graph; no amount of code analysis will surface them.</li>
-      <li><strong>"Needed" is an opt-in list, not a guess.</strong> Enumerate the
-        legitimate endpoints and walk upstream; everything else must argue for its
-        life. Getting that list right matters more than the traversal.</li>
       <li><strong>A dumb grep beats a clever analysis for confidence.</strong> Searching
         the whole repo for every candidate name is crude, and it is exactly what turned
         "probably dead" into 5,000 provably-unreferenced tables and 2,000 for a human.</li>
       <li><strong>Metadata makes the decision objective.</strong> One workbook with last
-        altered, row count, size, and downstream context per object turns "dare we drop
-        this?" into "filter for untouched for 9+ months and work down the list."</li>
+        altered, row count, and size per object turns "dare we drop this?" into "filter
+        for untouched for 9+ months and work down the list."</li>
       <li><strong>Keep deletion human, and soft.</strong> Read-only scripts, manual
         review, and a <code class="mono">to_be_deleted</code> rename that waits out a few
         months of production traffic before the real drop: for destructive cleanup, slow
@@ -234,18 +264,16 @@
     </ul>
 
     <h2 id="reference">The dbt + Snowflake implementation</h2>
-    <p>How each check maps onto our actual stack, folded away so the story stays short.</p>
+    <p>How the checks map onto our actual stack, folded away so the story stays short.</p>
 
     <details class="ref" id="datasource">
-      <summary>The code graph: dbt's manifest</summary>
+      <summary>The code side: dbt's manifest</summary>
       <div class="refbody">
-        <p>Everything on the code side reads <code class="mono">target/manifest.json</code>, dbt's compiled project graph:</p>
+        <p>The code side of the diff reads <code class="mono">target/manifest.json</code>, dbt's compiled project graph:</p>
         <ul>
-          <li><code class="mono">nodes[uid]['depends_on']['nodes']</code>: each model's upstream refs and sources, used to walk the graph in either direction.</li>
-          <li><code class="mono">nodes[uid]['original_file_path']</code>: classifies models by folder layer and detects <code class="mono">inactive/</code> folders.</li>
-          <li><code class="mono">nodes[uid]['schema']</code> / <code class="mono">['alias']</code> / <code class="mono">['config']</code>: materialization, tags, enabled flag, and the <code class="mono">(schema, alias)</code> key for the warehouse diff.</li>
+          <li><code class="mono">nodes[uid]['schema']</code> / <code class="mono">['alias']</code>: the <code class="mono">(schema, alias)</code> key each model is compared on.</li>
+          <li><code class="mono">nodes[uid]['original_file_path']</code> / <code class="mono">['config']</code>: <code class="mono">inactive/</code> folder detection and the enabled flag, so disabled models still count as declared.</li>
         </ul>
-        <p>A model counts as used only if something refs it in dbt; that blindness to undeclared objects is exactly why the warehouse diff runs first.</p>
       </div>
     </details>
 
@@ -253,32 +281,15 @@
       <summary>The warehouse diff against Snowflake</summary>
       <div class="refbody">
         <p>
-          One <code class="mono">INFORMATION_SCHEMA</code> extract covers the in-scope schemas
-          (log and metadata schemas excluded). Both sides reduce to
-          <code class="mono">(SCHEMA, ALIAS)</code> keys and set-diff into the three buckets.
-          Likely backup and scratch names (<code class="mono">_bkp</code>,
-          <code class="mono">_backup</code>, <code class="mono">_old</code>,
-          <code class="mono">test</code>, <code class="mono">tmp</code>) get flagged as hints on
-          the orphan list. Matches are enriched with <code class="mono">row_count</code>,
-          <code class="mono">bytes</code>, <code class="mono">created</code>,
-          <code class="mono">last_altered</code>, days since altered, and an
-          upstream-of-needed-endpoints flag reusing the closure below. Output lands in one
-          workbook, one tab per bucket, numerics coerced for sorting.
-        </p>
-      </div>
-    </details>
-
-    <details class="ref" id="closure">
-      <summary>The endpoint closure and lineage workbook</summary>
-      <div class="refbody">
-        <p>
-          The opt-in endpoint set in our project: every user-facing mart model plus every
-          business-vault model (<code class="mono">bv_*</code>). A breadth-first walk over
-          <code class="mono">depends_on</code> from all endpoints builds the "alive" closure.
-          For each model outside it, the script records direct upstream and downstream, total
-          downstream closure size, and a nested JSON lineage tree (diamond joins collapse to a
-          leaf name so the tree stays finite). Output is a workbook with one tab per layer, so
-          the reviewer never has to open the manifest.
+          One extract of <code class="mono">INFORMATION_SCHEMA.TABLES</code> covers the
+          in-scope schemas (log and metadata schemas excluded), bringing every table and
+          view name along with <code class="mono">row_count</code>,
+          <code class="mono">bytes</code>, <code class="mono">created</code>, and
+          <code class="mono">last_altered</code>. Both sides reduce to
+          <code class="mono">(SCHEMA, ALIAS)</code> keys, and everything the code declares
+          is subtracted from what the warehouse holds. The remaining orphans keep their
+          catalog metadata plus a days-since-altered column and land in one workbook,
+          numerics coerced for sorting.
         </p>
       </div>
     </details>
@@ -287,32 +298,22 @@
       <summary>The grep gate</summary>
       <div class="refbody">
         <p>
-          Every candidate name from the previous two checks is searched across the entire
-          GitHub repository: any file type, any match, case-insensitive. The tally per name
-          (zero vs one-or-more mentions) produces the final split: the zero-mention list is
-          eligible for retirement, the rest goes to the review queue with the mention
-          locations attached. Crude on purpose: the point of this gate is that it cannot be
-          outsmarted by an edge the graph model didn't capture.
+          Every candidate name is searched across the entire GitHub repository: any file type,
+          any match, case-insensitive. The tally per name (zero vs one-or-more mentions)
+          produces the final split: the zero-mention list is eligible for retirement, the rest
+          goes to the review queue with the mention locations attached. Crude on purpose: the
+          point of this gate is that it cannot be outsmarted by an edge the graph model didn't
+          capture.
         </p>
-      </div>
-    </details>
-
-    <details class="ref" id="relate">
-      <summary>How the three checks relate</summary>
-      <div class="refbody">
-        <table>
-          <tr><th>#</th><th>Question answered</th><th>Compares</th><th>What it catches</th></tr>
-          <tr><td>1</td><td>Does the warehouse match the code?</td><td>catalog vs graph</td><td>objects the code never declared; models never deployed; matched objects that feed nothing needed</td></tr>
-          <tr><td>2</td><td>What feeds nothing that matters?</td><td>graph vs opt-in endpoints</td><td>models the project still parses but no needed endpoint consumes</td></tr>
-          <tr><td>3</td><td>Is it truly unreferenced?</td><td>candidates vs whole repo</td><td>stray usage the graph can't see; splits candidates into retire vs review</td></tr>
-        </table>
       </div>
     </details>
 
     <div class="foot">
       Written from cleanup tooling I built and ran in production on a large dbt + Snowflake
-      project. Layer and model names are generic; the methods, outputs, and every number are
-      real. Companion post:
+      project. Names are generic; the methods, outputs, and every number are real.
+      Companion posts:
+      <a href="dbt-updated-but-unused.html">Updated daily, used by no one</a> (the in-code
+      half of this cleanup) and
       <a href="dbt-upstream-freshness.html">Your dbt run succeeded. Was it built on fresh data?</a>
     </div>
   </main>

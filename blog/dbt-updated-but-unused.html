@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Updated daily, used by no one | Hiwa Feizi</title>
+<meta name="description" content="A model that builds green every morning looks alive, and it can still be dead. How an opt-in endpoint closure over the dbt graph found 400 models updating on schedule and feeding nothing anyone needed.">
+<meta property="og:title" content="Updated daily, used by no one">
+<meta property="og:description" content="Green runs and fresh data prove a model runs, not that anyone needs it. The endpoint-closure method that found 400 models working every day for nobody.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+  :root{
+    --bg:#0b1020; --card:#141d38; --card2:#18234a;
+    --ink:#e8edff; --muted:#9aa7cc; --line:#26315c;
+    --accent:#5b9dff; --accent2:#7c7cff; --good:#3ddc97; --bad:#ff6b7d; --warn:#ffcf6b;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:linear-gradient(180deg,#0b1020,#0a0e1c 60%);color:var(--ink);
+       font-family:var(--sans);line-height:1.6;font-size:17px}
+  @media(max-width:700px){body{font-size:15.5px}}
+  code,.mono{font-family:var(--mono)}
+  a{color:var(--accent)}
+
+  .shell{max-width:1080px;margin:0 auto}
+  .backlink{display:inline-block;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:20px}
+  .backlink:hover{color:var(--accent)}
+  main{padding:42px 44px 90px;min-width:0}
+  @media(max-width:900px){main{padding:28px 20px 70px}}
+
+  h1{font-size:clamp(23px,5.5vw,32px);margin:10px 0 6px;letter-spacing:-.4px}
+  .lede{color:var(--muted);font-size:16.5px;margin:0 0 20px;max-width:740px}
+  .tldr{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+        border-radius:10px;padding:14px 18px;margin:0 0 32px;max-width:760px;font-size:15px}
+  .tldr .t{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--warn);
+        text-transform:uppercase;font-weight:700;margin-right:9px}
+
+  h2{font-size:23px;margin:44px 0 14px;padding-top:14px;border-top:1px solid var(--line);letter-spacing:-.2px}
+  h2:first-of-type{border-top:none;margin-top:0}
+  h3{font-size:16.5px;margin:26px 0 10px;color:var(--ink)}
+  p{margin:0 0 14px;max-width:760px}
+  ul,ol{margin:0 0 14px;padding-left:22px;max-width:760px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+        border-radius:10px;padding:14px 18px;margin:16px 0;max-width:760px;font-size:15px}
+  .callout b{color:var(--ink)}
+
+  .stat{display:flex;gap:26px;flex-wrap:wrap;align-items:center;margin:8px 0 24px;max-width:1040px;
+      background:linear-gradient(120deg,rgba(91,157,255,.12),rgba(124,124,255,.09));
+      border:1px solid rgba(124,124,255,.35);border-radius:16px;padding:16px 20px}
+  .stat .kv{display:flex;flex-direction:column}
+  .stat .kv b{font-family:var(--mono);font-size:22px;color:#a9a2ff}
+  .stat .kv span{color:var(--muted);font-size:12px;max-width:190px}
+  @media(max-width:700px){.stat{gap:14px}.stat .kv b{font-size:18px}}
+
+  details.ref{border:1px solid var(--line);border-radius:12px;background:var(--card);
+    margin:0 0 12px;max-width:900px}
+  details.ref summary{cursor:pointer;padding:13px 18px;font-weight:700;color:var(--ink);
+    list-style:none;display:flex;align-items:center;gap:10px;font-size:15px}
+  details.ref summary::-webkit-details-marker{display:none}
+  details.ref summary::before{content:'\25B8';color:var(--accent);transition:transform .15s}
+  details.ref[open] summary::before{transform:rotate(90deg)}
+  details.ref .refbody{padding:2px 18px 16px}
+
+  .foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  @media(max-width:700px){h2{font-size:19px}}
+
+  /* diagram, same visual language as the freshness post */
+  .dscroll{overflow-x:auto;margin:18px 0 4px}
+  .diagram{position:relative;margin:0 auto}
+  .diagram svg{position:absolute;inset:0;overflow:visible}
+  .edge{fill:none;stroke:#3a4c86;stroke-width:2;opacity:.9}
+  .edge.bad{stroke:var(--bad);opacity:1;stroke-width:2.6;stroke-dasharray:6 8}
+  .node{position:absolute;width:132px;min-height:44px;border-radius:10px;border:1px solid var(--line);
+        background:var(--card2);z-index:1;padding:6px 8px}
+  .node .lname{font-family:var(--mono);font-size:9.5px;line-height:1.25;color:var(--ink);word-break:break-word}
+  .node .llayer{font-size:8.5px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:2px}
+  .node.ok{border-color:rgba(61,220,151,.5);background:rgba(61,220,151,.09)}
+  .node.bad{border-color:var(--bad);background:rgba(255,107,125,.18);box-shadow:0 0 16px rgba(255,107,125,.35)}
+  .node.end{border-color:var(--warn);background:rgba(255,207,107,.1)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:10px 0 4px;font-size:12px;color:var(--muted)}
+  .legend .li{display:flex;align-items:center;gap:6px}
+  .legend .sw{width:12px;height:12px;border-radius:4px;border:1px solid var(--line)}
+  .dcap{font-size:13px;color:var(--muted);max-width:760px;margin:8px 0 14px}
+  .mb{display:none}
+  @media(max-width:700px){
+    .dscroll{display:none}
+    .mb{display:flex;flex-direction:column;margin:18px 0 4px}
+    .mb .mband{position:relative;padding:0 0 24px}
+    .mb .mband:not(:last-child)::after{content:'';position:absolute;left:50%;bottom:5px;width:1px;height:15px;
+      background:linear-gradient(180deg,var(--line),var(--accent))}
+    .mb .mnodes{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+    .mb .node{position:relative;width:calc(50% - 4px);min-height:0}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <main>
+    <a class="backlink" href="index.html">&#8592; All blogs</a>
+    <h1>Updated daily, used by no one</h1>
+    <p class="lede">
+      A model that builds green every morning looks alive. It can still be dead. In our
+      10,000+ model project, hundreds of models were updating on schedule, loading fresh
+      data every day, and feeding nothing anyone needed. This is the method that finds
+      them: not by hunting for what looks dead, but by proving what is alive and
+      questioning everything else. Names are generic; the method and numbers are real.
+      The other half of this cleanup, warehouse objects the code never even mentions, has
+      <a href="dbt-dead-model-cleanup.html">its own post</a>.
+    </p>
+    <div class="tldr"><span class="t">TL;DR</span> Green runs and fresh data prove a
+      model runs, not that anyone needs it. <strong>Enumerate the endpoints that
+      legitimately matter, walk the dependency graph upstream from all of them, and
+      everything outside that closure must argue for its life.</strong> Attach parents,
+      children, and the downstream tree to every candidate so review is context, not
+      archaeology. Result: 400 models no longer consumed by the user-facing layer, fed
+      into the same review-then-retire path as the rest of the cleanup.
+    </p>
+
+    <h2 id="problem">The best-disguised dead weight</h2>
+    <p>
+      An orphaned table at least looks abandoned. A scheduled model is worse: every
+      signal says healthy. The run is green, the timestamps are fresh, the row counts
+      move. It passes every operational check we have, because every operational check
+      measures whether it <em>runs</em>, and none measures whether anyone <em>needs</em>
+      it. Meanwhile it costs more than any dead table: scheduled compute every single
+      day, maintenance whenever something upstream changes, and false confidence for
+      every engineer who assumes that a running model must be running for a reason.
+    </p>
+    <p>
+      Being loaded and being used are different things. To separate them you have to
+      stop asking "what looks dead?" and ask the opposite question.
+    </p>
+
+    <h2 id="method">Prove what's alive, question the rest</h2>
+    <h3>Opt in what's needed</h3>
+    <p>
+      Enumerate the endpoints that legitimately matter: the user-facing layer, plus
+      every other sink that counts as a real consumer. This list is deliberate, written
+      down, and short. Everything else in the project exists only to feed these.
+    </p>
+    <div class="callout">
+      The whole method rests on this list being right. Miss a legitimate endpoint and
+      the analysis flags living models as dead; the list deserves more care than the
+      graph walk itself.
+    </div>
+    <h3>Walk upstream, take the closure</h3>
+    <p>
+      From every endpoint, walk the dependency graph upstream (breadth-first, deduped)
+      and collect everything that directly or indirectly feeds one. That closure is the
+      alive set, by construction. Every model outside it runs for nobody: no path from
+      its output to anything that matters, no matter how green its runs are.
+    </p>
+    <div class="legend">
+      <div class="li"><span class="sw" style="background:rgba(255,207,107,.4);border-color:var(--warn)"></span> opt-in endpoint</div>
+      <div class="li"><span class="sw" style="background:rgba(61,220,151,.4);border-color:var(--good)"></span> alive: a path to an endpoint exists</div>
+      <div class="li"><span class="sw" style="background:rgba(255,107,125,.4);border-color:var(--bad)"></span> runs daily, reaches nothing</div>
+    </div>
+    <div class="dscroll"><div class="diagram" style="width:650px;height:270px">
+      <svg width="650" height="270" viewBox="0 0 650 270">
+        <path class="edge" d="M138,38 C200,38 200,38 262,38"/>
+        <path class="edge" d="M138,138 C200,138 200,138 262,138"/>
+        <path class="edge bad" d="M138,238 C200,238 200,238 262,238"/>
+        <path class="edge" d="M394,38 C456,38 456,62 518,62"/>
+        <path class="edge" d="M394,138 C456,138 456,62 518,62"/>
+        <path class="edge" d="M394,138 C456,138 456,212 518,212"/>
+      </svg>
+      <div class="node ok" style="left:6px;top:16px"><div class="llayer">staging &middot; load</div><div class="lname">load_policies</div></div>
+      <div class="node ok" style="left:6px;top:116px"><div class="llayer">staging &middot; load</div><div class="lname">load_claims</div></div>
+      <div class="node bad" style="left:6px;top:216px"><div class="llayer">staging &middot; load &middot; runs daily</div><div class="lname">load_legacy_feed</div></div>
+      <div class="node ok" style="left:262px;top:16px"><div class="llayer">intermediate</div><div class="lname">int_policies</div></div>
+      <div class="node ok" style="left:262px;top:116px"><div class="llayer">intermediate</div><div class="lname">int_claims</div></div>
+      <div class="node bad" style="left:262px;top:216px"><div class="llayer">intermediate &middot; runs daily</div><div class="lname">int_legacy_stats</div></div>
+      <div class="node end" style="left:518px;top:40px"><div class="llayer">opt-in endpoint</div><div class="lname">mart_premiums</div></div>
+      <div class="node end" style="left:518px;top:190px"><div class="llayer">opt-in endpoint</div><div class="lname">bv_claims</div></div>
+    </div></div>
+    <div class="mb">
+      <div class="mband"><div class="mnodes">
+        <div class="node ok"><div class="llayer">staging &middot; load</div><div class="lname">load_policies</div></div>
+        <div class="node ok"><div class="llayer">staging &middot; load</div><div class="lname">load_claims</div></div>
+        <div class="node bad"><div class="llayer">runs daily</div><div class="lname">load_legacy_feed</div></div>
+      </div></div>
+      <div class="mband"><div class="mnodes">
+        <div class="node ok"><div class="llayer">intermediate</div><div class="lname">int_policies</div></div>
+        <div class="node ok"><div class="llayer">intermediate</div><div class="lname">int_claims</div></div>
+        <div class="node bad"><div class="llayer">runs daily</div><div class="lname">int_legacy_stats</div></div>
+      </div></div>
+      <div class="mband"><div class="mnodes">
+        <div class="node end"><div class="llayer">opt-in endpoint</div><div class="lname">mart_premiums</div></div>
+        <div class="node end"><div class="llayer">opt-in endpoint</div><div class="lname">bv_claims</div></div>
+      </div></div>
+    </div>
+    <p class="dcap">The closure, drawn: everything with a path to an amber endpoint is
+      alive (green). The legacy branch builds green every morning, loads fresh data, and
+      reaches nothing (red): its edges stop before any endpoint.</p>
+    <h3>Attach the lineage to the verdict</h3>
+    <p>
+      A bare list of names gets ignored; nobody retires a model on a string match. So
+      every candidate carries its context: direct parents and children, the size of its
+      downstream closure, and a nested lineage tree, packaged into one workbook with a
+      tab per layer. The person reviewing sees what the model touches without ever
+      opening the manifest, and the retire decision becomes reading, not archaeology.
+    </p>
+
+    <div class="stat">
+      <div class="kv"><b>400</b><span>models updating on schedule, consumed by nothing user-facing</span></div>
+      <div class="kv"><b>10,000+</b><span>models scanned through one graph walk</span></div>
+    </div>
+    <p>
+      The 400 went into the same path as the warehouse-side candidates: human review,
+      then soft retirement, nothing dropped outright. Every one of them had been
+      spending compute daily; stopping a schedule is the cheapest optimization there is.
+    </p>
+
+    <h2 id="learned">What I learned</h2>
+    <ul>
+      <li><strong>Green runs and fresh data are liveness signals, not usefulness
+        signals.</strong> Operational monitoring answers "does it run?"; nothing in it
+        answers "should it?"</li>
+      <li><strong>"Needed" is an opt-in list, not a guess.</strong> Enumerate the
+        legitimate endpoints and walk upstream; everything else must argue for its
+        life. Getting that list right matters more than the traversal.</li>
+      <li><strong>Attach the lineage to the verdict.</strong> A bare list of 400 names
+        gets ignored; the same list with parents, children, and downstream trees per
+        row gets acted on.</li>
+      <li><strong>The cheapest optimization is the run you stop scheduling.</strong>
+        Query tuning saves milliseconds; retiring a pointless daily model saves the
+        whole run, every day, forever.</li>
+    </ul>
+
+    <h2 id="reference">The dbt implementation</h2>
+    <p>The mechanics, folded away so the story stays short.</p>
+
+    <details class="ref" id="datasource">
+      <summary>What the script reads from the manifest</summary>
+      <div class="refbody">
+        <p>Everything keys off <code class="mono">target/manifest.json</code>, dbt's compiled project graph:</p>
+        <ul>
+          <li><code class="mono">nodes[uid]['depends_on']['nodes']</code>: each model's upstream refs and sources, used to walk the graph in either direction.</li>
+          <li><code class="mono">nodes[uid]['original_file_path']</code>: classifies models by folder layer and detects <code class="mono">inactive/</code> folders.</li>
+          <li><code class="mono">nodes[uid]['schema']</code> / <code class="mono">['alias']</code> / <code class="mono">['config']</code>: materialization, tags, enabled flag.</li>
+        </ul>
+        <p>A model counts as used only if something refs it in dbt; objects the code never declares are invisible here, which is what the companion post's warehouse diff is for.</p>
+      </div>
+    </details>
+
+    <details class="ref" id="closure">
+      <summary>The endpoint closure and lineage workbook</summary>
+      <div class="refbody">
+        <p>
+          The opt-in endpoint set in our project: every user-facing mart model plus every
+          business-vault model (<code class="mono">bv_*</code>). A breadth-first walk over
+          <code class="mono">depends_on</code> from all endpoints builds the alive closure.
+          For each model outside it, the script records direct upstream and downstream, total
+          downstream closure size, and a nested JSON lineage tree (diamond joins collapse to a
+          leaf name so the tree stays finite). Output is one workbook with a tab per layer:
+          unused load models, unused stage models, and unused intermediate-layer models.
+        </p>
+      </div>
+    </details>
+
+    <div class="foot">
+      Written from cleanup tooling I built and ran in production on a large dbt + Snowflake
+      project. Names are generic; the method and every number are real. Companion posts:
+      <a href="dbt-dead-model-cleanup.html">5,000 tables gone, and nobody noticed</a> (the
+      warehouse half of this cleanup) and
+      <a href="dbt-upstream-freshness.html">Your dbt run succeeded. Was it built on fresh data?</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

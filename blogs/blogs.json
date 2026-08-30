@@ -1,10 +1,10 @@
 [
   {
-    "slug": "dbt-dead-model-cleanup",
-    "href": "dbt-dead-model-cleanup.html",
-    "title": "Finding 5,000 dead tables in a 10,000+ model warehouse",
-    "date": "2026-08-04",
-    "summary": "Most of the dead weight was not in the code at all: it was warehouse objects the codebase never mentions. The method: diff the catalog against the code graph, walk the graph upstream from an opt-in list of needed endpoints, then grep the entire repo for every candidate's name before dropping anything. Zero references anywhere: ~5,000 tables retired. One or more mentions: 2,000 queued for review. Nothing dropped outright: renamed first, deleted months later. The dbt + Snowflake specifics are at the end.",
+    "slug": "dbt-updated-but-unused",
+    "href": "dbt-updated-but-unused.html",
+    "title": "Updated daily, used by no one",
+    "date": "2026-08-30",
+    "summary": "A model that builds green every morning looks alive, and it can still be dead. 400 of our models were updating on schedule, loading fresh data daily, and feeding nothing anyone needed. The method that finds them: enumerate the endpoints that legitimately matter, walk the dependency graph upstream, and everything outside that closure must argue for its life, with parents, children, and downstream trees attached so review is context, not archaeology.",
     "tags": [
       "dbt",
       "Snowflake",
@@ -13,7 +13,24 @@
       "Python",
       "Automation"
     ],
-    "readTime": "6 min",
+    "readTime": "4 min",
+    "cover": null
+  },
+  {
+    "slug": "dbt-dead-model-cleanup",
+    "href": "dbt-dead-model-cleanup.html",
+    "title": "5,000 tables gone, and nobody noticed",
+    "date": "2026-08-30",
+    "summary": "Most of the dead weight was not in the code at all: it was warehouse objects the codebase never mentions. Diff the catalog against the code graph, then grep the entire repo for every candidate's name before dropping anything. Zero references anywhere: ~5,000 tables retired. One or more mentions: 2,000 queued for review. Nothing dropped outright: renamed first, deleted months later. The dbt + Snowflake specifics are at the end.",
+    "tags": [
+      "dbt",
+      "Snowflake",
+      "Data lineage",
+      "Data quality",
+      "Python",
+      "Automation"
+    ],
+    "readTime": "5 min",
     "cover": null
   },
   {
