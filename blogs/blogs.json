@@ -1,5 +1,22 @@
 [
   {
+    "slug": "data-validation-antipatterns",
+    "href": "data-validation-antipatterns.html",
+    "title": "How NOT to do automated data validation",
+    "date": "2026-09-05",
+    "summary": "A validation system can tick every automated box and still end up the most expensive part of the project. The real setup I reviewed needed four tables per validated table, five steps to run a validation, and reported failures as row dumps with no diagnosis. The system I built instead, now in daily use: two shared tables for the whole system, a macro that validates everything at run end, five sample rows per side showing the exact mismatch, an LLM-drafted key book for the column mapping, and a ready-to-run query logged with every failure.",
+    "tags": [
+      "Data validation",
+      "Data quality",
+      "dbt",
+      "Snowflake",
+      "SQL",
+      "Automation"
+    ],
+    "readTime": "6 min",
+    "cover": null
+  },
+  {
     "slug": "dbt-updated-but-unused",
     "href": "dbt-updated-but-unused.html",
     "title": "Updated daily, used by no one",

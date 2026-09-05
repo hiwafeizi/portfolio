@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How NOT to do automated data validation | Hiwa Feizi</title>
+<meta name="description" content="A validation system can tick every automated box and still end up the most expensive part of the project. Three anti-patterns from a real setup I reviewed, and the design I built instead: zero extra steps, one summary table, and samples that show exactly what is wrong.">
+<meta property="og:title" content="How NOT to do automated data validation">
+<meta property="og:description" content="Three validation anti-patterns from a real setup I reviewed: a many-step developer path, results scattered across tables, and alarms without diagnosis. And the design that avoids all three.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+  :root{
+    --bg:#0b1020; --card:#141d38; --card2:#18234a;
+    --ink:#e8edff; --muted:#9aa7cc; --line:#26315c;
+    --accent:#5b9dff; --accent2:#7c7cff; --good:#3ddc97; --bad:#ff6b7d; --warn:#ffcf6b;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:linear-gradient(180deg,#0b1020,#0a0e1c 60%);color:var(--ink);
+       font-family:var(--sans);line-height:1.6;font-size:17px}
+  @media(max-width:700px){body{font-size:15.5px}}
+  code,.mono{font-family:var(--mono)}
+  a{color:var(--accent)}
+
+  .shell{max-width:1080px;margin:0 auto}
+  .backlink{display:inline-block;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:20px}
+  .backlink:hover{color:var(--accent)}
+  main{padding:42px 44px 90px;min-width:0}
+  @media(max-width:900px){main{padding:28px 20px 70px}}
+
+  h1{font-size:clamp(23px,5.5vw,32px);margin:10px 0 6px;letter-spacing:-.4px}
+  .lede{color:var(--muted);font-size:16.5px;margin:0 0 20px;max-width:740px}
+  .tldr{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+        border-radius:10px;padding:14px 18px;margin:0 0 32px;max-width:760px;font-size:15px}
+  .tldr .t{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--warn);
+        text-transform:uppercase;font-weight:700;margin-right:9px}
+
+  h2{font-size:23px;margin:44px 0 14px;padding-top:14px;border-top:1px solid var(--line);letter-spacing:-.2px}
+  h2:first-of-type{border-top:none;margin-top:0}
+  h3{font-size:16.5px;margin:26px 0 10px;color:var(--ink)}
+  p{margin:0 0 14px;max-width:760px}
+  ul,ol{margin:0 0 14px;padding-left:22px;max-width:760px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+
+  .callout{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--accent);
+        border-radius:10px;padding:14px 18px;margin:16px 0;max-width:760px;font-size:15px}
+  .callout b{color:var(--ink)}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin:0 0 20px;max-width:900px}
+  th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px;font-weight:700}
+  td.mono,code.mono{font-family:var(--mono);font-size:.95em;color:#a9c4ff}
+  tr:last-child td{border-bottom:none}
+
+  .foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  @media(max-width:700px){h2{font-size:19px}table{display:block;overflow-x:auto}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <main>
+    <a class="backlink" href="index.html">&#8592; All blogs</a>
+    <h1>How NOT to do automated data validation</h1>
+    <p class="lede">
+      A validation system can tick every "automated" box, coverage, scheduling, results
+      tables, and still end up the most expensive part of your project. I reviewed a real
+      setup like that: it worked, it got used, and using it cost more than anything else
+      in the migration. This post walks through its three anti-patterns, what each one
+      cost, and the system I built instead.
+    </p>
+    <div class="tldr"><span class="t">TL;DR</span> Three anti-patterns from a real
+      setup: <strong>four tables per validated table</strong>, a <strong>five-step
+      path</strong> to run a validation, and failures reported as <strong>row dumps with
+      no diagnosis</strong>. The system I built instead: two shared tables total, a macro
+      that validates everything automatically at run end, and ten sample rows showing
+      the exact mismatch. Plus two details that matter at scale: don't hash what isn't
+      pre-hashed, and log a ready-to-run query with every failure.
+    </p>
+
+    <h2 id="setup">The setup I reviewed</h2>
+    <p>
+      On paper it was complete. In practice, validating one table meant
+      <strong>four tables</strong>: one per side to store row hashes, one to list the
+      differences, and a summary table, per comparison. Getting a validation meant
+      <strong>five steps</strong>: go through the application, generate the queries,
+      fetch them from GitHub, and run them one by one, times sixty models if your change
+      touched sixty models. And when a validation failed, finding the actual issue meant
+      walking the difference table for a key, looking that key up in both hash tables,
+      and digging through the rows to guess what didn't match.
+    </p>
+    <p>
+      None of that is a bug. Every piece worked as designed, and the system did get
+      used; the migration demanded it. That is exactly what made it expensive: all that
+      friction, paid in full on every change, made validation the most costly part of
+      the entire project. That theme runs through all three anti-patterns.
+    </p>
+
+    <h2 id="one">DO NOT multiply tables</h2>
+    <p>Four tables per validated table falls to almost nothing in three moves:</p>
+    <ul>
+      <li><strong>Don't store hashes, compute them on the fly.</strong> The two hash
+        tables exist only to feed the comparison; calculate in the query and write only
+        differences. Half the tables gone.</li>
+      <li><strong>One summary for everything.</strong> A summary per comparison means
+        knowing where to look, times every comparison. One general summary table answers
+        "is everything okay?" with one query. Another quarter gone.</li>
+      <li><strong>One shared difference table.</strong> Differences from every
+        comparison land in the same table, tagged by comparison, instead of a table per
+        run. The last quarter gone.</li>
+    </ul>
+    <p>
+      What's left is <strong>two shared tables for the entire system</strong>: one
+      summary, one difference store. The obvious objection is that a shared difference
+      table grows too big to query. It doesn't, because of how failures get reported;
+      that's the third anti-pattern.
+    </p>
+
+    <h2 id="two">DO NOT make people work to be validated</h2>
+    <p>
+      Five steps to get a validation, times sixty models per change, and people
+      actually walked that path, because they had no choice. Friction in a mandatory
+      check doesn't block adoption; it converts straight into cost, hours of developer
+      time per change spent on steps a machine should own.
+    </p>
+    <p>
+      The whole path can be a macro (a function, whatever your stack calls it) that
+      needs nothing from the developer:
+    </p>
+    <ul>
+      <li>it starts automatically at <strong>run end</strong>,</li>
+      <li>walks the models that ran successfully, filtered to the project's scope,</li>
+      <li>does the table mapping and column mapping,</li>
+      <li>runs the validation queries and writes the results.</li>
+    </ul>
+    <p>
+      No lists of sixty model names, no fetching queries, no running them one by one.
+      The developer's only interaction is seeing results right after their run. Being
+      validated is a side effect of doing your job, and that is the only version of
+      "automated" that gets used.
+    </p>
+
+    <h2 id="three">DO NOT raise alarms without a diagnosis</h2>
+    <p>
+      In the reviewed setup, a failure meant archaeology: difference table, key, two
+      hash tables, guesswork. And when the answer finally surfaced, it was a dump of
+      every problematic row with no hint of what about them was wrong.
+    </p>
+    <p>
+      What actually gets fixed: about <strong>five rows per side</strong>, ten total,
+      showing exactly which values don't match. That's enough to spot the pattern
+      (a truncated column, a timezone shift, a missing filter) and it's the reason the
+      shared difference table from the first section stays small: ten rows per unmatched
+      table, not 10 million.
+    </p>
+    <p>
+      The hard part of showing exact mismatches is the join key: you need to know which
+      column pairs the two sides, and sometimes it doesn't cleanly exist. My suggestion:
+      have Claude go through both schemas and draft a YAML key book mapping the pairs;
+      done properly it covers something like 90% of cases. But errors happen, so two
+      things are not optional: proper logging of which key was used, and an easy way for
+      developers to correct a wrong key. An automated mapping you can't override is just
+      a new source of mysterious failures.
+    </p>
+
+    <h2 id="scale">Two details that matter at scale</h2>
+    <h3>Don't hash what isn't pre-hashed</h3>
+    <p>
+      Hash comparison sounds fast until you notice that on large tables you're computing
+      hashes on both sides and <em>then</em> doing the comparison. If the hashes aren't
+      precalculated, skip them: run the <code class="mono">EXCEPT</code> directly on the
+      columns and save the extra pass. The one real upside of hashing is that you can
+      compute column hashes alongside the row hash, so when a table is close to fully
+      matching, you can pinpoint the problematic <em>columns</em> at scale. Use it when
+      that's the question you're asking, not by default.
+    </p>
+    <h3>Log the query, not just the verdict</h3>
+    <p>
+      Developers should never write a query per validation to investigate a failure. The
+      macro already knows the tables, the mapping, and the key it used, so it logs a
+      ready-to-run query along with the result: how to get the summary, how to pull the
+      differences, how to reproduce the check. Investigation starts with copy and paste,
+      not with composing SQL from memory.
+    </p>
+
+    <h2 id="mine">Side by side</h2>
+    <table>
+      <tr><th>The setup I reviewed</th><th>The system I built</th></tr>
+      <tr><td>4 tables per validated table</td><td>2 shared tables for the whole system</td></tr>
+      <tr><td>5 steps to validate, 4 more to investigate</td><td>zero steps: a macro validates everything at run end</td></tr>
+      <tr><td>every problematic row, no explanation</td><td>5 rows per side showing the exact mismatch</td></tr>
+      <tr><td>developer writes investigation queries</td><td>ready-to-run queries logged with every failure</td></tr>
+      <tr><td>the most costly part of the project</td><td>in daily use at near-zero developer cost: validation as a side effect of every run</td></tr>
+    </table>
+    <p>
+      I learned these the long way. The first validation system I built, during our own
+      600+ table migration, got the core right: a macro at run end, filtered
+      comparisons, one summary broken down by source. The system on this page is its
+      successor, built after seeing the opposite design up close, and it's what we work
+      with now: validation just happens, and finding an issue starts from the answer
+      instead of the question. The first version has its own write-up:
+      <a href="post.html?slug=dbt-migration-validation">We Migrated 600+ Tables to dbt.
+      Here's How I Made Sure Nothing Broke.</a>
+    </p>
+
+    <h2 id="learned">What I learned</h2>
+    <ul>
+      <li><strong>Validation is a product, and its user is a developer in a hurry.</strong>
+        Judge it by what it costs that user, not by its coverage.</li>
+      <li><strong>Friction converts into cost.</strong> A mandatory check behind five
+        steps still gets run; you just pay for those steps on every single change.</li>
+      <li><strong>Storage design is UX.</strong> Two shared tables people actually query
+        beat hundreds of per-comparison tables nobody opens.</li>
+      <li><strong>Show the diff, not the dump.</strong> Five rows per side with the exact
+        mismatch beat 10 million rows with no explanation, and they keep your tables
+        small enough to stay queryable.</li>
+      <li><strong>Automate the mapping, keep the override.</strong> An LLM-drafted key
+        book covers most of it; logging and a human-editable escape hatch cover the
+        rest.</li>
+    </ul>
+
+    <div class="foot">
+      Written from a validation system I reviewed and one I built and run in production
+      on a large dbt + Snowflake project. No names, real patterns. Related posts:
+      <a href="post.html?slug=dbt-migration-validation">the validation framework itself</a>,
+      <a href="dbt-upstream-freshness.html">Your dbt run succeeded. Was it built on fresh data?</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

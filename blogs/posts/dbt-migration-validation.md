@@ -106,6 +106,12 @@ It would have been simpler to just hash everything and compare. But row counts a
 
 A separate validation step that runs after the pipeline, or on a schedule, or when someone remembers, will eventually drift. By running validation in `on-run-end`, it's structurally impossible for a pipeline run to complete without being validated. The validation is not a follow up task. It's part of the pipeline definition. That structural guarantee is worth more than any amount of process documentation.
 
+## Since Then
+
+I later reviewed another validation setup at the opposite end of the design space: four tables per validated table, five manual steps to run a validation, and failures reported as raw row dumps. It worked, and it became the most expensive part of that project.
+
+Seeing the anti-patterns from the outside sharpened this design into its successor, which the team now works with daily: two shared tables for the whole system, samples that show the exact mismatch instead of dumps, an LLM-drafted key book for the column mapping, and a ready-to-run query logged with every failure. The full breakdown of what to avoid and why: [How NOT to do automated data validation](data-validation-antipatterns.html)
+
 ---
 
 *Tags: dbt · Snowflake · Data validation · Parity testing · SQL · Data quality · Automation · Metadata automation · Jinja · Migration · Data engineering*
