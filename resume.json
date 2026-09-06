@@ -181,7 +181,7 @@
               "heading": "Platform engineering",
               "bullets": [
                 {
-                  "text": "Designed an upstream freshness check that runs after every dbt run: walks each deliverable's full lineage (up to 1,744 nodes) with one monitoring query, judges staging on loaded file dates instead of run times, and caught mid-chain models running green on months-old data.",
+                  "text": "Designed an upstream freshness check that runs after consumer-level dbt runs: walks each built deliverable's full lineage (up to 1,744 nodes) with one monitoring query, judges staging on loaded file dates instead of run times, and caught mid-chain models running green on months-old data.",
                   "project": "upstream freshness check",
                   "blog": "dbt-upstream-freshness.html",
                   "skills": [
