@@ -191,7 +191,7 @@
     "slug": "neocru-is-dead",
     "title": "NeoCru is dead. Here's what it was.",
     "date": "2026-04-12",
-    "summary": "I built an AI recruitment tool that evaluated every application against the actual requirements and explained every ranking in plain language. It worked, and it survived a real hiring process. But solo B2B go-to-market is a full-time job I already had, so I shut it down properly: users notified, data removed, company deregistered at the KVK. What it was, how it was built, and what outlived it.",
+    "summary": "I built an AI recruitment tool that evaluated every application against the actual requirements and explained every ranking. Its one real-world result: an intern hire at Allianz that I sourced through it and introduced, because the company itself couldn't use the platform for GDPR reasons. Zero users, so I closed the company properly, KVK deregistration included. What it was, how it was built, and what I learned.",
     "tags": [
       "AI-assisted development",
       "Python",
@@ -202,7 +202,7 @@
       "Solo founder",
       "Retrospective"
     ],
-    "readTime": "4 min",
+    "readTime": "3 min",
     "cover": "neocru-dashboard.png"
   },
   {
