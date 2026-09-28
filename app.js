@@ -318,7 +318,10 @@ const loadResume = async () => {
     setText("hero-name", data.name);
     setText("hero-location", data.location);
     setText("hero-email", data.email);
-    setText("summary-text", data.summary);
+    const summaryEl = document.getElementById("summary-text");
+    if (summaryEl) {
+        summaryEl.innerHTML = data.summary || "";
+    }
     const skillIndex = buildSkillIndex(data);
     const skillsContainer = document.getElementById("skills-container");
     const evidenceModal = document.getElementById("evidence-modal");

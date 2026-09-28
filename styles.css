@@ -241,6 +241,18 @@ section {
     margin-bottom: 1rem;
 }
 
+.summary-text a {
+    color: var(--ocean);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: rgba(14, 86, 105, 0.35);
+    text-underline-offset: 3px;
+}
+
+.summary-text a:hover {
+    text-decoration-color: var(--ocean);
+}
+
 .summary-text {
     color: var(--muted);
     font-size: 1.05rem;
