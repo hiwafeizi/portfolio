@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>I sorted 3,472 liked songs by how they feel | Hiwa Feizi</title>
+<meta name="description" content="A small local app that listens to every song in my Spotify Liked Songs, scores its mood with Essentia's models, clusters the scores into 24 moods, and pushes them back as playlists. With the interactive map of all of them.">
+<meta property="og:title" content="I sorted 3,472 liked songs by how they feel">
+<meta property="og:description" content="Essentia mood models, KMeans and a Spotify push: 24 mood playlists from one big Liked Songs list, and an interactive map of every song.">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/png" href="../favicon.png">
+<style>
+  :root{
+    --bg:#0b1020; --card:#141d38; --card2:#18234a;
+    --ink:#e8edff; --muted:#9aa7cc; --line:#26315c;
+    --accent:#5b9dff; --accent2:#7c7cff; --good:#3ddc97; --bad:#ff6b7d; --warn:#ffcf6b;
+    --mono:'SFMono-Regular',Consolas,'Liberation Mono',Menlo,monospace;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:linear-gradient(180deg,#0b1020,#0a0e1c 60%);color:var(--ink);
+       font-family:var(--sans);line-height:1.6;font-size:17px}
+  @media(max-width:700px){body{font-size:15.5px}}
+  code,.mono{font-family:var(--mono)}
+  a{color:var(--accent)}
+
+  .shell{max-width:1080px;margin:0 auto}
+  .backlink{display:inline-block;font-size:13px;color:var(--muted);text-decoration:none;margin-bottom:20px}
+  .backlink:hover{color:var(--accent)}
+  main{padding:42px 44px 90px;min-width:0}
+  @media(max-width:900px){main{padding:28px 20px 70px}}
+
+  h1{font-size:clamp(23px,5.5vw,32px);margin:10px 0 6px;letter-spacing:-.4px}
+  .lede{color:var(--muted);font-size:16.5px;margin:0 0 20px;max-width:740px}
+  .tldr{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+        border-radius:10px;padding:14px 18px;margin:0 0 32px;max-width:760px;font-size:15px}
+  .tldr .t{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--warn);
+        text-transform:uppercase;font-weight:700;margin-right:9px}
+
+  h2{font-size:23px;margin:44px 0 14px;padding-top:14px;border-top:1px solid var(--line);letter-spacing:-.2px}
+  h2:first-of-type{border-top:none;margin-top:0}
+  h3{font-size:16.5px;margin:26px 0 10px;color:var(--ink)}
+  code{color:#a9c4ff;font-size:.92em}
+  p{margin:0 0 14px;max-width:760px}
+  ul,ol{margin:0 0 14px;padding-left:22px;max-width:760px}
+  li{margin-bottom:6px}
+  strong{color:#fff}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px;margin:0 0 20px;max-width:560px}
+  th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  td:last-child{color:#a9c4ff;font-family:var(--mono);font-size:.95em;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+
+  .demo{margin:18px 0 8px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#111214}
+  .demo iframe{display:block;width:100%;height:min(88vh,980px);border:0}
+  .demo-cap{font-size:13px;color:var(--muted);margin:0 0 24px}
+
+  .foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+  @media(max-width:700px){h2{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <main>
+    <a class="backlink" href="index.html">&#8592; All blogs</a>
+    <h1>I sorted 3,472 liked songs by how they feel</h1>
+    <p class="lede">
+      My Liked Songs is one long list: Persian rap next to lo-fi next to film scores. I
+      wanted playlists by mood, not by genre and not by the day I liked something, so I
+      built a small local app that listens to every song and sorts them for me.
+    </p>
+    <div class="tldr"><span class="t">TL;DR</span> The app pulls my liked songs from
+      Spotify, finds audio for each one, scores its mood with Essentia's pretrained
+      models, clusters the scores into <strong>24 moods</strong>, and pushes them back as
+      playlists. 3,197 songs were analysed and <strong>2,741 made it into a
+      playlist</strong>. The map of all of them is below: click a playlist to see where
+      it sits, press &#9654; to listen.
+    </div>
+
+    <h2 id="problem">The problem</h2>
+    <p>
+      Spotify used to hand out this data. Since late 2024, new apps get neither audio
+      features (valence, energy, danceability) nor 30 second previews. So the app has to
+      find the audio itself and judge the mood itself. And mood is harder than genre: a
+      sad song and a happy song can share every instrument.
+    </p>
+
+    <h2 id="how">How it works</h2>
+    <ul>
+      <li><strong>Find the audio.</strong> A 30 second preview from Deezer or iTunes,
+        and for most songs the full track. More on both below; this was most of the
+        work.</li>
+      <li><strong>Score the mood.</strong> Essentia's models give every song 14 scores
+        (happy, sad, relaxed, aggressive, party, danceable, dark, acoustic, electronic,
+        instrumental, engaging, approachable, valence, arousal) plus an embedding of the
+        sound itself. Essentia's model package has no Windows build, so the app runs its ONNX models with
+        ONNX Runtime on a NumPy rebuild of its audio front end, which matches the
+        original within 0.0003.</li>
+      <li><strong>Find the moods.</strong> KMeans on the 14 scores, with valence and
+        arousal counting double and a smaller dose of the sound embedding, so groups
+        follow feeling first and sound second. I tried 25 and 40 groups, listened through
+        them, and settled on 24, each named after its most typical songs.</li>
+      <li><strong>Keep the playlists tight.</strong> A song far from its mood's centre
+        is left out instead of forced in. At my setting that is 456 songs. The rest went
+        to Spotify as 24 playlists, with songs that sit between two moods in both.</li>
+    </ul>
+
+    <h2 id="audio">Getting the audio</h2>
+    <h3>Matching previews</h3>
+    <p>
+      The first version looked each song up on Deezer by its ISRC (the recording's ID)
+      and fell back to Deezer's strict search, <code>artist:"…" track:"…"</code>. That
+      fallback returned nothing for every single query, and my title cleanup wiped
+      Persian and Cyrillic titles to empty strings. So <strong>29% of the library (1,020
+      songs) came back without audio</strong>. What fixed it:
+    </p>
+    <ul>
+      <li><strong>Plain searches, two sources.</strong> Artist and title as free text on
+        Deezer, then the iTunes Search API for what Deezer doesn't have. A hit only counts
+        if title, artist and length all match; in a check of 79 hits, all 79 were the
+        right song.</li>
+      <li><strong>Matching that survives other scripts.</strong> Unicode normalization,
+        Cyrillic to Latin, and a similarity threshold instead of exact equality, so a
+        Cyrillic title can match its Latin spelling and a small spelling difference
+        doesn't lose a song.</li>
+      <li><strong>Downloads that don't give up.</strong> Deezer's preview server answers
+        bursts with HTTP 429, which had saved 38 songs as empty files. Paced retries, and
+        trying the next source when one fails, got almost all of them back.</li>
+      <li><strong>A reason for every miss.</strong> Of the 304 songs still missing, 235
+        were taken down from Deezer, 45 were never there and 24 are blocked in my country.
+        None of them is on iTunes either.</li>
+    </ul>
+    <p>That took the songs without audio from 29% to under 9%.</p>
+
+    <h3>30 seconds is not the song</h3>
+    <p>
+      A preview is usually the chorus, and Deezer and iTunes use the same 30 seconds (31
+      of 32 songs I compared). Clip quality was not the problem: re-encoding at Deezer's
+      128 kbps moved the mood scores by about 3% of the gap between two random songs. The
+      excerpt was. In a 50 song test, analysing the whole song moved
+      <strong>4 in 10 songs to a different group</strong>.
+    </p>
+    <p>
+      So the app finds each song on YouTube Music by its title (including words like
+      live, remix or slowed), artists, album and length, downloads it, and checks it is
+      the same recording by finding the preview inside it. Then it analyses the full song
+      and deletes the file. My first version took 7 seconds per song. One search request
+      on YouTube Music's own catalogue, one download step and three songs at a time got
+      that to about 1 second, a bit over an hour for the library. 2,929 songs were analysed
+      whole, and 59 songs with no preview anywhere got added. 275 still have no audio
+      at all.
+    </p>
+
+    <h2 id="result">The result</h2>
+    <p>
+      This is the app's own view, exported as one HTML file. Every dot is a song, placed
+      from sad to happy and from relaxed to aggressive. Click a playlist under the map to
+      pin it, hover a dot to see the song, and press &#9654; on any card to play it.
+    </p>
+    <div class="demo">
+      <iframe src="liked-songs-by-feeling-moods.html" title="Map of my 24 moods and their songs"
+              loading="lazy" allow="autoplay; encrypted-media; clipboard-write; fullscreen"></iframe>
+    </div>
+    <p class="demo-cap">
+      <a href="liked-songs-by-feeling-moods.html" target="_blank" rel="noopener">Open it full screen &#8599;</a>
+      &nbsp;Songs play through Spotify's player: log in to Spotify for full songs, otherwise you get 30 second previews.
+    </p>
+    <table>
+      <tr><td>Liked songs</td><td>3,559 (87 liked twice)</td></tr>
+      <tr><td>Analysed</td><td>3,197</td></tr>
+      <tr><td>Moods</td><td>24</td></tr>
+      <tr><td>In a playlist</td><td>2,741</td></tr>
+    </table>
+
+    <h2 id="fixes">A few other things I fixed along the way</h2>
+    <ul>
+      <li>87 songs were liked twice (single and album version, re-releases). They now
+        count once.</li>
+      <li>Valence and arousal put metal on the happy side, so the map uses the happy,
+        sad, relaxed and aggressive scores instead.</li>
+    </ul>
+
+    <div class="foot">
+      Built with Claude Code as a local Flask app on Windows. The map is the app's own
+      "Find &amp; name moods" page, saved as a single file.
+    </div>
+  </main>
+</div>
+</body>
+</html>

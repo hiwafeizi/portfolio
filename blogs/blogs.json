@@ -1,5 +1,24 @@
 [
   {
+    "slug": "liked-songs-by-feeling",
+    "href": "liked-songs-by-feeling.html",
+    "title": "I sorted 3,472 liked songs by how they feel",
+    "date": "2026-10-04",
+    "summary": "Spotify stopped giving new apps audio features and previews, so I built a small local app that finds the audio itself, scores every song with Essentia's mood models, clusters the scores into 24 moods, and pushes them back as playlists. 3,197 songs analysed, 2,741 in a playlist, and an interactive map of all of them, with playback.",
+    "tags": [
+      "Python",
+      "Flask",
+      "scikit-learn",
+      "NumPy",
+      "JavaScript",
+      "Data visualization",
+      "Model deployment",
+      "AI-assisted development"
+    ],
+    "readTime": "4 min",
+    "cover": null
+  },
+  {
     "slug": "data-validation-antipatterns",
     "href": "data-validation-antipatterns.html",
     "title": "How NOT to do automated data validation",

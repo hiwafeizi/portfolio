@@ -525,6 +525,23 @@
   ],
   "projects": [
     {
+      "name": "moodsort - Liked Songs Sorted Into Mood Playlists",
+      "timeframe": "Oct 2026",
+      "bullets": [
+        {
+          "text": "Built a local app that sorts my 3,472 Spotify liked songs into 24 mood playlists with Essentia's mood models and KMeans, plus an interactive map of every song.",
+          "blog": "liked-songs-by-feeling.html",
+          "skills": [
+            "Python",
+            "Flask",
+            "scikit-learn",
+            "Data visualization",
+            "AI-assisted development"
+          ]
+        }
+      ]
+    },
+    {
       "name": "Mad Pod Racing - A Learned Game Bot in the World Top 500",
       "timeframe": "Jun 2026 - Jul 2026",
       "bullets": [
