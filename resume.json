@@ -178,47 +178,8 @@
               ]
             },
             {
-              "heading": "Finance KPI rebuild",
-              "bullets": [
-                {
-                  "text": "Cut runtime of 8 finance KPIs (reserves and monthly payments) from over a day to 15 minutes, owning them from analysis and sign off with domain seniors to production. Mapped the shared logic first (30% to 80% overlap), then built reusable base models on the raw vault: 30 to 40 models became 12.",
-                  "project": "finance KPI rebuild",
-                  "skills": [
-                    "dbt",
-                    "SQL",
-                    "Snowflake",
-                    "Data modeling",
-                    "Cross-team coordination"
-                  ]
-                },
-                {
-                  "text": "Found a years-old double count in a payments KPI: each transaction repeated in every reporting month instead of counting once. Walked the source system's senior developer through it, got it fixed at the source too, and validated all 8 KPIs before and after in preprod and production.",
-                  "project": "finance KPI rebuild",
-                  "skills": [
-                    "SQL",
-                    "Data quality",
-                    "Data validation",
-                    "Parity testing",
-                    "Cross-team coordination"
-                  ]
-                }
-              ]
-            },
-            {
               "heading": "Platform engineering",
               "bullets": [
-                {
-                  "text": "Designed an upstream freshness check that runs after consumer-level dbt runs: walks each built deliverable's full lineage (up to 1,744 nodes) with one monitoring query, judges staging on loaded file dates instead of run times, and caught mid-chain models running green on months-old data.",
-                  "project": "upstream freshness check",
-                  "blog": "dbt-upstream-freshness.html",
-                  "skills": [
-                    "dbt",
-                    "Snowflake",
-                    "Data lineage",
-                    "Data quality",
-                    "Automation"
-                  ]
-                },
                 {
                   "text": "Owned technical decisions on a core upstream source for the Data Office: reviewed PRs, set the team's PR standards, validated results against data, evaluated enhancement ideas, and proposed my own.",
                   "project": "upstream source ownership",
@@ -251,6 +212,40 @@
                     "Data validation",
                     "Parity testing",
                     "Data quality"
+                  ]
+                },
+                {
+                  "text": "Cut runtime of 8 finance KPIs (reserves and monthly payments) from over a day to 15 minutes, owning them from analysis and sign off with domain seniors to production. Mapped the shared logic first (30% to 80% overlap), then built reusable base models on the raw vault: 30 to 40 models became 12.",
+                  "project": "finance KPI rebuild",
+                  "skills": [
+                    "dbt",
+                    "SQL",
+                    "Snowflake",
+                    "Data modeling",
+                    "Cross-team coordination"
+                  ]
+                },
+                {
+                  "text": "Found a years-old double count in a payments KPI: each transaction repeated in every reporting month instead of counting once. Walked the source system's senior developer through it, got it fixed at the source too, and validated all 8 KPIs before and after in preprod and production.",
+                  "project": "finance KPI rebuild",
+                  "skills": [
+                    "SQL",
+                    "Data quality",
+                    "Data validation",
+                    "Parity testing",
+                    "Cross-team coordination"
+                  ]
+                },
+                {
+                  "text": "Designed an upstream freshness check that runs after consumer-level dbt runs: walks each built deliverable's full lineage (up to 1,744 nodes) with one monitoring query, judges staging on loaded file dates instead of run times, and caught mid-chain models running green on months-old data.",
+                  "project": "upstream freshness check",
+                  "blog": "dbt-upstream-freshness.html",
+                  "skills": [
+                    "dbt",
+                    "Snowflake",
+                    "Data lineage",
+                    "Data quality",
+                    "Automation"
                   ]
                 },
                 {
