@@ -975,3 +975,16 @@ section {
         font-size: 1.05rem;
     }
 }
+
+/* Text that bots and screen readers read but the layout doesn't show (e.g. recommendation screenshots) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
