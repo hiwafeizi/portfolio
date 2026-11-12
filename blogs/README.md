@@ -35,6 +35,7 @@ Every blog post follows this structure:
 - Blog posts go in `blogs/posts/` as markdown files.
 - File name is the slug: `my-blog-post-title.md`
 - Every post must have a corresponding entry in `blogs/blogs.json` with: slug, title, date, summary, tags, readTime, cover.
+- After adding or editing a post, run `python scripts/build_posts.py`. It renders the Markdown to `blog/<slug>.html` (static HTML, readable without JavaScript) and sets `href` in blogs.json.
 - Tags must match skill names from `resume.json` exactly. This is how blog posts link to portfolio skills.
 
 ## Standalone HTML posts
@@ -42,10 +43,10 @@ Every blog post follows this structure:
 Some posts are self-contained interactive HTML pages (embedded data, canvas animations) that cannot flow through the markdown renderer. For those:
 
 - Put the page in `blog/` next to `index.html`, named after the slug: `blog/my-post.html`.
-- Add an `"href"` field to the blogs.json entry (path relative to `blog/`, e.g. `"href": "my-post.html"`). The listing page links straight to that file instead of `post.html?slug=...`.
+- Add an `"href"` field to the blogs.json entry (path relative to `blog/`, e.g. `"href": "my-post.html"`). The listing page links straight to that file.
 - The page must ship its own document shell (doctype, charset, viewport, title, description) and a back link to `index.html`. Follow the same style rules as markdown posts, including no dashes.
 - Example: `mad-pod-racing.html`.
-- To link a resume bullet to a standalone post, set its `"blog"` field to the file name (e.g. `"blog": "mad-pod-racing.html"`); values ending in `.html` link directly, anything else is treated as a markdown slug.
+- To link a resume bullet to a post, set its `"blog"` field to the slug or the file name (e.g. `"blog": "mad-pod-racing.html"`); both link to `blog/<slug>.html`.
 
 ## Images
 
@@ -57,7 +58,8 @@ Some posts are self-contained interactive HTML pages (embedded data, canvas anim
 ## HTML pages
 
 - `blog/index.html` is the blog listing page. Supports `?tag=SkillName` to filter posts by tag.
-- `blog/post.html` is the single post template. Loads markdown and renders it. Supports `?slug=post-slug`.
+- `blog/<slug>.html` is one generated page per Markdown post (`scripts/build_posts.py`). Don't edit these by hand.
+- `blog/post.html` only redirects old `?slug=post-slug` links to `blog/<slug>.html`; on Cloudflare, `functions/blog/post.js` does the same as a 301.
 - Clicking a tag on a post navigates to the listing filtered by that tag.
 - On the portfolio, skill tags can link to `/blog/?tag=SkillName` to show related blog posts.
 

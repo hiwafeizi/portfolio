@@ -34,7 +34,7 @@ const renderList = (items) => {
             link.className = "bullet-blog-link";
             link.href = item.blog.endsWith(".html")
                 ? `blog/${item.blog}`
-                : `blog/post.html?slug=${encodeURIComponent(item.blog)}`;
+                : `blog/${item.blog}.html`;
             link.textContent = "Read in depth →";
             li.appendChild(document.createTextNode(" "));
             li.appendChild(link);
@@ -162,12 +162,7 @@ const createProjectCard = (project) => {
     const bullets = renderList(project.bullets);
     card.appendChild(bullets);
 
-    const projectLinks = {
-        "Half Stupid - Teaching Minecraft Agents to Survive From Scratch": "https://github.com/hiwafeizi/half_stupid",
-        "Thesis - Predicting Perceptions of Dutch Company Names": "https://github.com/hiwafeizi/thesis"
-    };
-
-    const link = projectLinks[project.name];
+    const link = project.link;
     if (link) {
         const anchor = document.createElement("a");
         anchor.className = "project-link";

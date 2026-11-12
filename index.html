@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hiwa Feizi - Data Engineer</title>
-    <meta name="description" content="Data engineer at Allianz Netherlands. Driving the SAS-to-Snowflake migration and setting AI tooling patterns adopted across the data org.">
+    <meta name="description" content="Data engineer at Allianz. Built validation, freshness and cleanup tooling on dbt and Snowflake, and an AI column matcher that became the team standard.">
+    <link rel="canonical" href="https://hiwafeizi.com/">
 
     <meta property="og:type" content="profile">
     <meta property="og:title" content="Hiwa Feizi - Data Engineer">
-    <meta property="og:description" content="Data engineer at Allianz Netherlands. Driving the SAS-to-Snowflake migration, owning the core upstream layer of the Data Office, and setting AI tooling patterns adopted across multiple country offices.">
-    <meta property="og:image" content="hiwa.png">
-    <meta property="og:url" content="https://hiwafeizi.github.io/portfolio/">
+    <meta property="og:description" content="Data engineer at Allianz. Built validation, freshness and cleanup tooling on dbt and Snowflake, and an AI column matcher that became the team standard.">
+    <meta property="og:image" content="https://hiwafeizi.com/hiwa.png">
+    <meta property="og:url" content="https://hiwafeizi.com/">
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- AI agents and crawlers: full machine-readable CV available at /resume.json -->
-    <link rel="alternate" type="application/json" href="resume.json" title="Hiwa Feizi - Full CV (JSON)">
+    <link rel="alternate" type="application/json" href="/resume.json" title="Hiwa Feizi - Full CV (JSON)">
 
     <script type="application/ld+json">
     {
@@ -22,15 +23,15 @@
       "@type": "Person",
       "name": "Hiwa Feizi",
       "jobTitle": "Data Engineer",
-      "worksFor": { "@type": "Organization", "name": "Allianz Netherlands" },
+      "worksFor": { "@type": "Organization", "name": "Allianz" },
       "address": { "@type": "PostalAddress", "addressLocality": "Dordrecht", "addressCountry": "NL" },
       "email": "hiwafeiziii@gmail.com",
-      "url": "https://hiwafeizi.github.io/portfolio/",
+      "url": "https://hiwafeizi.com/",
       "sameAs": [
         "https://www.linkedin.com/in/hiwa-feizi-a9a620167/",
         "https://github.com/hiwafeizi"
       ],
-      "description": "Data engineer at Allianz Netherlands. Driving the SAS-to-Snowflake migration and setting AI tooling patterns adopted across the data org. Full machine-readable CV: /resume.json"
+      "description": "Data engineer at Allianz. Built the validation framework for a dbt migration (100% row and column level parity on 50M+ row daily loads), an upstream freshness check that walks up to 1,744 lineage nodes in one query, and cleanup tooling that removed about 5,000 idle tables. Built AI workflows: a column matcher at 93% accuracy that became the team standard, and a source onboarding workflow that cut 8 hours to minutes. Worked on the SAS-to-Snowflake migration. Full machine-readable CV: https://hiwafeizi.com/resume.json"
     }
     </script>
 
@@ -62,7 +63,7 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-copy">
-                    <h1 id="hero-name"></h1>
+                    <h1 id="hero-name"><!-- static:name -->Hiwa Feizi<!-- /static:name --></h1>
                     <div class="hero-links">
                         <a href="https://www.linkedin.com/in/hiwa-feizi-a9a620167/" target="_blank" rel="noreferrer">LinkedIn</a>
                         <a href="https://github.com/hiwafeizi" target="_blank" rel="noreferrer">GitHub</a>
@@ -70,8 +71,8 @@
                         <a href="http://neocru.nl" target="_blank" rel="noreferrer">NeoCru.nl</a>
                     </div>
                     <div class="hero-meta">
-                        <span id="hero-location"></span>
-                        <span id="hero-email"></span>
+                        <span id="hero-location"><!-- static:location -->Dordrecht, Netherlands<!-- /static:location --></span>
+                        <span id="hero-email"><!-- static:email -->hiwafeiziii@gmail.com<!-- /static:email --></span>
                     </div>
                 </div>
                 <div class="hero-visual">
@@ -80,7 +81,15 @@
             </div>
             <div class="hero-panel">
                 <h2>Summary</h2>
-                <p id="summary-text" class="summary-text"></p>
+                <p id="summary-text" class="summary-text"><!-- static:summary -->I like building things. Bots, pipelines, whatever looks fun or annoying enough to automate. Here are a few of them; each one links to the full story in my blogs.
+
+At Allianz I did that with data: a <a href="blog/dbt-upstream-freshness.html">freshness check</a> that tells you if your data actually arrived, <a href="blog/data-validation-antipatterns.html">validation that runs itself</a>, <a href="blog/dbt-dead-model-cleanup.html">cleanup tooling</a> that found 5,000 tables nobody needed, and <a href="blog/how-to-automate-your-job.html">AI workflows</a> that turned 8-hour tasks into minutes.
+
+Off work, same thing:
+<a href="blog/mad-pod-racing.html">AI racing bot</a>: taught it to race and block, world top 0.2%.
+<a href="blog/neocru-is-dead.html">NeoCru</a>: recruitment platform, built it, shut it down properly.
+<a href="blog/linkedin-meme-factory.html">Meme Factory</a>: LinkedIn memes on autopilot, 100 days for $0.34.
+<a href="blog/half-stupid-minecraft-agents.html">Half Stupid</a>: Minecraft agents figuring out how to not die.<!-- /static:summary --></p>
             </div>
         </div>
     </header>
@@ -88,28 +97,148 @@
     <section id="skills" class="skills">
         <div class="container">
             <h2>Multidisciplinary Skill Stack</h2>
-            <div class="domain-grid" id="skills-container"></div>
+            <div class="domain-grid" id="skills-container"><!-- static:skills -->
+                <div class="skill-legend"><span class="skill-legend-item" data-domain="languages">Languages</span><span class="skill-legend-item" data-domain="data_warehouse">Data &amp; Warehouse</span><span class="skill-legend-item" data-domain="cloud_devops">Cloud &amp; DevOps</span><span class="skill-legend-item" data-domain="software_engineering">Software Engineering</span><span class="skill-legend-item" data-domain="ai_ml">AI / ML</span><span class="skill-legend-item" data-domain="working_style">Working Style</span></div>
+                <div class="skill-cloud"><button type="button" class="skill-chip" data-domain="languages">Python</button><button type="button" class="skill-chip" data-domain="languages">SQL</button><button type="button" class="skill-chip" data-domain="languages">JavaScript</button><button type="button" class="skill-chip" data-domain="languages">C++</button><button type="button" class="skill-chip" data-domain="data_warehouse">dbt</button><button type="button" class="skill-chip" data-domain="data_warehouse">dbt Cloud</button><button type="button" class="skill-chip" data-domain="data_warehouse">Snowflake</button><button type="button" class="skill-chip" data-domain="data_warehouse">Snowflake API</button><button type="button" class="skill-chip" data-domain="data_warehouse">SAS</button><button type="button" class="skill-chip" data-domain="data_warehouse">PostgreSQL</button><button type="button" class="skill-chip" data-domain="data_warehouse">Oracle SQL</button><button type="button" class="skill-chip" data-domain="data_warehouse">Power BI</button><button type="button" class="skill-chip" data-domain="data_warehouse">Mainframe PD binary</button><button type="button" class="skill-chip" data-domain="data_warehouse">ETL pipelines</button><button type="button" class="skill-chip" data-domain="data_warehouse">Data modeling</button><button type="button" class="skill-chip" data-domain="data_warehouse">Large-scale migrations</button><button type="button" class="skill-chip" data-domain="data_warehouse">Data validation</button><button type="button" class="skill-chip" data-domain="data_warehouse">Parity testing</button><button type="button" class="skill-chip" data-domain="data_warehouse">Data quality</button><button type="button" class="skill-chip" data-domain="data_warehouse">Metadata automation</button><button type="button" class="skill-chip" data-domain="data_warehouse">Data lineage</button><button type="button" class="skill-chip" data-domain="cloud_devops">GCP Cloud Run</button><button type="button" class="skill-chip" data-domain="cloud_devops">GCP Cloud Storage</button><button type="button" class="skill-chip" data-domain="cloud_devops">GCP Cloud Build</button><button type="button" class="skill-chip" data-domain="cloud_devops">GCP Cloud Functions</button><button type="button" class="skill-chip" data-domain="cloud_devops">GCP Cloud Tasks</button><button type="button" class="skill-chip" data-domain="cloud_devops">Azure</button><button type="button" class="skill-chip" data-domain="cloud_devops">Azure Blob Storage</button><button type="button" class="skill-chip" data-domain="cloud_devops">CI/CD (GitHub Actions)</button><button type="button" class="skill-chip" data-domain="cloud_devops">Containerization</button><button type="button" class="skill-chip" data-domain="software_engineering">Flask</button><button type="button" class="skill-chip" data-domain="software_engineering">API design</button><button type="button" class="skill-chip" data-domain="software_engineering">Automation</button><button type="button" class="skill-chip" data-domain="software_engineering">Documentation</button><button type="button" class="skill-chip" data-domain="ai_ml">OpenAI API</button><button type="button" class="skill-chip" data-domain="ai_ml">Grok API</button><button type="button" class="skill-chip" data-domain="ai_ml">Claude Code</button><button type="button" class="skill-chip" data-domain="ai_ml">Transformers</button><button type="button" class="skill-chip" data-domain="ai_ml">PyTorch</button><button type="button" class="skill-chip" data-domain="ai_ml">scikit-learn</button><button type="button" class="skill-chip" data-domain="ai_ml">pandas</button><button type="button" class="skill-chip" data-domain="ai_ml">NumPy</button><button type="button" class="skill-chip" data-domain="ai_ml">LightGBM</button><button type="button" class="skill-chip" data-domain="ai_ml">NLP</button><button type="button" class="skill-chip" data-domain="ai_ml">Computer vision</button><button type="button" class="skill-chip" data-domain="ai_ml">Feature engineering</button><button type="button" class="skill-chip" data-domain="ai_ml">Neural networks</button><button type="button" class="skill-chip" data-domain="ai_ml">LLM API chaining</button><button type="button" class="skill-chip" data-domain="ai_ml">Prompt engineering</button><button type="button" class="skill-chip" data-domain="ai_ml">AI-assisted development</button><button type="button" class="skill-chip" data-domain="ai_ml">Reinforcement learning</button><button type="button" class="skill-chip" data-domain="ai_ml">Simulation</button><button type="button" class="skill-chip" data-domain="ai_ml">Data visualization</button><button type="button" class="skill-chip" data-domain="ai_ml">Model deployment</button><button type="button" class="skill-chip" data-domain="ai_ml">Document parsing</button><button type="button" class="skill-chip" data-domain="working_style">Code review</button><button type="button" class="skill-chip" data-domain="working_style">Cross-team coordination</button></div>
+            <!-- /static:skills --></div>
         </div>
     </section>
 
     <section id="experience" class="experience">
         <div class="container">
             <h2>Experience</h2>
-            <div class="timeline" id="experience-container"></div>
+            <div class="timeline" id="experience-container"><!-- static:experience -->
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>Allianz, Rotterdam, Netherlands</h3><span>Feb 2025 - Present</span></div>
+                    <h4>Data Engineer (Jul 2025 - Present)</h4>
+                    <h5>SAS-to-Snowflake migration</h5>
+                    <ul>
+                        <li>Evaluated and accepted the work of a 10+ person external delivery team on the SAS-to-Snowflake migration: design review, acceptance criteria, and dbt code review; handled vendor-side escalations end to end. Drove validation and data-movement design changes the vendor adopted.</li>
+                        <li>Defined the source-loading strategy and co-designed new ingestion processes with IT for sources never loaded before, including mainframe extracts in packed-decimal format.</li>
+                        <li>Defined the SAS team's migration tasks and trained them on dbt/Snowflake as needed, enabling parity validation independently from the SAS side.</li>
+                        <li>Crawled the SAS server to extract transformation logic from 1,000+ legacy files, cataloguing reusable code that accelerated conversion of legacy pipelines to dbt. <a class="bullet-blog-link" href="blog/recursive-function-unblocked-allianz-developers.html">Read in depth &#8594;</a></li>
+                    </ul>
+                    <h5>Platform engineering</h5>
+                    <ul>
+                        <li>Owned technical decisions on a core upstream source for the Data Office: reviewed PRs, set the team's PR standards, validated results against data, evaluated enhancement ideas, and proposed my own.</li>
+                        <li>Migrated it from script-based logic to dbt: programmatically generated ~660 YAML configs and 2,000+ SQL models from Snowflake metadata.</li>
+                        <li>Built the validation framework (dbt macros plus runtime checks) proving 100% row and column level parity against production on daily loads exceeding 50 million rows. <a class="bullet-blog-link" href="blog/dbt-migration-validation.html">Read in depth &#8594;</a></li>
+                        <li>Cut runtime of 8 finance KPIs (reserves and monthly payments) from over a day to 15 minutes, and owned them from analysis and sign off with domain seniors to production. Mapped the shared logic first (30% to 80% overlap), then built reusable base models on the raw vault: 30 to 40 models became 12.</li>
+                        <li>Found a years-old double count in a payments KPI: each transaction repeated in every reporting month instead of counting once. Walked the source system's senior developer through it, got it fixed at the source too, and validated all 8 KPIs before and after in preprod and production.</li>
+                        <li>Designed an upstream freshness check that runs after consumer-level dbt runs: walks each built deliverable's full lineage (up to 1,744 nodes) with one monitoring query, judges staging on loaded file dates instead of run times, and caught mid-chain models running green on months-old data. <a class="bullet-blog-link" href="blog/dbt-upstream-freshness.html">Read in depth &#8594;</a></li>
+                        <li>Built cleanup tooling over the warehouse catalog, dbt manifest lineage, and repo-wide reference search: retired ~5,000 tables with zero references anywhere, flagged 2,000 more with lingering references for team investigation, and identified 400 models no longer consumed by the user layer. <a class="bullet-blog-link" href="blog/dbt-dead-model-cleanup.html">Read in depth &#8594;</a></li>
+                        <li>Restructured the staging layer (2,000+ models across 50+ schedules) and its tagging system end to end; when a downstream cross-team break surfaced, traced it to the IT side, requested the code change, and had every issue resolved by 9am with stakeholders notified at each step.</li>
+                    </ul>
+                    <h5>Engineering &amp; automation</h5>
+                    <ul>
+                        <li>Built a generic Python parser for the mainframe PD binary format after spotting silent data loss in the prior CSV ingestion: binary in, CSV out, batched and logged, with per-table config in version-controlled JSON so changes ship through PRs instead of IT tickets.</li>
+                        <li>Built an API over Azure Blob Storage that streams and analyzes 20+ GB files in place, turning cross-table data-quality reports into a seconds-long operation and pushing fixes upstream to the source.</li>
+                        <li>Built an automated documentation system extracting raw-level metadata from multi-format, multi-language source files into table-based documentation in three languages. <a class="bullet-blog-link" href="blog/automating-multilingual-documentation.html">Read in depth &#8594;</a></li>
+                        <li>Automated recurring platform work against the Snowflake API: zero-copy clones per source schema, parallel test and data extraction, and threaded processing with structured logging.</li>
+                        <li>Co-designed the team's reusable dbt macro library for table and view generation, and operated dbt Cloud as the orchestration layer: scheduled jobs, CI/CD, and production deployments.</li>
+                    </ul>
+                    <h5>AI enablement across the Data Office</h5>
+                    <ul>
+                        <li>Built an AI-driven SAS↔Snowflake column-matching pipeline chaining LLM calls with live connections to both systems, sampling row-level values and validating matches programmatically, reaching 93% average accuracy; it became the team's standard for validating the migration and reviewing dbt developers' PRs. <a class="bullet-blog-link" href="blog/ai-column-matching-pipeline.html">Read in depth &#8594;</a></li>
+                        <li>Built a context-locked AI workflow for onboarding new sources: cut tasks estimated at 8 hours to 5 minutes of AI work plus 5 to 55 minutes of validation, with predefined deliverables identical run to run, debuggable by engineers with no prior pipeline knowledge. <a class="bullet-blog-link" href="blog/how-to-automate-your-job.html">Read in depth &#8594;</a></li>
+                        <li>Introduced Claude Code to the Data Office and wrote the repo-level guide files that standardize how it's used: plan-before-code and review conventions baked into the repo context, so they applied to every engineer who touched the codebase.</li>
+                        <li>Helped peer technical leads on other teams build their own agents on Allianz's internal AI platform and adopt the Snowflake-API automation patterns.</li>
+                    </ul>
+                    <h4>Data Engineer Intern (Feb 2025 - Jun 2025)</h4>
+                    <ul>
+                        <li>Proposed and implemented a new processing architecture cutting end-to-end pipeline runtime ~99%: from ~1.5 days to minutes.</li>
+                        <li>Rebuilt undocumented Oracle SQL pipelines into dbt models on Snowflake at &gt;=99.9% data accuracy, with ~70% of tables reaching full parity across millions of rows.</li>
+                        <li>Built a Power BI dashboard monitoring dbt Cloud runs with hierarchical filtering and enriched metadata.</li>
+                        <li>Simplified the architecture by removing redundant processing steps, cutting compute cost and maintenance overhead.</li>
+                    </ul>
+                </div>
+            <!-- /static:experience --></div>
         </div>
     </section>
 
     <section id="founder-projects" class="experience">
         <div class="container">
             <h2>Founder Projects</h2>
-            <div class="timeline" id="founder-projects-container"></div>
+            <div class="timeline" id="founder-projects-container"><!-- static:founder -->
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>NeoCru, Founder Project</h3><span>Apr 2025 - Dec 2025</span></div>
+                    <h4>Founder &amp; Full-Stack Engineer (Apr 2025 - Dec 2025)</h4>
+                    <ul>
+                        <li>Built an AI-assisted recruitment platform solo, end to end: Flask/PostgreSQL backend, recruiter dashboards with role-based access, and OpenAI-driven job-description generation for Dutch businesses running without full HR systems.</li>
+                        <li>Ran it as a production system on GCP: containerized Cloud Run services, Cloud Build CI/CD, Cloud Storage for applicant resumes, and structured logging, the same deploy discipline I'd expect at work, applied to my own product.</li>
+                        <li>Killed it deliberately in Dec 2025 and shut the company down properly, KVK deregistration included. The full reasoning is in the post-mortem. <a class="bullet-blog-link" href="blog/neocru-is-dead.html">Read in depth &#8594;</a></li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>LinkInLead, Founder Project</h3><span>Jan 2024 - Dec 2024</span></div>
+                    <h4>Founder &amp; Full-Stack Engineer (Jan 2024 - Dec 2024)</h4>
+                    <ul>
+                        <li>Built an automation platform that generates and publishes LinkedIn content end to end: LinkedIn API integration, OpenAI text generation, and scheduled publishing behind user accounts with secure session management.</li>
+                        <li>Designed the orchestration layer to run without daily attention: Cloud Functions and Cloud Tasks running scheduled content creation and background jobs, deployed as containerized services with CI/CD.</li>
+                        <li>Retired it after a year; its Cloud Tasks orchestration pattern became the direct ancestor of the Meme Factory pipeline's self-scheduling task loader.</li>
+                    </ul>
+                </div>
+            <!-- /static:founder --></div>
         </div>
     </section>
 
     <section id="projects" class="projects">
         <div class="container">
             <h2>Projects & Research</h2>
-            <div class="timeline" id="projects-container"></div>
+            <div class="timeline" id="projects-container"><!-- static:projects -->
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>moodsort - Liked Songs Sorted Into Mood Playlists</h3><span>Oct 2026</span></div>
+                    <ul>
+                        <li>Built a local app that sorts my 3,472 Spotify liked songs into 24 mood playlists with Essentia's mood models and KMeans, plus an interactive map of every song. <a class="bullet-blog-link" href="blog/liked-songs-by-feeling.html">Read in depth &#8594;</a></li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>Mad Pod Racing - A Learned Game Bot in the World Top 500</h3><span>Jun 2026 - Jul 2026</span></div>
+                    <ul>
+                        <li>Reached 459th of 233,508 on CodinGame's Mad Pod Racing world leaderboard with a learned bot: PPO self-play, DAgger imitation, and league evolution. <a class="bullet-blog-link" href="blog/mad-pod-racing.html">Read in depth &#8594;</a></li>
+                        <li>Rebuilt the game physics as a GPU-vectorized PyTorch simulator averaging 600 games per second on one consumer RTX 4060: the throughput behind all 29 experiments.</li>
+                        <li>Iterated the reward function against turn-by-turn visualizations of games and reward signals, raising the win rate against the fixed hand-coded benchmark bot from 18% to 100%.</li>
+                        <li>Built a dedicated defender bootcamp with adversarial spawns and urgency-weighted rewards, turning near-certain breaches into full-lap holds.</li>
+                        <li>Kept networks tiny and training short by engineering the inputs (calculated features in, noise excluded) instead of hoping a bigger net would sort it out.</li>
+                        <li>Shipped the whole system (nets, weights, geometry) as one self-contained Python file with embedded weights trimmed to fit CodinGame's submission limit.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>LinkedIn Meme Factory - Automated Content Pipeline</h3><span>Feb 2026 - Jun 2026</span></div>
+                    <ul>
+                        <li>Built a Python pipeline that generates niche-specific LinkedIn meme content with Grok, validates each batch through a second LLM pass against a per-template humor model in a 1,000-line catalog, and renders 20 PIL meme templates. <a class="bullet-blog-link" href="blog/linkedin-meme-factory.html">Read in depth &#8594;</a></li>
+                        <li>Designed two execution modes sharing one codebase: eager pre-rendering with direct Cloud Tasks scheduling, and lazy on-demand rendering inside a GCP Cloud Function, driven by a self-perpetuating task loader that queues a day of Cloud Tasks and then schedules itself for tomorrow.</li>
+                        <li>Ran it fully autonomously across 3 LinkedIn business pages for a pre-registered 100-day window, posting twice a day. Total Grok cost: $0.34. Engagement was effectively zero; the 10-niche fan-out the architecture was built for was blocked by LinkedIn's business-page limits. Wrote the post-mortem with full cost data anyway.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>Half Stupid - Teaching Minecraft Agents to Survive From Scratch</h3><span>Apr 2025</span></div>
+                    <ul>
+                        <li>Built a dual-timescale neural network (reflex layer at every tick, context layer every 5 ticks) using shared learned embeddings across 2048 block/item/entity types, processing 557 raw inputs into 23 actions with zero human-labeled knowledge. <a class="bullet-blog-link" href="blog/half-stupid-minecraft-agents.html">Read in depth &#8594;</a></li>
+                        <li>Trained with vanilla REINFORCE on a survival-only reward (+1 alive, -10,000 on death) and got emergent food-seeking, distinct agent personalities, and inter-agent social dynamics without any reward shaping.</li>
+                        <li>Closed the project on evidence: profiled the Minecraft/Malmo substrate to a hard 4-agent, ~4,000 ticks/sec ceiling, quantified that further training was compute-starved, and stopped there.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/hiwafeizi/half_stupid" target="_blank" rel="noreferrer">View Code</a>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>Thesis - Predicting Perceptions of Dutch Company Names</h3><span>Jan 2025 - May 2025</span></div>
+                    <ul>
+                        <li>Built an end-to-end pipeline predicting human trait judgments (femininity, evilness, trustworthiness, smartness) from Dutch brand-like names, aggregating Bayesian posterior samples from raw ranking experiments into stable regression targets.</li>
+                        <li>Engineered three feature pipelines: character-level unigrams (27D), padded bigrams (479D), and contextual RobBERT embeddings (768D).</li>
+                        <li>Trained and evaluated 64+ models (Elastic Net and feedforward networks) across in-domain, out-of-domain, and few-shot splits with fixed seeds and consistent R² evaluation.</li>
+                    </ul>
+                    <a class="project-link" href="https://github.com/hiwafeizi/thesis" target="_blank" rel="noreferrer">View Code</a>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-header"><h3>Earlier academic work</h3><span>2024 - 2025</span></div>
+                    <ul>
+                        <li>Multimodal speech recognition with AV-HuBERT: built the lip-extraction and audio-video alignment pipeline and a parallelized inference setup processing 21,000+ audio/video files.</li>
+                        <li>PetMatters: led a team of 8 building a multi-service AI application; trained and integrated T5 models for English-to-Dutch translation and form-driven content generation.</li>
+                        <li>Battle-C: modular C++ game engine with AI opponent logic and real-time state tracking.</li>
+                        <li>Wildfire-risk prediction: LightGBM pipeline modeling fire outbreak risk from environmental data.</li>
+                    </ul>
+                </div>
+            <!-- /static:projects --></div>
         </div>
     </section>
 
@@ -166,7 +295,11 @@
     <section id="education" class="education">
         <div class="container">
             <h2>Education</h2>
-            <div class="education-grid" id="education-container"></div>
+            <div class="education-grid" id="education-container"><!-- static:education -->
+                <div class="education-card"><h3>B.Sc. Cognitive Science and Artificial Intelligence</h3><p>Tilburg University, Netherlands</p><span>2022 - 2025</span></div>
+                <div class="education-card"><h3>B.Sc. Engineering Science</h3><p>Tehran University, Iran</p><span>2020 - 2022</span></div>
+                <div class="education-card"><h3>Diploma in Mathematics</h3><p>Sanandaj NODET High School (National Organization for Development of Exceptional Talents), Iran</p><span>2017 - 2020</span></div>
+            <!-- /static:education --></div>
         </div>
     </section>
 

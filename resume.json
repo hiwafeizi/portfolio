@@ -7,7 +7,7 @@
     "linkedin": "https://www.linkedin.com/in/hiwa-feizi-a9a620167/",
     "github": "https://github.com/hiwafeizi"
   },
-  "summary": "I like building things. Bots, pipelines, whatever looks fun or annoying enough to automate. Here are a few of them; each one links to the full story in my blogs.\n\nAt Allianz I do that with data: a <a href=\"blog/dbt-upstream-freshness.html\">freshness check</a> that tells you if your data actually arrived, <a href=\"blog/data-validation-antipatterns.html\">validation that runs itself</a>, <a href=\"blog/dbt-dead-model-cleanup.html\">cleanup tooling</a> that found 5,000 tables nobody needed, and <a href=\"blog/post.html?slug=how-to-automate-your-job\">AI workflows</a> that turned 8-hour tasks into minutes.\n\nOff work, same thing:\n<a href=\"blog/mad-pod-racing.html\">AI racing bot</a>: taught it to race and block, world top 0.2%.\n<a href=\"blog/post.html?slug=neocru-is-dead\">NeoCru</a>: recruitment platform, built it, shut it down properly.\n<a href=\"blog/post.html?slug=linkedin-meme-factory\">Meme Factory</a>: LinkedIn memes on autopilot, 100 days for $0.34.\n<a href=\"blog/post.html?slug=half-stupid-minecraft-agents\">Half Stupid</a>: Minecraft agents figuring out how to not die.",
+  "summary": "I like building things. Bots, pipelines, whatever looks fun or annoying enough to automate. Here are a few of them; each one links to the full story in my blogs.\n\nAt Allianz I did that with data: a <a href=\"blog/dbt-upstream-freshness.html\">freshness check</a> that tells you if your data actually arrived, <a href=\"blog/data-validation-antipatterns.html\">validation that runs itself</a>, <a href=\"blog/dbt-dead-model-cleanup.html\">cleanup tooling</a> that found 5,000 tables nobody needed, and <a href=\"blog/how-to-automate-your-job.html\">AI workflows</a> that turned 8-hour tasks into minutes.\n\nOff work, same thing:\n<a href=\"blog/mad-pod-racing.html\">AI racing bot</a>: taught it to race and block, world top 0.2%.\n<a href=\"blog/neocru-is-dead.html\">NeoCru</a>: recruitment platform, built it, shut it down properly.\n<a href=\"blog/linkedin-meme-factory.html\">Meme Factory</a>: LinkedIn memes on autopilot, 100 days for $0.34.\n<a href=\"blog/half-stupid-minecraft-agents.html\">Half Stupid</a>: Minecraft agents figuring out how to not die.",
   "domains": [
     {
       "id": "languages",
@@ -79,7 +79,6 @@
         "OpenAI API",
         "Grok API",
         "Claude Code",
-        "GitHub Copilot",
         "Transformers",
         "PyTorch",
         "scikit-learn",
@@ -106,8 +105,6 @@
       "description": "How I work with teams and on engineering decisions.",
       "skills": [
         "Code review",
-        "Technical leadership",
-        "Mentorship",
         "Cross-team coordination"
       ]
     }
@@ -129,7 +126,6 @@
                   "text": "Evaluated and accepted the work of a 10+ person external delivery team on the SAS-to-Snowflake migration: design review, acceptance criteria, and dbt code review; handled vendor-side escalations end to end. Drove validation and data-movement design changes the vendor adopted.",
                   "project": "SAS to Snowflake migration",
                   "skills": [
-                    "Technical leadership",
                     "Cross-team coordination",
                     "Code review",
                     "Large-scale migrations",
@@ -155,7 +151,6 @@
                   "text": "Defined the SAS team's migration tasks and trained them on dbt/Snowflake as needed, enabling parity validation independently from the SAS side.",
                   "project": "SAS to Snowflake migration",
                   "skills": [
-                    "Mentorship",
                     "Cross-team coordination",
                     "dbt",
                     "Snowflake",
@@ -184,7 +179,6 @@
                   "text": "Owned technical decisions on a core upstream source for the Data Office: reviewed PRs, set the team's PR standards, validated results against data, evaluated enhancement ideas, and proposed my own.",
                   "project": "upstream source ownership",
                   "skills": [
-                    "Technical leadership",
                     "Code review",
                     "dbt",
                     "Snowflake",
@@ -204,7 +198,7 @@
                   ]
                 },
                 {
-                  "text": "Built the validation framework (dbt macros plus runtime checks) proving 100% row- and column-level parity against production on daily loads exceeding 50 million rows.",
+                  "text": "Built the validation framework (dbt macros plus runtime checks) proving 100% row and column level parity against production on daily loads exceeding 50 million rows.",
                   "project": "upstream source migration",
                   "blog": "dbt-migration-validation",
                   "skills": [
@@ -215,7 +209,7 @@
                   ]
                 },
                 {
-                  "text": "Cut runtime of 8 finance KPIs (reserves and monthly payments) from over a day to 15 minutes, owning them from analysis and sign off with domain seniors to production. Mapped the shared logic first (30% to 80% overlap), then built reusable base models on the raw vault: 30 to 40 models became 12.",
+                  "text": "Cut runtime of 8 finance KPIs (reserves and monthly payments) from over a day to 15 minutes, and owned them from analysis and sign off with domain seniors to production. Mapped the shared logic first (30% to 80% overlap), then built reusable base models on the raw vault: 30 to 40 models became 12.",
                   "project": "finance KPI rebuild",
                   "skills": [
                     "dbt",
@@ -321,7 +315,7 @@
                   ]
                 },
                 {
-                  "text": "Co-designed the team's reusable dbt macro library for table and view generation, and operate dbt Cloud as the orchestration layer: scheduled jobs, CI/CD, and production deployments.",
+                  "text": "Co-designed the team's reusable dbt macro library for table and view generation, and operated dbt Cloud as the orchestration layer: scheduled jobs, CI/CD, and production deployments.",
                   "project": "dbt Cloud operations",
                   "skills": [
                     "dbt",
@@ -353,13 +347,12 @@
                   ]
                 },
                 {
-                  "text": "Built a context-locked AI workflow for onboarding new sources: tasks estimated at 8 hours now take 5 minutes of AI work plus 5 to 55 minutes of validation, with predefined deliverables identical run to run, debuggable by engineers with no prior pipeline knowledge.",
+                  "text": "Built a context-locked AI workflow for onboarding new sources: cut tasks estimated at 8 hours to 5 minutes of AI work plus 5 to 55 minutes of validation, with predefined deliverables identical run to run, debuggable by engineers with no prior pipeline knowledge.",
                   "project": "AI source onboarding automation",
                   "blog": "how-to-automate-your-job",
                   "skills": [
                     "AI-assisted development",
                     "Prompt engineering",
-                    "GitHub Copilot",
                     "Automation",
                     "dbt",
                     "Snowflake",
@@ -368,21 +361,19 @@
                   ]
                 },
                 {
-                  "text": "Introduced Claude Code to the Data Office and wrote the repo-level guide files that standardize how it's used: plan-before-code and review conventions baked into the repo context, working for every engineer who touches the codebase.",
+                  "text": "Introduced Claude Code to the Data Office and wrote the repo-level guide files that standardize how it's used: plan-before-code and review conventions baked into the repo context, so they applied to every engineer who touched the codebase.",
                   "project": "AI tooling adoption",
                   "skills": [
                     "Claude Code",
                     "AI-assisted development",
                     "Prompt engineering",
-                    "Documentation",
-                    "Mentorship"
+                    "Documentation"
                   ]
                 },
                 {
                   "text": "Helped peer technical leads on other teams build their own agents on Allianz's internal AI platform and adopt the Snowflake-API automation patterns.",
                   "project": "cross-team enablement",
                   "skills": [
-                    "Mentorship",
                     "Cross-team coordination",
                     "AI-assisted development",
                     "Snowflake API"
@@ -656,6 +647,7 @@
     {
       "name": "Half Stupid - Teaching Minecraft Agents to Survive From Scratch",
       "timeframe": "Apr 2025",
+      "link": "https://github.com/hiwafeizi/half_stupid",
       "bullets": [
         {
           "text": "Built a dual-timescale neural network (reflex layer at every tick, context layer every 5 ticks) using shared learned embeddings across 2048 block/item/entity types, processing 557 raw inputs into 23 actions with zero human-labeled knowledge.",
@@ -688,6 +680,7 @@
     {
       "name": "Thesis - Predicting Perceptions of Dutch Company Names",
       "timeframe": "Jan 2025 - May 2025",
+      "link": "https://github.com/hiwafeizi/thesis",
       "bullets": [
         {
           "text": "Built an end-to-end pipeline predicting human trait judgments (femininity, evilness, trustworthiness, smartness) from Dutch brand-like names, aggregating Bayesian posterior samples from raw ranking experiments into stable regression targets.",
@@ -731,7 +724,6 @@
         {
           "text": "PetMatters: led a team of 8 building a multi-service AI application; trained and integrated T5 models for English-to-Dutch translation and form-driven content generation.",
           "skills": [
-            "Technical leadership",
             "Transformers",
             "NLP",
             "API design"

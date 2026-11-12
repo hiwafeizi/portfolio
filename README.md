@@ -2,6 +2,22 @@
 
 A simple, professional portfolio website built with HTML and CSS.
 
+## Build: run after every content change
+
+The site must read without JavaScript (AI screeners and crawlers often don't run it), so static HTML is generated from `resume.json` and `blogs/blogs.json`. **After adding or editing a Markdown post, or changing `resume.json` or `blogs.json`, run:**
+
+```bash
+pip install -r scripts/requirements.txt   # once
+python scripts/build_posts.py
+```
+
+Then commit the generated files. The script writes:
+
+- `blog/<slug>.html` for every `blogs/posts/<slug>.md` (and sets `href` in blogs.json)
+- the static content of `index.html` and `blog/index.html` (between `<!-- static:NAME -->` markers; JavaScript still re-renders on top for the skill popups and tag filters)
+- `blog/post.html` and `functions/blog/post.js`: old `/blog/post?slug=x` links redirect to `/blog/x` (the Cloudflare Pages Function sends a 301; the page's inline script is the fallback)
+- `sitemap.xml`, `robots.txt`, `llms.txt`
+
 ## Project Structure
 
 - `index.html` - Main HTML file with portfolio content

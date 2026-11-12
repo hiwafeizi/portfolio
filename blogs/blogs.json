@@ -110,18 +110,17 @@
     "date": "2026-06-21",
     "summary": "How I turned an 8-hour source-onboarding task into a Copilot prompt that anyone on the team can run, with the dbt parse trick and Snowflake validation baked in. The speed wasn't the point: the knowledge moving out of a few people's heads and into the prompt was.",
     "tags": [
-      "GitHub Copilot",
       "AI-assisted development",
       "Prompt engineering",
       "Automation",
       "Documentation",
-      "Mentorship",
       "dbt",
       "Snowflake",
       "SQL"
     ],
     "readTime": "4 min",
-    "cover": null
+    "cover": null,
+    "href": "how-to-automate-your-job.html"
   },
   {
     "slug": "linkedin-meme-factory",
@@ -141,7 +140,8 @@
       "GCP Cloud Storage"
     ],
     "readTime": "11 min",
-    "cover": null
+    "cover": null,
+    "href": "linkedin-meme-factory.html"
   },
   {
     "slug": "automating-multilingual-documentation",
@@ -165,7 +165,8 @@
       "LLM API chaining"
     ],
     "readTime": "7 min",
-    "cover": null
+    "cover": null,
+    "href": "automating-multilingual-documentation.html"
   },
   {
     "slug": "recursive-function-unblocked-allianz-developers",
@@ -182,7 +183,8 @@
       "Automation"
     ],
     "readTime": "3 min",
-    "cover": null
+    "cover": null,
+    "href": "recursive-function-unblocked-allianz-developers.html"
   },
   {
     "slug": "half-stupid-minecraft-agents",
@@ -204,7 +206,8 @@
       "Emergent behavior"
     ],
     "readTime": "20 min",
-    "cover": null
+    "cover": null,
+    "href": "half-stupid-minecraft-agents.html"
   },
   {
     "slug": "neocru-is-dead",
@@ -222,7 +225,8 @@
       "Retrospective"
     ],
     "readTime": "3 min",
-    "cover": "neocru-dashboard.png"
+    "cover": "neocru-dashboard.png",
+    "href": "neocru-is-dead.html"
   },
   {
     "slug": "python-pyramid-minecraft",
@@ -239,7 +243,8 @@
       "Project Malmo"
     ],
     "readTime": "2 min",
-    "cover": "pyramid-entrance-corridor.png"
+    "cover": "pyramid-entrance-corridor.png",
+    "href": "python-pyramid-minecraft.html"
   },
   {
     "slug": "dbt-migration-validation",
@@ -260,7 +265,8 @@
       "Data engineering"
     ],
     "readTime": "6 min",
-    "cover": null
+    "cover": null,
+    "href": "dbt-migration-validation.html"
   },
   {
     "slug": "ai-column-matching-pipeline",
@@ -284,6 +290,7 @@
       "Mainframe"
     ],
     "readTime": "8 min",
-    "cover": null
+    "cover": null,
+    "href": "ai-column-matching-pipeline.html"
   }
 ]
